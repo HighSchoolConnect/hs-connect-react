@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Home from './pages/Home.jsx';
+import Aboutus from './pages/Aboutus.jsx';
 import Navbar from "../src/components/Navbar/Navbar";
 import Sidebar from "../src/components/Sidebar/Sidebar";
 import Signup from '../src/components/Signup/Signup';
@@ -20,7 +21,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
-      </Routes>
+        <Route path="/aboutus" element={<Aboutus />} />
+        </Routes>
+
     </Router>
   );
 }
