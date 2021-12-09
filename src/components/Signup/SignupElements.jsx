@@ -1,53 +1,87 @@
 import styled from "styled-components";
 
 export const SignupContainer = styled.div`
-  height: 1000px;
+  background-color: #000;
+  color: #fff;
 
-  background-color: #000000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  @media (max-width: 768px) {
-    height: 700px;
+  @media screen and (max-width: 768px) {
+    padding: 100px 0;
   }
 `;
 export const SignupWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  z-index: 1;
+  height: 660px;
+  width: 100%;
+  max-width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+
   justify-content: center;
-
-  padding: 25px;
-  color: #fff;
   background-color: #1cc97e;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #000;
-  gap: 20px;
-  text-shadow: 0px 0px 10px #000;
+`;
 
-  width: 500px;
-  height: 600px;
+export const SignUpRow = styled.div`
+  display: grid;
+  grid-auto-columns: minmax(auto, 1fr);
+  align-items: center;
+  grid-template-areas: ${({ imgStart }) =>
+    imgStart
+      ? `'col2 
+    col1'`
+      : `'col1 col2'`};
 
-  @media (max-width: 600px) {
-    width: 600px;
-    height: 600px;
+  @media screen and (max-width: 768px) {
+    grid-template-areas: ${({ imgStart }) =>
+      imgStart
+        ? `'col1' 
+        'col2'`
+        : `'col1 col1' 'col2 col2'`};
   }
 `;
 
+export const Column1 = styled.div`
+  margin-bottom: 15px;
+  padding: 0 px;
+  grid-area: col1;
+  text-shadow: 4px 4px 25px #000000;
+`;
+
+export const Column2 = styled.div`
+  grid-area: col2;
+`;
+
 export const SignupTitle = styled.h1`
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 4px 4px 25px #000000;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const SignupForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
 `;
 
+export const FormDivider = styled.div`
+  height: 50px;
+`;
+
+
+export const ImgWrap = styled.div`
+  max-width: 1000px;
+  height: 660px;
+`;
+
+export const Img = styled.img`
+  width: 100%;
+  height: 660px;
+  margin: 0 0 10px 0;
+`;

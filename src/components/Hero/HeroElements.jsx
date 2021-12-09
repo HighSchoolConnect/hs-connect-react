@@ -151,4 +151,5 @@ export const HeroFilter = styled.div`
   grid-gap: 20px;
   align-items: center;
   margin-top: 20px;
+  border-radius: 30px;
 `;
