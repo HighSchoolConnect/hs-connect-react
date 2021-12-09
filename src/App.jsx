@@ -7,6 +7,7 @@ import Navbar from "../src/components/Navbar/Navbar";
 import Sidebar from "../src/components/Sidebar/Sidebar";
 import Signup from '../src/components/Signup/Signup';
 import Profile from './pages/Profile';
+import Signin from "../src/components/Signin/Signin";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<Signin />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/aboutus" element={<Aboutus />} />
         </Routes>

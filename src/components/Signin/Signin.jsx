@@ -2,25 +2,25 @@ import React, { useState, useRef } from "react";
 import Image from "../../images/hero-bg.png";
 
 import {
-  SignupContainer,
-  SignupTitle,
-  SignupForm,
-  SignupWrapper,
-  SignUpRow,
+  SigninContainer,
+  SigninTitle,
+  SigninForm,
+  SigninWrapper,
+  SignInRow,
   Column1,
   Column2,
   ImgWrap,
   Img,
   FormDivider,
-} from "./SignupElements";
+} from "./SigninElements";
 
 import { Input, Button, Checkbox, Link } from "@chakra-ui/react";
 
-import { signup, useAuth } from "./Firebase.js";
+import { useAuth, login } from "../Signup/Firebase";
 
 import { Navigate } from "react-router-dom";
 
-const Signup = () => {
+const Signin = () => {
   const [loading, setLoading] = useState(false);
   const [authDone, setAuthDone] = useState(false);
   const currentUser = useAuth();
@@ -28,10 +28,10 @@ const Signup = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  async function handleSignup() {
+  async function handleLogin() {
     setLoading(true);
     try {
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value);
       setAuthDone(true);
     } catch {
       alert("Error signing up");
@@ -44,12 +44,12 @@ const Signup = () => {
   }
 
   return (
-    <SignupContainer>
-      <SignupWrapper>
-        <SignUpRow imgStart={true}>
+    <SigninContainer>
+      <SigninWrapper>
+        <SignInRow imgStart={false}>
           <Column1>
-            <SignupTitle>Create an account</SignupTitle>
-            <SignupForm>
+            <SigninTitle>Login</SigninTitle>
+            <SigninForm>
               <Input
                 placeholder="Email"
                 type="email"
@@ -72,48 +72,26 @@ const Signup = () => {
                 width={400}
                 size="lg"
               />
-              <Input
-                placeholder="Password Repeat"
-                type="password"
-                bg="#000000"
-                borderColor="#1cc97e"
-                color="white"
-                _placeholder={{ color: "white" }}
-                ref={passwordRef}
-                width={400}
-                size="lg"
-              />
               <Checkbox>
-                I agree to the <Link color="black" >license</Link> terms
+                Keep me logged in
               </Checkbox>
-              <FormDivider></FormDivider>
-              <Button
-                isLoading={loading}
-                isDisabled={currentUser != null}
-                bg="#000000"
-                color="white"
-                _hover={{ bg: "#005530", color: "white" }}
-                onClick={handleSignup}
-                width={400}
-                size="lg"
-                to="/profile"
-              >
-                Sign Up
-              </Button>
-              <Link href="/signin">Already have an account? Login Here!</Link>
-              {/* <Button
-                isLoading={loading}
-                isDisabled={currentUser != null}
-                bg="#000000"
-                color="white"
-                _hover={{ bg: "#1cc97e", color: "white" }}
-                onClick={handleLogin}
-                width={400}
-                size="lg"
-                to="/profile"
-              >
-                Sign In
-              </Button>
+              <FormDivider>
+                <Button
+                  isLoading={loading}
+                  isDisabled={currentUser != null}
+                  bg="#000000"
+                  color="white"
+                  _hover={{ bg: "#1cc97e", color: "white" }}
+                  onClick={handleLogin}
+                  width={400}
+                  size="lg"
+                  to="/profile"
+                >
+                  Sign In
+                </Button>
+              </FormDivider>
+              <Link href="/signup">Don't have an account? Signup Here!</Link>
+              {/* 
               <Button
                 onClick={handleLogout}
                 bg="#000000"
@@ -125,17 +103,17 @@ const Signup = () => {
               >
                 LogOut
               </Button> */}
-            </SignupForm>
+            </SigninForm>
           </Column1>
           <Column2>
             <ImgWrap>
               <Img src={Image} />
             </ImgWrap>
           </Column2>
-        </SignUpRow>
-      </SignupWrapper>
-    </SignupContainer>
+        </SignInRow>
+      </SigninWrapper>
+    </SigninContainer>
   );
 };
 
-export default Signup;
+export default Signin;
