@@ -4,7 +4,7 @@ export const AboutUsContainer = styled.div`
     background-color: clear;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     padding: 0 30px;
     height: 800px;
     position: relative;
