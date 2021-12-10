@@ -23,6 +23,7 @@ import { Navigate } from "react-router-dom";
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [authDone, setAuthDone] = useState(false);
+  const [signin, setSignin] = useState(false);
   const currentUser = useAuth();
 
   const emailRef = useRef();
@@ -39,8 +40,16 @@ const Signup = () => {
     setLoading(false);
   }
 
+  function navigateToSignin() {
+    setSignin(true);
+  }
+
   if (authDone === true) {
     return <Navigate to="/profile" />;
+  }
+
+  if (signin === true) {
+    return <Navigate to="/signin" />;
   }
 
   return (
@@ -84,7 +93,7 @@ const Signup = () => {
                 size="lg"
               />
               <Checkbox>
-                I agree to the <Link color="black" >license</Link> terms
+                I agree to the <Link color="black">license</Link> terms
               </Checkbox>
               <FormDivider></FormDivider>
               <Button
@@ -100,7 +109,9 @@ const Signup = () => {
               >
                 Sign Up
               </Button>
-              <Link href="/signin">Already have an account? Login Here!</Link>
+              <Link onClick={navigateToSignin}>
+                Already have an account? Login Here!
+              </Link>
               {/* <Button
                 isLoading={loading}
                 isDisabled={currentUser != null}

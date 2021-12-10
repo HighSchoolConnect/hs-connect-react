@@ -14,7 +14,7 @@ import {
   FormDivider,
 } from "./SigninElements";
 
-import { Input, Button, Checkbox, Link } from "@chakra-ui/react";
+import { Input, Button, Checkbox, Link, HStack } from "@chakra-ui/react";
 
 import { useAuth, login } from "../Signup/Firebase";
 
@@ -23,6 +23,9 @@ import { Navigate } from "react-router-dom";
 const Signin = () => {
   const [loading, setLoading] = useState(false);
   const [authDone, setAuthDone] = useState(false);
+  const [signup, setSignup] = useState(false);
+  const [forgotPassword, setForgotPassword] = useState(false);
+
   const currentUser = useAuth();
 
   const emailRef = useRef();
@@ -39,10 +42,25 @@ const Signin = () => {
     setLoading(false);
   }
 
+  function navigateToSignup() {
+    setSignup(true);
+  }
+
+  function navigateToForgotPassword() {
+    setForgotPassword(true);
+  }
+
   if (authDone === true) {
     return <Navigate to="/profile" />;
   }
 
+  if (signup === true) {
+    return <Navigate to="/signup" />;
+  }
+
+  if (forgotPassword === true) {
+    return <Navigate to="/forgotpassword" />;
+  }
   return (
     <SigninContainer>
       <SigninWrapper>
@@ -72,9 +90,11 @@ const Signin = () => {
                 width={400}
                 size="lg"
               />
-              <Checkbox>
-                Keep me logged in
-              </Checkbox>
+              <HStack spacing={20}>
+                <Checkbox>Keep me logged in</Checkbox>
+                <Link onClick={navigateToForgotPassword}>Forgot Password?</Link>
+              </HStack>
+
               <FormDivider>
                 <Button
                   isLoading={loading}
@@ -90,7 +110,9 @@ const Signin = () => {
                   Sign In
                 </Button>
               </FormDivider>
-              <Link href="/signup">Don't have an account? Signup Here!</Link>
+              <Link onClick={navigateToSignup}>
+                Don't have an account? Signup Here!
+              </Link>
               {/* 
               <Button
                 onClick={handleLogout}
