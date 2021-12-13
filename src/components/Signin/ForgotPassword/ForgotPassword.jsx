@@ -57,7 +57,7 @@ const ForgotPassword = () => {
                 placeholder="Email"
                 type="email"
                 bg="#000000"
-                borderColor="#1cc97e"
+                borderColor="#00c6d3"
                 color="white"
                 _placeholder={{ color: "white" }}
                 ref={emailRef}
@@ -71,7 +71,7 @@ const ForgotPassword = () => {
                   isDisabled={currentUser != null}
                   bg="#000000"
                   color="white"
-                  _hover={{ bg: "#1cc97e", color: "white" }}
+                  _hover={{ bg: "#005530", color: "white" }}
                   onClick={handleLogin}
                   width={400}
                   size="lg"
@@ -83,18 +83,6 @@ const ForgotPassword = () => {
               <Link onClick={navigateToSignin}>
                 Remember your password? Login Here!
               </Link>
-              {/* 
-              <Button
-                onClick={handleLogout}
-                bg="#000000"
-                color="white"
-                _hover={{ bg: "#1cc97e", color: "white" }}
-                disabled={loading || !currentUser}
-                width={400}
-                height={50}
-              >
-                LogOut
-              </Button> */}
             </ForgotPasswordForm>
           </Column1>
           <Column2>

@@ -14,7 +14,7 @@ import {
   FormDivider,
 } from "./SignupElements";
 
-import { Input, Button, Checkbox, Link } from "@chakra-ui/react";
+import { Input, Button, Checkbox, Link, useToast } from "@chakra-ui/react";
 
 import { signup, useAuth } from "./Firebase.js";
 
@@ -28,14 +28,28 @@ const Signup = () => {
 
   const emailRef = useRef();
   const passwordRef = useRef();
+  const toast = useToast();
 
   async function handleSignup() {
     setLoading(true);
     try {
       await signup(emailRef.current.value, passwordRef.current.value);
       setAuthDone(true);
+              toast({
+                title: "Account created.",
+                description: "We've created your account for you.",
+                status: "success",
+                duration: 3000,
+                isClosable: true,
+              });
     } catch {
-      alert("Error signing up");
+      toast({
+        title: "Please check all the fields",
+        description: "Ensure you have entered a valid email and password",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
     }
     setLoading(false);
   }
@@ -62,8 +76,8 @@ const Signup = () => {
               <Input
                 placeholder="Email"
                 type="email"
-                bg="#000000"
-                borderColor="#1cc97e"
+                bg="#00c6d3"
+                borderColor="#00c6d3"
                 color="white"
                 _placeholder={{ color: "white" }}
                 ref={emailRef}
@@ -73,8 +87,8 @@ const Signup = () => {
               <Input
                 placeholder="Password"
                 type="password"
-                bg="#000000"
-                borderColor="#1cc97e"
+                bg="#00c6d3"
+                borderColor="#00c6d3"
                 color="white"
                 _placeholder={{ color: "white" }}
                 ref={passwordRef}
@@ -84,24 +98,24 @@ const Signup = () => {
               <Input
                 placeholder="Password Repeat"
                 type="password"
-                bg="#000000"
-                borderColor="#1cc97e"
+                bg="#00c6d3"
+                borderColor="#00c6d3"
                 color="white"
                 _placeholder={{ color: "white" }}
                 ref={passwordRef}
                 width={400}
                 size="lg"
               />
-              <Checkbox>
-                I agree to the <Link color="black">license</Link> terms
+              <Checkbox colorScheme="teal">
+                I agree to the <Link color="#00c6d3">license</Link> terms
               </Checkbox>
               <FormDivider></FormDivider>
               <Button
                 isLoading={loading}
                 isDisabled={currentUser != null}
-                bg="#000000"
+                bg="#00c6d3"
                 color="white"
-                _hover={{ bg: "#005530", color: "white" }}
+                _hover={{ bg: "#2C7A7B", color: "white" }}
                 onClick={handleSignup}
                 width={400}
                 size="lg"
@@ -115,9 +129,9 @@ const Signup = () => {
               {/* <Button
                 isLoading={loading}
                 isDisabled={currentUser != null}
-                bg="#000000"
+                bg="#00c6d3"
                 color="white"
-                _hover={{ bg: "#1cc97e", color: "white" }}
+                _hover={{ bg: "#00c6d3", color: "white" }}
                 onClick={handleLogin}
                 width={400}
                 size="lg"
@@ -127,9 +141,9 @@ const Signup = () => {
               </Button>
               <Button
                 onClick={handleLogout}
-                bg="#000000"
+                bg="#00c6d3"
                 color="white"
-                _hover={{ bg: "#1cc97e", color: "white" }}
+                _hover={{ bg: "#00c6d3", color: "white" }}
                 disabled={loading || !currentUser}
                 width={400}
                 height={50}

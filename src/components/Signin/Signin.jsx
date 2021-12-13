@@ -71,8 +71,8 @@ const Signin = () => {
               <Input
                 placeholder="Email"
                 type="email"
-                bg="#000000"
-                borderColor="#1cc97e"
+                bg="#00c6d3"
+                borderColor="#00c6d3"
                 color="white"
                 _placeholder={{ color: "white" }}
                 ref={emailRef}
@@ -82,8 +82,8 @@ const Signin = () => {
               <Input
                 placeholder="Password"
                 type="password"
-                bg="#000000"
-                borderColor="#1cc97e"
+                bg="#00c6d3"
+                borderColor="#00c6d3"
                 color="white"
                 _placeholder={{ color: "white" }}
                 ref={passwordRef}
@@ -99,9 +99,9 @@ const Signin = () => {
                 <Button
                   isLoading={loading}
                   isDisabled={currentUser != null}
-                  bg="#000000"
+                  bg="#00c6d3"
                   color="white"
-                  _hover={{ bg: "#1cc97e", color: "white" }}
+                  _hover={{ bg: "#2C7A7B", color: "white" }}
                   onClick={handleLogin}
                   width={400}
                   size="lg"
@@ -116,9 +116,9 @@ const Signin = () => {
               {/* 
               <Button
                 onClick={handleLogout}
-                bg="#000000"
+                bg="#00c6d3"
                 color="white"
-                _hover={{ bg: "#1cc97e", color: "white" }}
+                _hover={{ bg: "#00c6d3", color: "white" }}
                 disabled={loading || !currentUser}
                 width={400}
                 height={50}

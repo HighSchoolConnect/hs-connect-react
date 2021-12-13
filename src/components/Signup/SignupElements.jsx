@@ -1,8 +1,19 @@
 import styled from "styled-components";
+import Image from "../../images/hero-bg.png";
 
 export const SignupContainer = styled.div`
   background-color: #000;
   color: #fff;
+  /* background-image: url(${Image});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 768px) {
     padding: 100px 0;
@@ -16,9 +27,11 @@ export const SignupWrapper = styled.div`
   max-width: 1100px;
   margin-right: auto;
   margin-left: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
   justify-content: center;
-  background-color: #1cc97e;
+  align-items: center;
+  background-color: #000;
 `;
 
 export const SignUpRow = styled.div`
@@ -74,10 +87,13 @@ export const FormDivider = styled.div`
   height: 50px;
 `;
 
-
 export const ImgWrap = styled.div`
   max-width: 1000px;
   height: 660px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Img = styled.img`
