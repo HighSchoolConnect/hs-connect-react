@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import {animateScroll as scroll} from 'react-scroll'
+import { animateScroll as scroll } from "react-scroll";
 import {
   Nav,
   NavbarContainer,
@@ -11,6 +11,9 @@ import {
   NavItem,
   NavLinks,
 } from "./NavbarElements";
+
+import { useAuth, logout } from "../Signup/Firebase";
+import { Button } from "@chakra-ui/react";
 
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -30,6 +33,46 @@ const Navbar = ({ toggle }) => {
   const toggleHome = () => {
     scroll.scrollToTop();
   };
+
+  const currentUser = useAuth();
+
+  async function handleLogout() {
+    try {
+      await logout();
+    } catch {
+      alert("Error signing out");
+    }
+  }
+
+  var button = <Button></Button>;
+  if (currentUser != null) {
+    button = (
+      <NavLinks
+        to="/"
+        smooth={true}
+        duration={500}
+        spy={true}
+        exact="true"
+        offset={-80}
+        onClick={handleLogout}
+      >
+        Log Out
+      </NavLinks>
+    );
+  } else {
+    button = (
+      <NavLinks
+        to="signup"
+        smooth={true}
+        duration={500}
+        spy={true}
+        exact="true"
+        offset={-80}
+      >
+        Log In / Sign Up
+      </NavLinks>
+    );
+  }
 
   return (
     <>
@@ -68,18 +111,7 @@ const Navbar = ({ toggle }) => {
                   About Us
                 </NavLinks>
               </NavItem>
-              <NavItem>
-                <NavLinks
-                  to="signup"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-            Log In / Sign Up
-                </NavLinks>
-              </NavItem>
+              <NavItem></NavItem>
               <NavItem>
                 <NavLinks
                   to="faq"
@@ -104,8 +136,9 @@ const Navbar = ({ toggle }) => {
                   Contact Us
                 </NavLinks>
               </NavItem>
+
+              <NavItem>{button}</NavItem>
             </NavMenu>
-      
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>

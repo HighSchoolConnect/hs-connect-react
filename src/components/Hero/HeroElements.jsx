@@ -6,7 +6,7 @@ export const HeroContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 30px;
-  height: 800px;
+  height: 100vh;
   position: relative;
   z-index: 1;
 
@@ -119,13 +119,13 @@ export const HeroInput = styled.input`
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #1cc97e;
+  color: #00c6d3;
   border: 0;
   outline: 0;
   background: none;
   padding: 0 10px;
   width: 450px;
-  caret-color: #1cc97e;
+  caret-color: #00c6d3;
   line-height: 40px;
 `;
 
@@ -138,7 +138,7 @@ export const HeroBtn = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color: #1cc97e;
+  color: #00c6d3;
   text-decoration: none;
   background-color: #000000;
   border: 0;
@@ -151,4 +151,5 @@ export const HeroFilter = styled.div`
   grid-gap: 20px;
   align-items: center;
   margin-top: 20px;
+  border-radius: 30px;
 `;

@@ -45,17 +45,17 @@ const Hero = () => {
         <HeroFilter>
           <HeroP>Search Type</HeroP>
           <HeroP>Search Type</HeroP>
-          <Select bg="#1cc97e" borderColor="#1cc97e" color="white">
+          <Select bg="#00c6d3" borderColor="#00c6d3" color="black">
             <option value="option1">Internships</option>
             <option value="option2">Jobs</option>
             <option value="option3">Volunteering</option>
           </Select>
           <Input
-            bg="#1cc97e"
-            borderColor="#1cc97e"
-            color="white"
+            bg="#00c6d3"
+            borderColor="#00c6d3"
+            color="black"
             placeholder="ZIP Code"
-            _placeholder={{ color: "white" }}
+            _placeholder={{ color: "black" }}
           />
         </HeroFilter>
       </HeroContent>
