@@ -95,7 +95,7 @@ const Signup = () => {
             ref={passwordRef}
           />
           <Input
-            placeholder="Password Repeat"
+            placeholder="Confirm Password"
             type="password"
             bg="#000000"
             borderColor="#1cc97e"
