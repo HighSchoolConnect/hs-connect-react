@@ -84,7 +84,7 @@ export const SignupForm = styled.form`
 `;
 
 export const FormDivider = styled.div`
-  height: 50px;
+  height: 40px;
 `;
 
 export const ImgWrap = styled.div`
