@@ -2,11 +2,6 @@ import styled from "styled-components";
 import Image from "../../images/hero-bg.png";
 
 export const SignupContainer = styled.div`
-<<<<<<< HEAD
-  height: 650px;
-
-  background-color: #000000;
-=======
   background-color: #000;
   color: #fff;
   /* background-image: url(${Image});
@@ -15,7 +10,6 @@ export const SignupContainer = styled.div`
   background-repeat: no-repeat; */
   height: 100vh;
   width: 100%;
->>>>>>> 40308627db0cb6d4b81aa1f74abea4157d7417f8
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,10 +34,6 @@ export const SignupWrapper = styled.div`
   background-color: #000;
 `;
 
-<<<<<<< HEAD
-  width: 500px;
-  height: 520px;
-=======
 export const SignUpRow = styled.div`
   display: grid;
   grid-auto-columns: minmax(auto, 1fr);
@@ -53,7 +43,6 @@ export const SignUpRow = styled.div`
       ? `'col2 
     col1'`
       : `'col1 col2'`};
->>>>>>> 40308627db0cb6d4b81aa1f74abea4157d7417f8
 
   @media screen and (max-width: 768px) {
     grid-template-areas: ${({ imgStart }) =>
@@ -76,11 +65,6 @@ export const Column2 = styled.div`
 `;
 
 export const SignupTitle = styled.h1`
-<<<<<<< HEAD
-    font-size: 2.5rem;
-    //font-weight: bold;
-    margin-bottom: 20px;
-=======
   font-size: 2.5rem;
   margin-bottom: 20px;
   text-shadow: 4px 4px 25px #000000;
@@ -88,7 +72,6 @@ export const SignupTitle = styled.h1`
 
   flex-direction: column;
   align-items: center;
->>>>>>> 40308627db0cb6d4b81aa1f74abea4157d7417f8
 `;
 
 export const SignupForm = styled.form`

@@ -69,94 +69,6 @@ const Signup = () => {
   return (
     <SignupContainer>
       <SignupWrapper>
-<<<<<<< HEAD
-        <SignupTitle>Create an account</SignupTitle>
-        <SignupForm>
-          {/* <Input
-            placeholder="First Name"
-            bg="#000000"
-            borderColor="#1cc97e"
-            color="white"
-            _placeholder={{ color: "white" }}
-          />
-          <Input
-            placeholder="Last Name"
-            bg="#000000"
-            borderColor="#1cc97e"
-            color="white"
-            _placeholder={{ color: "white" }}
-          /> */}
-          <Input
-            placeholder="Email"
-            type="email"
-            bg="#000000"
-            borderColor="#1cc97e"
-            color="white"
-            _placeholder={{ color: "white" }}
-            ref={emailRef}
-          />
-          <Input
-            placeholder="Password"
-            type="password"
-            bg="#000000"
-            borderColor="#1cc97e"
-            color="white"
-            _placeholder={{ color: "white" }}
-            ref={passwordRef}
-          />
-          <Input
-            placeholder="Confirm Password"
-            type="password"
-            bg="#000000"
-            borderColor="#1cc97e"
-            color="white"
-            _placeholder={{ color: "white" }}
-            ref={passwordRef}
-          />
-          <Button
-            isLoading={loading}
-            isDisabled={currentUser != null}
-            bg="#000000"
-            color="white"
-            _hover={{ bg: "#1cc97e", color: "white" }}
-            onClick={handleSignup}
-            size="lg"
-          >
-            Sign Up
-          </Button>
-          <Button
-            isLoading={loading}
-            isDisabled={currentUser != null}
-            bg="#000000"
-            color="white"
-            _hover={{ bg: "#1cc97e", color: "white" }}
-            onClick={handleLogin}
-            size="lg"
-            to="/profile"
-          >
-            Sign In
-          </Button>
-          <Button
-            isLoading={loading}
-            isDisabled={currentUser != null}
-            bg="#000000"
-            color="white"
-            _hover={{ bg: "#1cc97e", color: "white" }}
-            size="lg"
-          >
-            Google
-          </Button>
-          <Button
-            onClick={handleLogout}
-            bg="#000000"
-            color="white"
-            _hover={{ bg: "#1cc97e", color: "white" }}
-            disabled={loading || !currentUser}
-          >
-            LogOut
-          </Button>
-        </SignupForm>
-=======
         <SignUpRow imgStart={true}>
           <Column1>
             <SignupTitle>Create an account</SignupTitle>
@@ -246,7 +158,6 @@ const Signup = () => {
             </ImgWrap>
           </Column2>
         </SignUpRow>
->>>>>>> 40308627db0cb6d4b81aa1f74abea4157d7417f8
       </SignupWrapper>
     </SignupContainer>
   );

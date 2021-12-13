@@ -72,7 +72,6 @@ export const NavItem = styled.li`
 `;
 
 export const NavLinks = styled(LinkR)`
-<<<<<<< HEAD
     color: #fff;
     display: flex;
     align-items: center;
@@ -85,15 +84,6 @@ export const NavLinks = styled(LinkR)`
         border-bottom: 3px solid #1cc97e;
     }
 
-=======
-  color: #fff;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
-  cursor: pointer;
->>>>>>> 40308627db0cb6d4b81aa1f74abea4157d7417f8
 `;
 
 export const NavBtn = styled.nav`

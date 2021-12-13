@@ -4,10 +4,10 @@ import Image from "../../images/hero-bg.png";
 export const SigninContainer = styled.div`
   background-color: #000;
   color: #fff;
-  background-image: url(${Image});
+  /* background-image: url(${Image});
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 
   height: 100vh;
   width: 100%;
