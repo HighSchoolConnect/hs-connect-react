@@ -1,10 +1,10 @@
 import React from "react";
-import ProfilePage from "../components/Profile/ProfilePage";
+import ProfileHero from "../components/Profile/ProfileHero";
 
 const Profile = () => {
   return (
     <>
-      <ProfilePage />
+      <ProfileHero />
     </>
   );
 };
