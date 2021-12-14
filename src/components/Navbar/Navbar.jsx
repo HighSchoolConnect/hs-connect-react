@@ -44,6 +44,14 @@ const Navbar = ({ toggle }) => {
     }
   }
 
+  var currentRoute = "/";
+
+  if (currentUser != null) {
+    currentRoute = "/profile";
+  } else {
+    currentRoute = "/signup";
+  }
+
   var button = <Button></Button>;
   if (currentUser != null) {
     button = (
@@ -111,7 +119,20 @@ const Navbar = ({ toggle }) => {
                   About Us
                 </NavLinks>
               </NavItem>
-              <NavItem></NavItem>
+              <NavItem>
+                {" "}
+                <NavLinks
+                  to={currentRoute}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                  // onClick={loggedInChecker}
+                >
+                  Profile
+                </NavLinks>
+              </NavItem>
               <NavItem>
                 <NavLinks
                   to="faq"
