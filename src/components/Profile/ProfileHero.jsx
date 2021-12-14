@@ -14,7 +14,7 @@ import { ProfileContent } from "./ProfileElements";
 
 import { useAuth } from "../../components/Signup/Firebase";
 
-const ProfilePage = () => {
+const ProfileHero = () => {
   const currentUser = useAuth();
   return (
     <ProfileContainer id="profile">
@@ -30,4 +30,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default ProfileHero;
