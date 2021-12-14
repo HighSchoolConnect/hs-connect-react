@@ -105,6 +105,7 @@ export const HeroBtnWrapper = styled.div`
 export const HeroForm = styled.div`
   margin: 20px;
   height: 60px;
+
   background-color: #000000;
   border-radius: 30px;
   display: flex;
@@ -113,9 +114,8 @@ export const HeroForm = styled.div`
 `;
 
 export const HeroInput = styled.input`
-  height: 42px;
-  background-color: #000000;
-
+  height: 60px;
+  background-color: #161616;
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -127,6 +127,7 @@ export const HeroInput = styled.input`
   width: 450px;
   caret-color: #00c6d3;
   line-height: 40px;
+  border-radius: 30px;
 `;
 
 export const HeroBtn = styled.button`
