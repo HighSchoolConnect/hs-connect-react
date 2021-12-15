@@ -10,8 +10,9 @@ import {
   TextP,
   TextH1,
   TextH2,
-  TextH3,
 } from "./AboutUsElements";
+
+import { TextH3 } from "../GeneralPurpose/GPElements";
 
 const AboutUs = () => {
   return (
@@ -21,8 +22,7 @@ const AboutUs = () => {
       </AboutUsBg>
       <AboutUsContent>
         <TextCont>
-          <TextH1>About Us</TextH1>
-          <TextH2>Welcome to HS Connect</TextH2>
+          <TextH2>ABOUT HS CONNECT</TextH2>
           <TextH3>Vision</TextH3>
           <TextP>
             Create opportunities for all students to gain experience for their

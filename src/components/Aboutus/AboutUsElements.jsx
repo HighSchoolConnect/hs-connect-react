@@ -48,7 +48,6 @@ export const AboutUsContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 `;
 
 export const TextCont = styled.div`
@@ -58,9 +57,8 @@ export const TextCont = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 0 30px;
+  padding: 0 200px;
   z-index: 3;
-
 `;
 
 export const TextP = styled.p`
@@ -69,6 +67,8 @@ export const TextP = styled.p`
   text-align: center;
   text-shadow: 4px 4px 25px #000000;
   font-weight: 400;
+
+  padding: 20px;
 
   @media screen and (max-width: 768px) {
     font-size: 16px;
@@ -113,7 +113,7 @@ export const TextH2 = styled.h2`
 
 export const TextH3 = styled.h3`
   color: #fff;
-  font-size: 30px;
+  font-size: 50px;
   text-align: center;
   text-shadow: 4px 4px 25px #000000;
   font-weight: 400;
