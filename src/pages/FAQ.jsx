@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import FAQHero from "../components/FAQ/FAQHero";
 
 const FAQ = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <>
+      <FAQHero />
+    </>
+  );
+};
 
-export default FAQ
+export default FAQ;
