@@ -29,3 +29,19 @@ export const FAQContent = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const FAQH1 = styled.h1`
+  color: #fff;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: 4px 4px 25px #000000;
+  font-weight: 400;
+
+  @media screen and (max-width: 768px) {
+    font-size: 70px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 60px;
+  }
+`;
