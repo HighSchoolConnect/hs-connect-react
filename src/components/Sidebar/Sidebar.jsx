@@ -21,9 +21,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink
             to="/"
             onClick={toggle}
-            smooth={true}
             duration={500}
-            spy={true}
             exact="true"
             offset={-80}
           >
@@ -32,9 +30,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink
             to="aboutus"
             onClick={toggle}
-            smooth={true}
             duration={500}
-            spy={true}
             exact="true"
             offset={-80}
           >
@@ -43,9 +39,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink
             to="/signup"
             onClick={toggle}
-            smooth={true}
             duration={500}
-            spy={true}
             exact="true"
             offset={-80}
           >
@@ -54,9 +48,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink
             to="faq"
             onClick={toggle}
-            smooth={true}
             duration={500}
-            spy={true}
             exact="true"
             offset={-80}
           >
@@ -65,9 +57,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink
             to="contactus"
             onClick={toggle}
-            smooth={true}
             duration={500}
-            spy={true}
             exact="true"
             offset={-80}
           >

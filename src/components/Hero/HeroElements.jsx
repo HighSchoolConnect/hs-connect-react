@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const HeroContainer = styled.div`
   background-color: black;
@@ -130,7 +131,7 @@ export const HeroInput = styled.input`
   border-radius: 30px;
 `;
 
-export const HeroBtn = styled.button`
+export const HeroBtn = styled(Link)`
   height: 40px;
   width: 40px;
   float: right;

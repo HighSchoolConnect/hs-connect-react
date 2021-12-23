@@ -3,16 +3,11 @@ import Image from "../../images/hero-bg.png";
 
 import { Bg, BgImage } from "../../components/GeneralPurpose/GPElements";
 
-import { FAQContainer, FAQContent, FAQH1 } from "./FAQElements";
+import { FAQContainer, FAQContent, FAQH1, FAQAccordions } from "./FAQElements";
+import FAQAccordion from "./FAQAccordion";
+import { questions } from "./Questions";
 
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Box,
-} from '@chakra-ui/react'
+import { Accordion } from "@chakra-ui/react";
 
 const FAQHero = () => {
   return (
@@ -22,41 +17,27 @@ const FAQHero = () => {
       </Bg>
       <FAQContent>
         <FAQH1>Frequently Asked Questions</FAQH1>
-        <Accordion color="white" bg="black">
-  <AccordionItem>
-    <h2>
-      <AccordionButton>
-        <Box flex='1' textAlign='left'>
-          Section 1 title
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </AccordionPanel>
-  </AccordionItem>
-
-  <AccordionItem>
-    <h2>
-      <AccordionButton>
-        <Box flex='1' textAlign='left'>
-          Section 2 title
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </AccordionPanel>
-  </AccordionItem>
-</Accordion>
+        <FAQAccordions>
+          <Accordion
+            allowToggle
+            bg="teal"
+            color="white"
+            border="white"
+            borderRadius={5}
+            padding={5}
+          >
+            {questions.map((question) => {
+              return (
+                <FAQAccordion
+                  key={question.id}
+                  id={question.id}
+                  question={question.question}
+                  answer={question.answer}
+                />
+              );
+            })}
+          </Accordion>
+        </FAQAccordions>
       </FAQContent>
     </FAQContainer>
   );

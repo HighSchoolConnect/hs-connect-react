@@ -8,7 +8,6 @@ import {
   AboutUsContent,
   TextCont,
   TextP,
-  TextH1,
   TextH2,
 } from "./AboutUsElements";
 

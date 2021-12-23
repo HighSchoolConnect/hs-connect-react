@@ -23,11 +23,18 @@ export const FAQContainer = styled.div`
 export const FAQContent = styled.div`
   z-index: 3;
   max-width: 1200px;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+`;
+
+export const FAQAccordions = styled.div`
+  z-index: 3;
+  max-width: 1200px;
+  width: 100%;
+  height: fit-content;
+  margin-top: 50px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  
 `;
 
 export const FAQH1 = styled.h1`

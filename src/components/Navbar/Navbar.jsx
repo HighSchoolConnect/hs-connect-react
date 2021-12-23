@@ -57,9 +57,7 @@ const Navbar = ({ toggle }) => {
     button = (
       <NavLinks
         to="/"
-        smooth={true}
         duration={500}
-        spy={true}
         exact="true"
         offset={-80}
         onClick={handleLogout}
@@ -69,14 +67,7 @@ const Navbar = ({ toggle }) => {
     );
   } else {
     button = (
-      <NavLinks
-        to="signup"
-        smooth={true}
-        duration={500}
-        spy={true}
-        exact="true"
-        offset={-80}
-      >
+      <NavLinks to="signup" duration={500} exact="true" offset={-80}>
         Log In / Sign Up
       </NavLinks>
     );
@@ -96,26 +87,12 @@ const Navbar = ({ toggle }) => {
             </MobileIcon>
             <NavMenu>
               <NavItem>
-                <NavLinks
-                  to="/"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
+                <NavLinks to="/" duration={500} exact="true" offset={-80}>
                   Home
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="aboutus"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
+                <NavLinks to="aboutus" duration={500} exact="true" offset={-80}>
                   About Us
                 </NavLinks>
               </NavItem>
@@ -123,9 +100,7 @@ const Navbar = ({ toggle }) => {
                 {" "}
                 <NavLinks
                   to={currentRoute}
-                  smooth={true}
                   duration={500}
-                  spy={true}
                   exact="true"
                   offset={-80}
                   // onClick={loggedInChecker}
@@ -134,23 +109,14 @@ const Navbar = ({ toggle }) => {
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="faq"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
+                <NavLinks to="faq" duration={500} exact="true" offset={-80}>
                   FAQ
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks
                   to="contactus"
-                  smooth={true}
                   duration={500}
-                  spy={true}
                   exact="true"
                   offset={-80}
                 >

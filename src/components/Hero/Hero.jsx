@@ -37,11 +37,10 @@ const Hero = () => {
             placeholder="EX: Software Engineer, Medical Assistant"
             name="s"
           />
-          <HeroBtn type="submit">
+          <HeroBtn type="button" to="/results">
             <FaSearch />
           </HeroBtn>
         </HeroForm>
-
         <HeroFilter>
           <HeroP>Search Type</HeroP>
           <HeroP>Search Type</HeroP>
