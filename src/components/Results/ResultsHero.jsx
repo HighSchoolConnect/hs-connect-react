@@ -129,7 +129,6 @@ const ResultsHero = () => {
                         min={0}
                         max={10000}
                       >
-                        >
                         <RangeSliderTrack>
                           <RangeSliderFilledTrack />
                         </RangeSliderTrack>
