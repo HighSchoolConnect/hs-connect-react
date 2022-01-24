@@ -21,6 +21,7 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
   Box,
+  Flex,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import BG from "../../images/hero-bg.png";
@@ -182,20 +183,24 @@ const ResultsHero = () => {
             </VStack>
           </Column1>
           <Column2>
-            <Box height="400px" bg="teal">
-              <Heading color="#ffffff" fontWeight="bold">
-                Software Intern
-              </Heading>
-              <Text color="#ffffff">Google</Text>
-              <Text color="#ffffff">Mountain View, CA</Text>
-              <Text color="#ffffff">
-                The Software Engineering Intern will be a passionate,
-                opinionated and creative individual who can develop web
-                applications from the ground up. You will understand web
-                strengths and constraints and build pixel perfect solutions. You
-                should be capable, and willing, to assist in developing
-                responsive single-page web applications.
-              </Text>
+            <Box height="400px" bg="teal" p={10}>
+              <Flex justify="center" align="center">
+                <VStack>
+                  <Heading color="#ffffff" fontWeight="bold">
+                    Software Intern
+                  </Heading>
+                  <Text color="#ffffff">Google</Text>
+                  <Text color="#ffffff">Mountain View, CA</Text>
+                  <Text color="#ffffff">
+                    The Software Engineering Intern will be a passionate,
+                    opinionated and creative individual who can develop web
+                    applications from the ground up. You will understand web
+                    strengths and constraints and build pixel perfect solutions.
+                    You should be capable, and willing, to assist in developing
+                    responsive single-page web applications.
+                  </Text>
+                </VStack>
+              </Flex>
             </Box>
           </Column2>
         </ResultsRow>
