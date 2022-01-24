@@ -78,6 +78,10 @@ export const HeroH1 = styled.h1`
   @media screen and (max-width: 480px) {
     font-size: 78px;
   }
+
+  @media screen and (max-width: 580px) {
+    font-size: 70px;
+  }
 `;
 
 export const HeroP = styled.p`
@@ -92,6 +96,10 @@ export const HeroP = styled.p`
   }
 
   @media screen and (max-width: 480px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 580px) {
     font-size: 16px;
   }
 `;
@@ -120,15 +128,23 @@ export const HeroInput = styled.input`
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 450px;
   color: #00c6d3;
   border: 0;
   outline: 0;
   background: none;
   padding: 0 10px;
-  width: 450px;
   caret-color: #00c6d3;
   line-height: 40px;
   border-radius: 30px;
+
+  @media screen and (max-width: 768px) {
+    width: 450px;
+  }
+
+  @media screen and (max-width: 580px) {
+    width: 350px;
+  }
 `;
 
 export const HeroBtn = styled(Link)`
@@ -154,4 +170,11 @@ export const HeroFilter = styled.div`
   align-items: center;
   margin-top: 20px;
   border-radius: 30px;
+  @media screen and (max-width: 768px) {
+    grid-gap: 20px:;
+  }
+
+  @media screen and (max-width: 580px) {
+    grid-gap: 10px;
+  }
 `;

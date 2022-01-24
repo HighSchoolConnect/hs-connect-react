@@ -9,9 +9,8 @@ import {
   TextCont,
   TextP,
   TextH2,
+  TextH3,
 } from "./AboutUsElements";
-
-import { TextH3 } from "../GeneralPurpose/GPElements";
 
 const AboutUs = () => {
   return (
