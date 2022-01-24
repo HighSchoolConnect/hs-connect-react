@@ -183,7 +183,7 @@ const ResultsHero = () => {
             </VStack>
           </Column1>
           <Column2>
-            <Box width="400px" height="700px" bg="teal">
+            <Box height="400px" bg="teal">
               <Heading color="#ffffff" fontWeight="bold">
                 Software Intern
               </Heading>

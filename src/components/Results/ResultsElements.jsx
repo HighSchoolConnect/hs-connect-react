@@ -8,8 +8,6 @@ export const ResultsContainer = styled.div`
   height: 100vh;
   position: relative;
   z-index: 1;
-
-
 `;
 
 export const ResultsWrapper = styled.div`
@@ -55,6 +53,7 @@ export const ResultsRow = styled.div`
   display: grid;
   grid-auto-columns: minmax(auto, 1fr);
   align-items: center;
+  gap: 24px;
   grid-template-areas: ${({ imgStart }) =>
     imgStart
       ? `'col2 
