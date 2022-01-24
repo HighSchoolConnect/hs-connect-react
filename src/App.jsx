@@ -11,6 +11,7 @@ import Signin from "../src/components/Signin/Signin";
 import ForgotPassword from "../src/components/Signin/ForgotPassword/ForgotPassword";
 import FAQ from "./pages/FAQ.jsx";
 import Results from "./pages/Results";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +32,7 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="forgotpassword" element={<ForgotPassword />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

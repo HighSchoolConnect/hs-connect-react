@@ -36,4 +36,37 @@ export const results = [
     salary: "12k - 15k",
     logo: Amazon,
   },
+  {
+    id: "5",
+    title: "Software Intern",
+    company: "Google",
+    location: "Mountain View, CA",
+    salary: "12k - 15k",
+    logo: Google,
+  },
+  {
+    id: "6",
+    title: "Software Intern",
+    company: "Facebook",
+    location: "Mountain View, CA",
+    salary: "12k - 15k",
+    logo: Facebook,
+  },
+  {
+    id: "7",
+    title: "Software Intern",
+    company: "SpaceX",
+    location: "Mountain View, CA",
+    salary: "12k - 15k",
+    logo: SpaceX,
+  },
+  {
+    id: "8",
+    title: "Software Intern",
+    company: "Amazon",
+    location: "Mountain View, CA",
+    salary: "12k - 15k",
+    logo: Amazon,
+  },
 ];
+

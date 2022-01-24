@@ -5,7 +5,7 @@ export const ResultsContainer = styled.div`
   display: flex;
   justify-content: center;
   padding: 0 30px;
-  height: 100vh;
+  height: 120vh;
   position: relative;
   z-index: 1;
 `;
@@ -78,4 +78,8 @@ export const Column1 = styled.div`
 
 export const Column2 = styled.div`
   grid-area: col2;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
