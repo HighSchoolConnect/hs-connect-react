@@ -86,10 +86,6 @@ export const TextH1 = styled.h1`
   text-shadow: 4px 4px 25px #000000;
   font-weight: 400;
 
-  @media screen and (max-width: 1500px) {
-    font-size: 120px;
-  }
-
   @media screen and (max-width: 768px) {
     font-size: 70px;
   }
@@ -105,10 +101,6 @@ export const TextH2 = styled.h2`
   text-align: center;
   text-shadow: 4px 4px 25px #000000;
   font-weight: 400;
-
-  @media screen and (max-width: 1500px) {
-    font-size: 100px;
-  }
 
   @media screen and (max-width: 950px) {
     font-size: 70px;
@@ -129,10 +121,6 @@ export const TextH3 = styled.h3`
   text-align: center;
   text-shadow: 4px 4px 25px #000000;
   font-weight: 400;
-
-  @media screen and (max-width: 1500px) {
-    font-size: 80px;
-  }
 
   @media screen and (max-width: 950px) {
     font-size: 30px;

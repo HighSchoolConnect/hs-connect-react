@@ -72,10 +72,6 @@ export const HeroH1 = styled.h1`
   font-weight: 400;
   font-style: italic;
 
-  @media screen and (max-width: 1500px) {
-    font-size: 130px;
-  }
-
   @media screen and (max-width: 768px) {
     font-size: 86px;
   }
@@ -95,10 +91,6 @@ export const HeroP = styled.p`
   text-align: center;
   text-shadow: 4px 4px 15px #000000;
   font-weight: 400;
-
-  @media screen and (max-width: 1500px) {
-    font-size: 40px;
-  }
 
   @media screen and (max-width: 768px) {
     font-size: 24px;
@@ -150,10 +142,6 @@ export const HeroInput = styled.input`
   border-radius: 30px;
   text-align: center;
 
-  @media screen and (max-width: 1500px) {
-    font-size: 600px;
-  }
-
   @media screen and (max-width: 768px) {
     width: 450px;
   }
@@ -186,10 +174,6 @@ export const HeroFilter = styled.div`
   align-items: center;
   margin-top: 20px;
   border-radius: 30px;
-
-  @media screen and (max-width: 1500px) {
-    font-size: 40px;
-  }
 
   @media screen and (max-width: 768px) {
     grid-gap: 20px:;
