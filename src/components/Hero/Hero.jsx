@@ -36,6 +36,7 @@ const Hero = () => {
             type="text"
             placeholder="EX: Software Engineer, Medical Assistant"
             name="s"
+            autoComplete="off"
           />
           <HeroBtn type="button" to="/results">
             <FaSearch />
@@ -44,7 +45,12 @@ const Hero = () => {
         <HeroFilter>
           <HeroP>Search Type</HeroP>
           <HeroP>Search Type</HeroP>
-          <Select bg="#00c6d3" borderColor="#00c6d3" color="black">
+          <Select
+            bg="#00c6d3"
+            borderColor="#00c6d3"
+            color="black"
+            boxShadow=" 4px 4px 15px #000000"
+          >
             <option value="option1">Internships</option>
             <option value="option2">Jobs</option>
             <option value="option3">Volunteering</option>
@@ -55,6 +61,7 @@ const Hero = () => {
             color="black"
             placeholder="ZIP Code"
             _placeholder={{ color: "black" }}
+            boxShadow=" 4px 4px 15px #000000"
           />
         </HeroFilter>
       </HeroContent>

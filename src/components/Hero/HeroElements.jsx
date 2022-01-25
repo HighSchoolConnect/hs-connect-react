@@ -42,7 +42,7 @@ export const HeroBg = styled.div`
 
 export const HeroBgImage = styled.img`
   background-color: black;
-  filter: blur(2px);
+  filter: blur(15px);
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -66,11 +66,12 @@ export const TextContainer = styled.div`
 
 export const HeroH1 = styled.h1`
   color: #fff;
-  font-size: 94px;
+  font-size: 106px;
   text-align: center;
-  text-shadow: 4px 4px 25px #000000;
+  text-shadow: 4px 4px 15px #000000;
   font-weight: 400;
-
+  font-style: italic;
+  
   @media screen and (max-width: 768px) {
     font-size: 86px;
   }
@@ -86,17 +87,17 @@ export const HeroH1 = styled.h1`
 
 export const HeroP = styled.p`
   color: #fff;
-  font-size: 16px;
+  font-size: 24px;
   text-align: center;
-  text-shadow: 4px 4px 25px #000000;
+  text-shadow: 4px 4px 15px #000000;
   font-weight: 400;
 
   @media screen and (max-width: 768px) {
-    font-size: 16px;
+    font-size: 24px;
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 16px;
+    font-size: 24px;
   }
 
   @media screen and (max-width: 580px) {
@@ -116,6 +117,8 @@ export const HeroForm = styled.div`
   height: 60px;
 
   background-color: #000000;
+  box-shadow: 4px 4px 15px #000000;
+
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -137,6 +140,7 @@ export const HeroInput = styled.input`
   caret-color: #00c6d3;
   line-height: 40px;
   border-radius: 30px;
+  text-align: center;
 
   @media screen and (max-width: 768px) {
     width: 450px;
@@ -170,6 +174,7 @@ export const HeroFilter = styled.div`
   align-items: center;
   margin-top: 20px;
   border-radius: 30px;
+
   @media screen and (max-width: 768px) {
     grid-gap: 20px:;
   }
