@@ -4,6 +4,7 @@ export const ResultsContainer = styled.div`
   background-color: black;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 0 30px;
   height: 120vh;
   position: relative;
@@ -42,7 +43,7 @@ export const ResultsBg = styled.div`
 
 export const ResultsImage = styled.img`
   background-color: black;
-  filter: blur(2px);
+  filter: blur(15px);
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -60,7 +61,7 @@ export const ResultsRow = styled.div`
     col1'`
       : `'col1 col2'`};
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     grid-template-areas: ${({ imgStart }) =>
       imgStart
         ? `'col1' 
@@ -79,7 +80,7 @@ export const Column1 = styled.div`
 export const Column2 = styled.div`
   grid-area: col2;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     display: none;
   }
 `;

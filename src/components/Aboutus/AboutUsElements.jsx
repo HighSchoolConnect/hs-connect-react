@@ -22,7 +22,7 @@ export const AboutUsContainer = styled.div`
 
 export const AboutUsBgImage = styled.img`
   background-color: black;
-  filter: blur(2px);
+  filter: blur(15px);
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
