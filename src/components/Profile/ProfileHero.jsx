@@ -2,7 +2,6 @@ import React from "react";
 import hero from "../../images/hero-bg.png";
 import Joe from "../../images/JOEMAMA.jpeg";
 
-
 import {
   Bg,
   BgImage,
@@ -15,8 +14,7 @@ import { ProfileContainer } from "./ProfileElements";
 import { ProfileContent } from "./ProfileElements";
 
 import { useAuth } from "../../components/Signup/Firebase";
-import { Box, HStack, VStack, Text, Image } from "@chakra-ui/react";
-
+import { Box, HStack, VStack, Text, Image, Flex } from "@chakra-ui/react";
 
 const ProfileHero = () => {
   const currentUser = useAuth();
@@ -31,17 +29,26 @@ const ProfileHero = () => {
         </TextCont>
 
         <Box bg="#00c6d3" borderRadius="15px" w="100%" p={10}>
-          <VStack>
-            <HStack>
-              <Image src={Joe} type="image/jpg" boxSize="75px" />
-              <VStack>
-                <Text fontSize="2xl" fontWeight="bold">
-                  Joe Mama
-                </Text>
-                <Text fontSize="sm">Software Engineer</Text>
-              </VStack>
-            </HStack>
-          </VStack>
+          <Flex justifyContent="left" align="left">
+            <VStack align="left">
+              <HStack>
+                <Flex align="left">
+                  <Image
+                    src={Joe}
+                    type="image/jpg"
+                    boxSize="75px"
+                    padding="px"
+                  />
+                </Flex>
+                <VStack>
+                  <Text fontSize="2xl" fontWeight="bold">
+                    Joe Mama
+                  </Text>
+                  <Text fontSize="sm">Software Engineer</Text>
+                </VStack>
+              </HStack>
+            </VStack>
+          </Flex>
         </Box>
       </ProfileContent>
     </ProfileContainer>
