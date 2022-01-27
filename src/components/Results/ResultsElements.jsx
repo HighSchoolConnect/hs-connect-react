@@ -80,7 +80,7 @@ export const Column1 = styled.div`
 export const Column2 = styled.div`
   grid-area: col2;
 
-  @media screen and (max-width: 1000px) {
+  /* @media screen and (max-width: 1000px) {
     display: none;
-  }
+  } */
 `;
