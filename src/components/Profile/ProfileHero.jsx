@@ -2,7 +2,6 @@ import React from "react";
 import hero from "../../images/hero-bg.png";
 import Joe from "../../images/JOEMAMA.jpeg";
 
-
 import {
   Bg,
   BgImage,
@@ -16,7 +15,6 @@ import { ProfileContent } from "./ProfileElements";
 
 import { useAuth } from "../../components/Signup/Firebase";
 import { Box, HStack, VStack, Text, Image } from "@chakra-ui/react";
-
 
 const ProfileHero = () => {
   const currentUser = useAuth();
