@@ -14,11 +14,7 @@ import { ProfileContainer } from "./ProfileElements";
 import { ProfileContent } from "./ProfileElements";
 
 import { useAuth } from "../../components/Signup/Firebase";
-<<<<<<< HEAD
-import { Box, HStack, VStack, Text, Image } from "@chakra-ui/react";
-=======
 import { Box, HStack, VStack, Text, Image, Flex } from "@chakra-ui/react";
->>>>>>> 3d785c269e166a76a06e873d2a66329e4f094701
 
 const ProfileHero = () => {
   const currentUser = useAuth();
