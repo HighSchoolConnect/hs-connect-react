@@ -69,16 +69,7 @@ const ProfileHero = () => {
               </HStack>
             </VStack>
           </HStack>
-          <HStack>
-            <TextP>
-              Blurb about Elon: Elon musk is the most amazing person to ever
-              exist. Born at a young age, he was the prodigal son for the
-              long-forgotten inhabitants of Mars. After feeding him Martian
-              Mashed Potatoes(Patent pending), they took full control over
-              Elon's body. Now, he works tirelessly to send humans to his
-              "parents" on Mars for consumption.
-            </TextP>
-          </HStack>
+          <HStack></HStack>
         </Box>
       </ProfileContent>
     </ProfileContainer>
