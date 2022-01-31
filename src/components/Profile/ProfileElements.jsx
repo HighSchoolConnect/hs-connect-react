@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const ProfileContainer = styled.div`
+  background-color: hsl(0, 0%, 0%);
   background-color: clear;
   display: flex;
   justify-content: center;
-  align-items: top;
-  padding: 0 30px;
+  padding: 60px 30px;
   height: 100vh;
   position: relative;
   z-index: 1;
