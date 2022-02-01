@@ -20,16 +20,9 @@ import {
   RangeSliderTrack,
   RangeSliderFilledTrack,
   RangeSliderThumb,
-  Box,
-  Flex,
-  Image,
-  chakra,
-  Link,
-  Slide,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import BG from "../../images/hero-bg.png";
-import Google from "../../images/google.svg";
 
 import {
   ResultsContainer,
@@ -49,11 +42,11 @@ import { FaSearch } from "react-icons/fa";
 import { HeroForm, HeroInput, HeroBtn } from "../Hero/HeroElements";
 
 const ResultsHero = () => {
-  const {
-    isOpen: isOpenReportModal,
-    onOpen: onOpenReportModal,
-    onClose: onCloseReportModal,
-  } = useDisclosure();
+  // const {
+  //   isOpen: isOpenReportModal,
+  //   onOpen: onOpenReportModal,
+  //   onClose: onCloseReportModal,
+  // } = useDisclosure();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
@@ -194,9 +187,6 @@ const ResultsHero = () => {
                 );
               })}
             </VStack>
-            <Button ref={btnRef} colorScheme="teal" onClick={onOpenReportModal}>
-              All Filters
-            </Button>
           </Column1>
 
           <Column2>
@@ -212,84 +202,6 @@ const ResultsHero = () => {
                   <FaSearch />
                 </HeroBtn>
               </HeroForm>
-
-              <Slide
-                direction="bottom"
-                in={isOpenReportModal}
-                style={{ zIndex: 10 }}
-                finalFocusRef={btnRef}
-              >
-                <Box mx="auto" rounded="lg" shadow="md" bg="teal" maxW="2xl">
-                  <Image
-                    roundedTop="lg"
-                    w="full"
-                    h={64}
-                    fit="cover"
-                    src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                    alt="Article"
-                  />
-                  <Box p={6}>
-                    <Box>
-                      <chakra.span
-                        fontSize="xs"
-                        textTransform="uppercase"
-                        bg="teal"
-                        color="white"
-                      >
-                        Mountain View, CA
-                      </chakra.span>
-                      <Link
-                        display="block"
-                        color="white"
-                        fontWeight="bold"
-                        fontSize="2xl"
-                        mt={2}
-                        _hover={{
-                          color: "gray.600",
-                          textDecor: "underline",
-                        }}
-                      >
-                        Software Intern
-                      </Link>
-                      <chakra.p mt={2} fontSize="sm" color="white">
-                        The Software Engineering Intern will be a passionate,
-                        opinionated and creative individual who can develop web
-                        applications from the ground up. You will understand web
-                        strengths and constraints and build pixel perfect
-                        solutions. You should be capable, and willing, to assist
-                        in developing responsive single-page web applications.
-                      </chakra.p>
-                    </Box>
-
-                    <Box mt={4}>
-                      <Flex alignItems="center">
-                        <Flex alignItems="center">
-                          <Box bg="white" rounded="full" p={2} mx={2}>
-                            <Image
-                              h={10}
-                              fit="cover"
-                              rounded="full"
-                              src={Google}
-                              alt="Avatar"
-                            />
-                          </Box>
-                          <Link mx={2} fontWeight="bold" color="white">
-                            Google LLC
-                          </Link>
-                        </Flex>
-                        <chakra.span mx={1} fontSize="sm" color="white">
-                          21 SEP 2022
-                        </chakra.span>
-                      </Flex>
-                    </Box>
-                  </Box>
-                  <Flex justifyContent="right" mt={4} p={2}>
-                    <Button onClick={onCloseReportModal} colorScheme="Teal">
-                      Close
-                    </Button>
-                  </Flex>
-                </Box>
-              </Slide>
             </VStack>
           </Column2>
         </ResultsRow>
