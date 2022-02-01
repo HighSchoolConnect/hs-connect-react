@@ -1,6 +1,6 @@
 import React from "react";
 import hero from "../../images/hero-bg.png";
-import Joe from "../../images/JOEMAMA.jpeg";
+// import Joe from "../../images/JOEMAMA.jpeg";
 
 import {
   Bg,
@@ -34,7 +34,7 @@ const ProfileHero = () => {
               <HStack>
                 <Flex align="left">
                   <Image
-                    src={Joe}
+                    src="https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
                     type="image/jpg"
                     boxSize="75px"
                     padding="px"
@@ -42,7 +42,7 @@ const ProfileHero = () => {
                 </Flex>
                 <VStack>
                   <Text fontSize="2xl" fontWeight="bold">
-                    Joe Mama
+                    Elon Musk
                   </Text>
                   <Text fontSize="sm">Software Engineer</Text>
                 </VStack>
