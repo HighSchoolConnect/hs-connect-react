@@ -6,7 +6,7 @@ export const FAQContainer = styled.div`
   justify-content: center;
   align-items: top;
   padding: 0 30px;
-  height: 100vh;
+  height: 150vh;
   position: relative;
   z-index: 1;
 

@@ -6,7 +6,7 @@ export const ResultsContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 30px;
-  height: 120vh;
+  height: 200vh;
   position: relative;
   z-index: 1;
 `;
