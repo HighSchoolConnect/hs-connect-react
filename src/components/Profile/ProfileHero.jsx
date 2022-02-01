@@ -15,10 +15,19 @@ import {
   TextH1,
   TextH2,
   TextH3,
+  TextH4,
 } from "./ProfileElements";
 
 import { useAuth } from "../../components/Signup/Firebase";
-import { Box, HStack, VStack, Text, Image, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  HStack,
+  VStack,
+  Text,
+  Image,
+  Flex,
+  Divider,
+} from "@chakra-ui/react";
 
 const ProfileHero = () => {
   const currentUser = useAuth();
@@ -50,26 +59,55 @@ const ProfileHero = () => {
           </Flex>
         </Box> */}
         <Box bg="#000000" borderRadius="15px" w="1000px" p={10}>
-          <HStack spacing={10}>
-            <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
-              type="image/jpg"
-              boxSize="200px"
-              padding="px"
-            />
-            <VStack spacing={-5}>
-              <TextH1>Elon Musk</TextH1>
-              <HStack>
-                <TextP>Email: {currentUser?.email}</TextP>
-                <TextP>Phone: 214-214-2142</TextP>
-              </HStack>
-              <HStack>
-                <TextP>Current Position: Jesus</TextP>
-                <TextP>Location: Wakanda</TextP>
-              </HStack>
-            </VStack>
-          </HStack>
-          <HStack></HStack>
+          <VStack align="left" spacing={10}>
+            <HStack align="center" spacing={20}>
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
+                type="image/jpg"
+                boxSize="200px"
+                padding="px"
+              />
+              <VStack spacing={-5}>
+                <TextH1>Elon Musk</TextH1>
+                <HStack>
+                  <TextP>Email: {currentUser?.email}</TextP>
+                  <TextP>Phone: 214-214-2142</TextP>
+                </HStack>
+                <HStack>
+                  <TextP>Current Position: Jesus</TextP>
+                  <TextP>Location: Wakanda</TextP>
+                </HStack>
+              </VStack>
+            </HStack>
+            <HStack>
+              <TextH3 align="left">Experience:</TextH3>
+            </HStack>
+            <HStack spacing={20}>
+              <VStack spacing={-6}>
+                <TextH4>Software Engineer</TextH4>
+                <VStack spacing={-10}>
+                  <TextP>Location: Microsoft</TextP>
+                  <TextP>January 2010-February 2015</TextP>
+                </VStack>
+              </VStack>
+              <Divider orientation="horizontal" borderWidth={2}></Divider>
+              <VStack spacing={-6}>
+                <TextH4>Full Stack Developer(iOS)</TextH4>
+                <VStack spacing={-10}>
+                  <TextP>Location: Samsung</TextP>
+                  <TextP>February 2015-March 2017</TextP>
+                </VStack>
+              </VStack>
+              <Divider orientation="horizontal" borderWidth={2}></Divider>
+              <VStack spacing={-6}>
+                <TextH4>Data Analyst</TextH4>
+                <VStack spacing={-10}>
+                  <TextP>Location: Google</TextP>
+                  <TextP>March 2017-Present</TextP>
+                </VStack>
+              </VStack>
+            </HStack>
+          </VStack>
         </Box>
       </ProfileContent>
     </ProfileContainer>

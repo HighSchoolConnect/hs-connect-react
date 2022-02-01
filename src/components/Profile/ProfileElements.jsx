@@ -23,6 +23,7 @@ export const ProfileContainer = styled.div`
 export const ProfileContent = styled.div`
   z-index: 3;
   max-width: 1200px;
+  height: fit-content;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -101,5 +102,25 @@ export const TextH3 = styled.h3`
 
   @media screen and (max-width: 600px) {
     font-size: 30px;
+  }
+`;
+
+export const TextH4 = styled.h4`
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  text-shadow: 4px 4px 25px #000000;
+  font-weight: 400;
+
+  @media screen and (max-width: 950px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 848px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 20px;
   }
 `;
