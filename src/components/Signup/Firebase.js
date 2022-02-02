@@ -21,8 +21,6 @@ const firebaseConfig = {
   appId: "1:614152206610:web:760f7ff000732f8f565bcb",
   measurementId: "G-EX8Z764V7V",
 };
-
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
@@ -46,6 +44,7 @@ export function resetPassword(email) {
 
 export function useAuth() {
   const [currentUser, setCurrentUser] = useState();
+  console.log(currentUser);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
@@ -54,4 +53,7 @@ export function useAuth() {
 
   return currentUser;
 }
+
+
+
 export default app;
