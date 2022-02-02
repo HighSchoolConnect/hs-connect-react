@@ -15,7 +15,7 @@ import {
   Link,
   Slide,
 } from "@chakra-ui/react";
-import SampleResults from "./SampleResults";
+//import {results} from "./SampleResults";
 import { FaArrowCircleRight } from "react-icons/fa";
 
 

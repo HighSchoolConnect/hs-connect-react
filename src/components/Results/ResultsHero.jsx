@@ -197,6 +197,7 @@ const ResultsHero = () => {
                   placeholder="EX: Software Engineer, Medical Assistant"
                   name="s"
                   autoComplete="off"
+                  
                 />
                 <HeroBtn type="button" to="/results">
                   <FaSearch />
