@@ -29,6 +29,7 @@ export const ProfileContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0px 30px;
 `;
 
 export const TextP = styled.p`
@@ -111,6 +112,7 @@ export const TextH4 = styled.h4`
   text-align: center;
   text-shadow: 4px 4px 25px #000000;
   font-weight: 400;
+  cursor: pointer;
 
   @media screen and (max-width: 950px) {
     font-size: 20px;

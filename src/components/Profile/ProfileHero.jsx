@@ -2,18 +2,13 @@ import React from "react";
 import hero from "../../images/hero-bg.png";
 // import Joe from "../../images/JOEMAMA.jpeg";
 
-import {
-  Bg,
-  BgImage,
-  TextCont,
-} from "../../components/GeneralPurpose/GPElements";
+import { Bg, BgImage } from "../../components/GeneralPurpose/GPElements";
 
 import {
   ProfileContainer,
   ProfileContent,
   TextP,
   TextH1,
-  TextH2,
   TextH3,
   TextH4,
 } from "./ProfileElements";
@@ -23,10 +18,19 @@ import {
   Box,
   HStack,
   VStack,
-  Text,
   Image,
-  Flex,
   Divider,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverAnchor,
+  Text,
+  Button,
 } from "@chakra-ui/react";
 
 const ProfileHero = () => {
@@ -58,7 +62,7 @@ const ProfileHero = () => {
             </VStack>
           </Flex>
         </Box> */}
-        <Box bg="#000000" borderRadius="15px" w="1000px" p={10}>
+        <Box bg="#000000" borderRadius="15px" w="auto" maxW="1000px" p={10}>
           <VStack align="left" spacing={10}>
             <HStack align="center" spacing={20}>
               <Image
@@ -85,7 +89,23 @@ const ProfileHero = () => {
             <HStack spacing={10}>
               <VStack>
                 <HStack>
-                  <TextH4>Software Engineer</TextH4>
+                  <Popover>
+                    <PopoverTrigger>
+                        <TextH4>Software Engineer</TextH4>
+                    </PopoverTrigger>
+                    <PopoverContent zIndex={1}>
+                      <PopoverHeader>Software Engineer</PopoverHeader>
+                      <PopoverBody>
+                        <VStack>
+                          <Text>Location: Microsoft</Text>
+                          <Text>Date: January 2020 - Present</Text>
+                        </VStack>
+                      </PopoverBody>
+                      <PopoverFooter>
+                        <PopoverCloseButton />
+                      </PopoverFooter>
+                    </PopoverContent>
+                  </Popover>
                   <Divider orientation="horizontal" borderWidth={2}></Divider>
                   <TextH4>Full Stack Developer(iOS)</TextH4>
                   <Divider orientation="horizontal" borderWidth={2}></Divider>
