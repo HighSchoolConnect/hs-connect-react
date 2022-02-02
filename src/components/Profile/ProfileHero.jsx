@@ -82,29 +82,31 @@ const ProfileHero = () => {
             <HStack>
               <TextH3 align="left">Experience:</TextH3>
             </HStack>
-            <HStack spacing={20}>
-              <VStack spacing={-6}>
-                <TextH4>Software Engineer</TextH4>
-                <VStack spacing={-10}>
-                  <TextP>Location: Microsoft</TextP>
-                  <TextP>January 2010-February 2015</TextP>
-                </VStack>
-              </VStack>
-              <Divider orientation="horizontal" borderWidth={2}></Divider>
-              <VStack spacing={-6}>
-                <TextH4>Full Stack Developer(iOS)</TextH4>
-                <VStack spacing={-10}>
-                  <TextP>Location: Samsung</TextP>
-                  <TextP>February 2015-March 2017</TextP>
-                </VStack>
-              </VStack>
-              <Divider orientation="horizontal" borderWidth={2}></Divider>
-              <VStack spacing={-6}>
-                <TextH4>Data Analyst</TextH4>
-                <VStack spacing={-10}>
-                  <TextP>Location: Google</TextP>
-                  <TextP>March 2017-Present</TextP>
-                </VStack>
+            <HStack spacing={10}>
+              <VStack>
+                <HStack>
+                  <TextH4>Software Engineer</TextH4>
+                  <Divider orientation="horizontal" borderWidth={2}></Divider>
+                  <TextH4>Full Stack Developer(iOS)</TextH4>
+                  <Divider orientation="horizontal" borderWidth={2}></Divider>
+                  <TextH4>Data Analyst</TextH4>
+                </HStack>
+                {/* <HStack spacing={150}>
+                  <VStack spacing={-10}>
+                    <TextP>Location: Microsoft</TextP>
+                    <TextP>January 2010-February 2015</TextP>
+                  </VStack>
+                  <VStack spacing={-10}>
+                    <TextP>Location: Samsung</TextP>
+                    <TextP>February 2015-March 2017</TextP>
+                  </VStack>
+                  <VStack>
+                    <VStack spacing={-10}>
+                      <TextP>Location: Google</TextP>
+                      <TextP>March 2017-Present</TextP>
+                    </VStack>
+                  </VStack>
+                </HStack> */}
               </VStack>
             </HStack>
           </VStack>
