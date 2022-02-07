@@ -84,21 +84,22 @@ const ProfileHero = () => {
               </VStack>
             </HStack>
             <HStack>
-              <TextH3 align="left">Experience:</TextH3>
+              <TextH3 align="left">Experience</TextH3>
+              <TextP>Click Positions for More Info</TextP>
             </HStack>
             <HStack spacing={10}>
               <VStack>
                 <HStack>
                   <Popover>
                     <PopoverTrigger>
-                        <TextH4>Software Engineer</TextH4>
+                      <TextH4>Software Engineer</TextH4>
                     </PopoverTrigger>
                     <PopoverContent zIndex={1}>
                       <PopoverHeader>Software Engineer</PopoverHeader>
                       <PopoverBody>
                         <VStack>
                           <Text>Location: Microsoft</Text>
-                          <Text>Date: January 2020 - Present</Text>
+                          <Text>Date: January 2010 - February 2015</Text>
                         </VStack>
                       </PopoverBody>
                       <PopoverFooter>
@@ -107,26 +108,42 @@ const ProfileHero = () => {
                     </PopoverContent>
                   </Popover>
                   <Divider orientation="horizontal" borderWidth={2}></Divider>
-                  <TextH4>Full Stack Developer(iOS)</TextH4>
+                  <Popover>
+                    <PopoverTrigger>
+                      <TextH4>Full Stack Developer</TextH4>
+                    </PopoverTrigger>
+                    <PopoverContent zIndex={1}>
+                      <PopoverHeader>Full Stack Developer</PopoverHeader>
+                      <PopoverBody>
+                        <VStack>
+                          <Text>Location: Samsung</Text>
+                          <Text>Date: February 2015 - March 2017</Text>
+                        </VStack>
+                      </PopoverBody>
+                      <PopoverFooter>
+                        <PopoverCloseButton />
+                      </PopoverFooter>
+                    </PopoverContent>
+                  </Popover>
                   <Divider orientation="horizontal" borderWidth={2}></Divider>
-                  <TextH4>Data Analyst</TextH4>
+                  <Popover>
+                    <PopoverTrigger>
+                      <TextH4>Data Analyst</TextH4>
+                    </PopoverTrigger>
+                    <PopoverContent zIndex={1}>
+                      <PopoverHeader>Data Analyst</PopoverHeader>
+                      <PopoverBody>
+                        <VStack>
+                          <Text>Location: Google</Text>
+                          <Text>Date: March 2017 - Present</Text>
+                        </VStack>
+                      </PopoverBody>
+                      <PopoverFooter>
+                        <PopoverCloseButton />
+                      </PopoverFooter>
+                    </PopoverContent>
+                  </Popover>
                 </HStack>
-                {/* <HStack spacing={150}>
-                  <VStack spacing={-10}>
-                    <TextP>Location: Microsoft</TextP>
-                    <TextP>January 2010-February 2015</TextP>
-                  </VStack>
-                  <VStack spacing={-10}>
-                    <TextP>Location: Samsung</TextP>
-                    <TextP>February 2015-March 2017</TextP>
-                  </VStack>
-                  <VStack>
-                    <VStack spacing={-10}>
-                      <TextP>Location: Google</TextP>
-                      <TextP>March 2017-Present</TextP>
-                    </VStack>
-                  </VStack>
-                </HStack> */}
               </VStack>
             </HStack>
           </VStack>
