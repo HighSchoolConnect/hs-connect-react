@@ -4,7 +4,6 @@ export const ResultsContainer = styled.div`
   background-color: black;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 0 30px;
   height: 200vh;
   position: relative;
@@ -18,7 +17,6 @@ export const ResultsWrapper = styled.div`
   padding: 8px 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 export const ResultsTitle = styled.h1`
@@ -50,24 +48,11 @@ export const ResultsImage = styled.img`
   object-fit: cover;
 `;
 
-export const ResultsRow = styled.div`
-  display: grid;
-  grid-auto-columns: minmax(auto, 1fr);
+export const ResultsColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 24px;
-  grid-template-areas: ${({ imgStart }) =>
-    imgStart
-      ? `'col2 
-    col1'`
-      : `'col1 col2'`};
-
-  @media screen and (max-width: 1000px) {
-    grid-template-areas: ${({ imgStart }) =>
-      imgStart
-        ? `'col1' 
-        'col2'`
-        : `'col1 col1' 'col2 col2'`};
-  }
 `;
 
 export const Column1 = styled.div`
