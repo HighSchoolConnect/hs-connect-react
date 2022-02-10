@@ -15,6 +15,7 @@ import {
   Link,
   Slide,
 } from "@chakra-ui/react";
+//import {results} from "./SampleResults";
 import { FaArrowCircleRight } from "react-icons/fa";
 
 const ResultItem = ({ id, title, company, location, salary, logo }) => {
