@@ -196,7 +196,7 @@ const ResultsHero = () => {
               {results
                 .filter((val) => {
                   if (searchTerm.length > 0) {
-                    return val.title
+                    return val.title && val.company
                       .toLowerCase()
                       .includes(searchTerm.toLowerCase());
                   }
