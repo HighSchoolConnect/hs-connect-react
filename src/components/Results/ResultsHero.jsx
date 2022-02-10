@@ -54,6 +54,8 @@ const ResultsHero = () => {
 
   const [sliderValue, setSliderValue] = useState(50);
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <ResultsContainer>
       <ResultsBg>
@@ -64,6 +66,24 @@ const ResultsHero = () => {
 
         <ResultsRow>
           <Column1>
+            <VStack>
+              <HeroForm action="/" method="get">
+                <HeroInput
+                  type="text"
+                  placeholder="EX: Software Engineer, Medical Assistant"
+                  name="s"
+                  autoComplete="off"
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <HeroBtn type="button" to="/results">
+                  <FaSearch />
+                </HeroBtn>
+              </HeroForm>
+            </VStack>
+          </Column1>
+
+          <Column2>
+            {" "}
             <VStack>
               <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
                 All Filters
@@ -173,35 +193,28 @@ const ResultsHero = () => {
                   </DrawerFooter>
                 </DrawerContent>
               </Drawer>
-              {results.map((item) => {
-                return (
-                  <ResultItem
-                    key={item.id}
-                    id={item.id}
-                    title={item.title}
-                    company={item.company}
-                    location={item.location}
-                    salary={item.salary}
-                    logo={item.logo}
-                  />
-                );
-              })}
-            </VStack>
-          </Column1>
-
-          <Column2>
-            <VStack>
-              <HeroForm action="/" method="get">
-                <HeroInput
-                  type="text"
-                  placeholder="EX: Software Engineer, Medical Assistant"
-                  name="s"
-                  autoComplete="off"
-                />
-                <HeroBtn type="button" to="/results">
-                  <FaSearch />
-                </HeroBtn>
-              </HeroForm>
+              {results
+                .filter((val) => {
+                  if (searchTerm.length > 0) {
+                    return val.title
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase());
+                  }
+                  return true;
+                })
+                .map((item) => {
+                  return (
+                    <ResultItem
+                      key={item.id}
+                      id={item.id}
+                      title={item.title}
+                      company={item.company}
+                      location={item.location}
+                      salary={item.salary}
+                      logo={item.logo}
+                    />
+                  );
+                })}
             </VStack>
           </Column2>
         </ResultsRow>
