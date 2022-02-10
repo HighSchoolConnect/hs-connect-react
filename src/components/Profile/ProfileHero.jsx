@@ -146,6 +146,53 @@ const ProfileHero = () => {
                 </HStack>
               </VStack>
             </HStack>
+            <HStack>
+              <TextH3 align="left">Education</TextH3>
+              <TextP>Click School for More Info</TextP>
+            </HStack>
+            <HStack spacing={10}>
+              <VStack>
+                <HStack spacing={200}>
+                  <Popover>
+                    <PopoverTrigger>
+                      <TextH4>Coppell High School</TextH4>
+                    </PopoverTrigger>
+                    <PopoverContent zIndex={1}>
+                      <PopoverHeader>Coppell High School</PopoverHeader>
+                      <PopoverBody>
+                        <VStack>
+                          <Text>Location: Coppell, TX</Text>
+                          <Text>Degree Earned: High School Diploma</Text>
+                          <Text>Graduation Date: May 2006</Text>
+                        </VStack>
+                      </PopoverBody>
+                      <PopoverFooter>
+                        <PopoverCloseButton />
+                      </PopoverFooter>
+                    </PopoverContent>
+                  </Popover>
+                  <Divider orientation="horizontal" borderWidth={2}></Divider>
+                  <Popover>
+                    <PopoverTrigger>
+                      <TextH4>MIT</TextH4>
+                    </PopoverTrigger>
+                    <PopoverContent zIndex={1}>
+                      <PopoverHeader>MIT</PopoverHeader>
+                      <PopoverBody>
+                        <VStack>
+                          <Text>Location: Cambridge, Massachussetts</Text>
+                          <Text>Degree Earned: BS Computer Science</Text>
+                          <Text>Graduation Date: May 2010</Text>
+                        </VStack>
+                      </PopoverBody>
+                      <PopoverFooter>
+                        <PopoverCloseButton />
+                      </PopoverFooter>
+                    </PopoverContent>
+                  </Popover>
+                </HStack>
+              </VStack>
+            </HStack>
           </VStack>
         </Box>
       </ProfileContent>
