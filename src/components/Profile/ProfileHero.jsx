@@ -78,7 +78,7 @@ const ProfileHero = () => {
                   <TextP>Phone: 214-214-2142</TextP>
                 </HStack>
                 <HStack>
-                  <TextP>Current Position: Jesus</TextP>
+                  <TextP>Current Position: Cool Kid</TextP>
                   <TextP>Location: Wakanda</TextP>
                 </HStack>
               </VStack>
