@@ -22,7 +22,7 @@ const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
   const [emptyFields, setEmptyFields] = useState(false);
 
-  const formSparkUrl = "https://submit-form.com/hGlsjDhY";
+  // const formSparkUrl = "https://submit-form.com/hGlsjDhY";
   const toast = useToast();
 
   const submitForm = async (event: FormEvent) => {
@@ -43,11 +43,11 @@ const Contact = () => {
     }
   };
   const postSubmission = async () => {
-    const payload = {
-      email: email,
-      name: name,
-      message: message,
-    };
+    // const payload = {
+    //   email: email,
+    //   name: name,
+    //   message: message,
+    // };
 
     try {
       // await axios.post(formSparkUrl, payload);
@@ -92,7 +92,7 @@ const Contact = () => {
             color="#010024"
             background="white"
             type="email"
-            placeholder="info@itsthetechie.com"
+            placeholder="info@hsconnect.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             isInvalid={emptyFields && !email}
