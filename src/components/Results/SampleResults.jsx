@@ -10,6 +10,7 @@ export const results = [
     company: "Google",
     location: "Mountain View, CA",
     salary: "5k - 7k",
+    type: "Job",
     logo: Google,
   },
   {
@@ -18,6 +19,7 @@ export const results = [
     company: "Facebook",
     location: "Menlo Park, CA",
     salary: "Unpaid",
+    type: "Internship",
     logo: Facebook,
   },
   {
@@ -26,6 +28,7 @@ export const results = [
     company: "SpaceX",
     location: "Brownsville, TX",
     salary: "3k - 5k",
+    type: "Internship",
     logo: SpaceX,
   },
   {
@@ -34,6 +37,7 @@ export const results = [
     company: "Amazon",
     location: "South Bloomfield, OH",
     salary: "3k",
+    type: "Internship",
     logo: Amazon,
   },
   {
@@ -42,6 +46,7 @@ export const results = [
     company: "Google",
     location: "Mountain View, CA",
     salary: "7k - 8k",
+    type: "Internship",
     logo: Google,
   },
   {
@@ -50,6 +55,7 @@ export const results = [
     company: "Facebook",
     location: "Remote",
     salary: "5k - 6k",
+    type: "Job",
     logo: Facebook,
   },
   {
@@ -58,6 +64,7 @@ export const results = [
     company: "SpaceX",
     location: "Brownsville, TX",
     salary: "7k - 9k",
+        type: "Job",
     logo: SpaceX,
   },
   {
@@ -66,7 +73,7 @@ export const results = [
     company: "Amazon",
     location: "Remote",
     salary: "8k - 10k",
+    type: "Internship",
     logo: Amazon,
   },
 ];
-
