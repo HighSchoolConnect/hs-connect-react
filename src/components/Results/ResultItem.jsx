@@ -27,10 +27,10 @@ const ResultItem = ({ id, title, company, location, salary, logo }) => {
   } = useDisclosure();
   //const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box bg="black" w="fit-content" p={4} color="white" borderRadius={15}>
+    <Box bg="black" w={500}  p={4} color="white" borderRadius={15}>
       <HStack>
         <Image src={logo} type="image/svg" boxSize="75px" />
-        <Text fontSize="2xl" fontWeight="bold" ml={4}>
+        <Text fontSize="xl" fontWeight="bold" ml={4} noOfLines={3}>
           {title}
         </Text>
         <Center height="50px">

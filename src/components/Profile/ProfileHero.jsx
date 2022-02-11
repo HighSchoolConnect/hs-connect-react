@@ -26,11 +26,8 @@ import {
   PopoverHeader,
   PopoverBody,
   PopoverFooter,
-  PopoverArrow,
   PopoverCloseButton,
-  PopoverAnchor,
   Text,
-  Button,
 } from "@chakra-ui/react";
 
 const ProfileHero = () => {
