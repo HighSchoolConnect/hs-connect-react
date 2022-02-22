@@ -2,14 +2,15 @@ import styled from "styled-components";
 import Image from "../../images/hero-bg.png";
 
 export const SigninContainer = styled.div`
-  background-color: #000;
+  background-color: #010024;
+  background-image: linear-gradient(#00c6d3, #000000);
   color: #fff;
   /* background-image: url(${Image});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; */
 
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   display: flex;
   flex-direction: column;

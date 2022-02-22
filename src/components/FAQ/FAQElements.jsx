@@ -5,8 +5,7 @@ export const FAQContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: top;
-  padding: 0 30px;
-  height: 150vh;
+  padding: 30px 30px;
   position: relative;
   z-index: 1;
 

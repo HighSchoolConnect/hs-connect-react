@@ -5,7 +5,6 @@ export const ResultsContainer = styled.div`
   display: flex;
   justify-content: center;
   padding: 0 30px;
-  height: 200vh;
   position: relative;
   z-index: 1;
 `;
@@ -13,7 +12,6 @@ export const ResultsContainer = styled.div`
 export const ResultsWrapper = styled.div`
   z-index: 3;
   max-width: 1200px;
-  position: absolute;
   padding: 8px 24px;
   display: flex;
   flex-direction: column;

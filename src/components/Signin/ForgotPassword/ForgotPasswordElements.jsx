@@ -9,7 +9,7 @@ export const ForgotPasswordContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat; */
 
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   display: flex;
   flex-direction: column;

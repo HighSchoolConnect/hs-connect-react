@@ -12,6 +12,7 @@ export const results = [
     salary: "5k - 7k",
     type: "Job",
     logo: Google,
+    
   },
   {
     id: "2",
@@ -64,7 +65,7 @@ export const results = [
     company: "SpaceX",
     location: "Brownsville, TX",
     salary: "7k - 9k",
-        type: "Job",
+    type: "Job",
     logo: SpaceX,
   },
   {

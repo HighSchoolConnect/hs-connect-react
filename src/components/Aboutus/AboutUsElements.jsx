@@ -6,7 +6,7 @@ export const AboutUsContainer = styled.div`
   justify-content: center;
   align-items: top;
   padding: 0 30px;
-  height: 100vh;
+  height: 80vh;
   position: relative;
   z-index: 1;
 
@@ -43,7 +43,6 @@ export const AboutUsBg = styled.div`
 export const AboutUsContent = styled.div`
   z-index: 3;
   max-width: 1200px;
-  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;

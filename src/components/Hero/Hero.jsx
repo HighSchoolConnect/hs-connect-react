@@ -11,14 +11,10 @@ import {
   HeroH1,
   HeroP,
   TextContainer,
-  HeroForm,
-  HeroInput,
-  HeroBtn,
-  HeroFilter,
 } from "./HeroElements";
 
-import { Select } from "@chakra-ui/select";
-import { Input } from "@chakra-ui/react";
+import { HStack, Text, VStack } from "@chakra-ui/react";
+import { Button } from "../ButtonElement";
 
 const Hero = () => {
   return (
@@ -31,18 +27,19 @@ const Hero = () => {
           <HeroH1>HS Connect</HeroH1>
           <HeroP>Find Internships, Jobs, and Volunteering</HeroP>
         </TextContainer>
-        <HeroForm action="/" method="get">
-          <HeroInput
-            type="text"
-            placeholder="EX: Software Engineer, Medical Assistant"
-            name="s"
-            autoComplete="off"
-          />
-          <HeroBtn type="button" to="/results">
-            <FaSearch />
-          </HeroBtn>
-        </HeroForm>
-        <HeroFilter>
+
+        <VStack m={10}>
+          <Button to="/results">
+            <HStack>
+              <Text> Get Started</Text>
+              <FaSearch />
+            </HStack>
+          </Button>
+          {/* <HeroBtn to="/results">
+            <FaSearch color="#00c6d3" />
+          </HeroBtn> */}
+        </VStack>
+        {/* <HeroFilter>
           <HeroP>Search Type</HeroP>
           <HeroP>Search Type</HeroP>
           <Select
@@ -63,7 +60,7 @@ const Hero = () => {
             _placeholder={{ color: "black" }}
             boxShadow=" 4px 4px 15px #000000"
           />
-        </HeroFilter>
+        </HeroFilter> */}
       </HeroContent>
     </HeroContainer>
   );

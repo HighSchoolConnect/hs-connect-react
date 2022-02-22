@@ -6,7 +6,7 @@ export const ProfileContainer = styled.div`
   display: flex;
   justify-content: center;
   padding: 60px 30px;
-  height: 100vh;
+  height: fit-content;
   position: relative;
   z-index: 1;
 
@@ -24,7 +24,6 @@ export const ProfileContent = styled.div`
   z-index: 3;
   max-width: 1200px;
   height: fit-content;
-  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;

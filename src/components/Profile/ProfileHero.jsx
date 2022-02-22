@@ -76,7 +76,7 @@ const ProfileHero = () => {
                 </HStack>
                 <HStack>
                   <TextP>Current Position: Cool Kid</TextP>
-                  <TextP>Location: Wakanda</TextP>
+                  <TextP>Location: Austin, TX</TextP>
                 </HStack>
               </VStack>
             </HStack>

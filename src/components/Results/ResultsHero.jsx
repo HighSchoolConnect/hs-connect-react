@@ -205,6 +205,7 @@ const ResultsHero = () => {
                     location={item.location}
                     salary={item.salary}
                     logo={item.logo}
+                    type={item.type}
                   />
                 );
               })}

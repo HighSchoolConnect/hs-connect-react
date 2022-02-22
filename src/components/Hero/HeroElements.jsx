@@ -7,7 +7,7 @@ export const HeroContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 30px;
-  height: 100vh;
+  height: 80vh;
   position: relative;
   z-index: 1;
 
@@ -52,7 +52,6 @@ export const HeroBgImage = styled.img`
 export const HeroContent = styled.div`
   z-index: 3;
   max-width: 1200px;
-  position: absolute;
   padding: 8px 24px;
   display: flex;
   flex-direction: column;

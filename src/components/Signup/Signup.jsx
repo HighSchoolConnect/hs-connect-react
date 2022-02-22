@@ -29,27 +29,40 @@ const Signup = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const toast = useToast();
+  const checkboxRef = useRef();
 
   async function handleSignup() {
     setLoading(true);
-    try {
-      await signup(emailRef.current.value, passwordRef.current.value);
-      setAuthDone(true);
+    if (checkboxRef.current.checked === false) {
       toast({
-        title: "Account created.",
-        description: "We've created your account for you.",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-    } catch {
-      toast({
-        title: "Please check all the fields",
-        description: "Ensure you have entered a valid email and password",
+        title: "Please accept the terms and conditions",
+        description: "",
         status: "error",
-        duration: 3000,
+        duration: 5000,
         isClosable: true,
       });
+    } else {
+      if (emailRef && passwordRef) {
+        try {
+          await signup(emailRef.current.value, passwordRef.current.value);
+          setAuthDone(true);
+          toast({
+            title: "Account created.",
+            description: "We've created your account for you.",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
+        } catch (error) {
+          toast({
+            title: "Please check all the fields",
+            description: error.message,
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          });
+        }
+      }
     }
     setLoading(false);
   }
@@ -106,7 +119,7 @@ const Signup = () => {
                 width={400}
                 size="lg"
               />
-              <Checkbox colorScheme="teal">
+              <Checkbox colorScheme="teal" ref={checkboxRef}>
                 I agree to the <Link color="#00c6d3">license</Link> terms
               </Checkbox>
               <FormDivider></FormDivider>
