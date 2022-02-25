@@ -20,7 +20,7 @@ const AboutUs = () => {
       </AboutUsBg>
       <AboutUsContent>
         <TextCont>
-          <TextH2>ABOUT HS CONNECT</TextH2>
+          <TextH2>About HS Connect</TextH2>
           <TextH3>Vision</TextH3>
           <TextP>
             Create opportunities for all students to gain experience for their
