@@ -52,7 +52,7 @@ export const questions = [
     id: 9,
     question: "How do I find opportunities that suit me?",
     answer:
-      "When you search for an opportunity, there are filters that you can control based on criteria such as location and experience level.",
+      "When you search for an opportunity, there are filters that you can control based on criteria such as location and experience level based on your preferences.",
   },
   
 ];
