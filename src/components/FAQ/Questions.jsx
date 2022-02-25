@@ -48,4 +48,11 @@ export const questions = [
     answer:
       "If you have a question about HS Connect that is not on the FAQ page, you should use the contact us form in order to tell us any concerns you have and we will respond as quickly as possible.",
   },
+  {
+    id: 9,
+    question: "How do I find opportunities that suit me?",
+    answer:
+      "When you search for an opportunity, there are filters that you can control based on criteria such as location and experience level.",
+  },
+  
 ];
