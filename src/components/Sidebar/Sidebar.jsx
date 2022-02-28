@@ -37,6 +37,15 @@ const Sidebar = ({ isOpen, toggle }) => {
             About Us
           </SidebarLink>
           <SidebarLink
+            to="Profile"
+            onClick={toggle}
+            duration={500}
+            exact="true"
+            offset={-80}
+          >
+            Profile
+          </SidebarLink>
+          <SidebarLink
             to="/signup"
             onClick={toggle}
             duration={500}
