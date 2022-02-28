@@ -29,14 +29,35 @@ import {
   Link,
   Button,
   Flex,
+  Input,
 } from "@chakra-ui/react";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { EditIcon } from "@chakra-ui/icons";
 
 const ProfileHero = () => {
   // const currentUser = useAuth();
   const [users, setUsers] = useState({});
-  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const {
+    isOpen: isOpenContact,
+    onOpen: onOpenContact,
+    onClose: onCloseContact,
+  } = useDisclosure();
+
+  const {
+    isOpen: isOpenEdit,
+    onOpen: onOpenEdit,
+    onClose: onCloseEdit,
+  } = useDisclosure();
+
+  const [displayName, setDisplayName] = useState("");
+  const [currentPosition, setCurrentPosition] = useState("");
+  const [location, setLocation] = useState("");
+  const [education, setEducation] = useState("");
+  const [phone, setPhone] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const unsub = auth.onAuthStateChanged((authObj) => {
@@ -51,13 +72,52 @@ const ProfileHero = () => {
           const userData = await getDoc(userCollectionRef);
           console.log(userData.data());
           setUsers(userData.data());
+          setDisplayName(users.displayName);
+          setCurrentPosition(users.currentPosition);
+          setLocation(users.location);
+          setEducation(users.education);
+          setPhone(users.phone);
+          setPhotoURL(users.photoURL);
         };
         getUserData();
       } else {
         // not logged in
       }
     });
-  }, []);
+  }, [
+    users.displayName,
+    users.currentPosition,
+    users.location,
+    users.education,
+    users.phone,
+    users.photoURL,
+  ]);
+
+  const handleEdit = async () => {
+    setIsLoading(true);
+    const userCollectionRef = await doc(db, "users", auth.currentUser.uid);
+    await updateDoc(userCollectionRef, {
+      displayName: displayName,
+      currentPosition: currentPosition,
+      location: location,
+      education: education,
+      phone: phone,
+      photoURL: photoURL,
+    });
+    const userData = await getDoc(userCollectionRef);
+    console.log(userData.data());
+    setUsers(userData.data());
+    setIsLoading(false);
+    onCloseEdit();
+  };
+
+  const handleChangeDisplayName = (event) => setDisplayName(event.target.value);
+  const handleChangeCurrentPosition = (event) =>
+    setCurrentPosition(event.target.value);
+  const handleChangeLocation = (event) => setLocation(event.target.value);
+  const handleChangeEducation = (event) => setEducation(event.target.value);
+  const handleChangePhone = (event) => setPhone(event.target.value);
+  const handleChangePhotoURL = (event) => setPhotoURL(event.target.value);
 
   return (
     <>
@@ -79,12 +139,104 @@ const ProfileHero = () => {
             </Cover>
             <Flex align="center" justify="right" spacing={5} p={5}>
               <VStack align="center" spacing={5}>
-                <Button colorScheme="teal">
+                <Button colorScheme="teal" onClick={onOpenEdit}>
                   <HStack spacing={2}>
                     <EditIcon color="white" />
                     <Text fontSize="sm" color="white">
                       Edit Profile
                     </Text>
+                    <Modal isOpen={isOpenEdit} onClose={onCloseEdit} isCentered>
+                      <ModalOverlay />
+                      <ModalContent bg="teal">
+                        <ModalHeader color="white">Edit Profile</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                          <Flex align="left">
+                            <VStack align="left" spacing={5} width="100%">
+                              <VStack spacing={2} align="left">
+                                <Text fontSize="sm" color="white">
+                                  Name
+                                </Text>
+                                <Input
+                                  placeholder="Name"
+                                  color="white"
+                                  value={displayName}
+                                  onChange={handleChangeDisplayName}
+                                />
+                              </VStack>
+                              <VStack spacing={2} align="left">
+                                <Text fontSize="sm" color="white">
+                                  Position
+                                </Text>
+                                <Input
+                                  placeholder="Position"
+                                  color="white"
+                                  value={currentPosition}
+                                  onChange={handleChangeCurrentPosition}
+                                />
+                              </VStack>
+                              <VStack spacing={2} align="left">
+                                <Text fontSize="sm" color="white">
+                                  Location
+                                </Text>
+                                <Input
+                                  placeholder="Location"
+                                  color="white"
+                                  value={location}
+                                  onChange={handleChangeLocation}
+                                />
+                              </VStack>
+                              <VStack spacing={2} align="left">
+                                <Text fontSize="sm" color="white">
+                                  Education
+                                </Text>
+                                <Input
+                                  placeholder="Education"
+                                  color="white"
+                                  value={education}
+                                  onChange={handleChangeEducation}
+                                />
+                              </VStack>
+                              <VStack spacing={2} align="left">
+                                <Text fontSize="sm" color="white">
+                                  Phone
+                                </Text>
+                                <Input
+                                  placeholder="Phone"
+                                  color="white"
+                                  value={phone}
+                                  onChange={handleChangePhone}
+                                />
+                              </VStack>
+                              <VStack spacing={2} align="left">
+                                <Text fontSize="sm" color="white">
+                                  Photo URL
+                                </Text>
+                                <Input
+                                  placeholder="Photo URL"
+                                  color="white"
+                                  value={photoURL}
+                                  onChange={handleChangePhotoURL}
+                                />
+                              </VStack>
+                            </VStack>
+                          </Flex>
+                        </ModalBody>
+                        <ModalFooter>
+                          <Button
+                            onClick={handleEdit}
+                            isLoading={isLoading}
+                            colorScheme="teal"
+                            mr={4}
+                          >
+                            Save
+                          </Button>
+                          <Button onClick={onCloseEdit} colorScheme="teal">
+                            Cancel
+                          </Button>
+                        </ModalFooter>
+                      </ModalContent>
+                    </Modal>
                   </HStack>
                 </Button>
               </VStack>
@@ -112,12 +264,16 @@ const ProfileHero = () => {
                     </Text>
                     <Link
                       color="teal.500"
-                      onClick={onOpen}
+                      onClick={onOpenContact}
                       textDecoration="underline"
                     >
                       Contact
                     </Link>
-                    <Modal onClose={onClose} isOpen={isOpen} isCentered>
+                    <Modal
+                      onClose={onCloseContact}
+                      isOpen={isOpenContact}
+                      isCentered
+                    >
                       <ModalOverlay />
                       <ModalContent bg="teal">
                         <ModalHeader color="#fff">Contact</ModalHeader>
@@ -135,7 +291,7 @@ const ProfileHero = () => {
                           </Link>
                         </ModalBody>
                         <ModalFooter>
-                          <Button onClick={onClose}>Close</Button>
+                          <Button onClick={onCloseContact}>Close</Button>
                         </ModalFooter>
                       </ModalContent>
                     </Modal>
