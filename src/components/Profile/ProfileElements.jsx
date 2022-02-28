@@ -125,3 +125,10 @@ export const TextH4 = styled.h4`
     font-size: 20px;
   }
 `;
+
+export const Cover = styled.div`
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  overflow: hidden;
+`;

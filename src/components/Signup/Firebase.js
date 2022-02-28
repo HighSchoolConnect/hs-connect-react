@@ -11,6 +11,10 @@ import {
 
 
 } from "firebase/auth";
+import "firebase/firestore";
+
+import { getFirestore } from "@firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCNvRCMA6quwCrrSjHJhIDaQ_wZKD6ZKkU",
@@ -22,7 +26,31 @@ const firebaseConfig = {
   measurementId: "G-EX8Z764V7V",
 };
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+export const auth = getAuth();
+
+export const db = getFirestore(app);
+
+export const createUserDocument = async (user, additionalData) => {
+
+
+  const userRef = doc(db, "users", auth.currentUser.uid);
+  await setDoc(userRef, {
+    displayName: additionalData,
+    email: auth.currentUser.email,
+    createdAt: new Date(),
+  });
+
+
+};
+
+export const consolelogUID = (user) => {
+  console.log();
+}
+
+
+
+
+
 
 
 export function signup(email, password) {
@@ -44,7 +72,7 @@ export function resetPassword(email) {
 
 export function useAuth() {
   const [currentUser, setCurrentUser] = useState();
-  console.log(currentUser);
+  // console.log(currentUser);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
@@ -53,6 +81,8 @@ export function useAuth() {
 
   return currentUser;
 }
+
+
 
 
 

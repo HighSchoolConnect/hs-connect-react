@@ -16,7 +16,7 @@ import {
 
 import { Input, Button, Checkbox, Link, useToast } from "@chakra-ui/react";
 
-import { signup, useAuth } from "./Firebase.js";
+import { createUserDocument, signup, useAuth } from "./Firebase.js";
 
 import { Navigate } from "react-router-dom";
 
@@ -28,6 +28,7 @@ const Signup = () => {
 
   const emailRef = useRef();
   const passwordRef = useRef();
+  const displayNameRef = useRef();
   const toast = useToast();
   const checkboxRef = useRef();
 
@@ -45,6 +46,7 @@ const Signup = () => {
       if (emailRef && passwordRef) {
         try {
           await signup(emailRef.current.value, passwordRef.current.value);
+          await createUserDocument(currentUser, displayNameRef.current.value);
           setAuthDone(true);
           toast({
             title: "Account created.",
@@ -86,6 +88,17 @@ const Signup = () => {
           <Column1>
             <SignupTitle>Create an account</SignupTitle>
             <SignupForm>
+              <Input
+                placeholder="Name"
+                type="text"
+                bg="#00c6d3"
+                borderColor="#00c6d3"
+                color="white"
+                _placeholder={{ color: "white" }}
+                ref={displayNameRef}
+                width={400}
+                size="lg"
+              />
               <Input
                 placeholder="Email"
                 type="email"
