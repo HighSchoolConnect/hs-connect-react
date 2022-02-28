@@ -12,7 +12,7 @@ export const results = [
     salary: "5k - 7k",
     type: "Job",
     logo: Google,
-    
+
   },
   {
     id: "2",
