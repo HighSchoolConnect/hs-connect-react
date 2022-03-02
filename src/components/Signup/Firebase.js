@@ -14,7 +14,7 @@ import {
 import "firebase/firestore";
 
 import { getFirestore } from "@firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, addDoc, collection } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCNvRCMA6quwCrrSjHJhIDaQ_wZKD6ZKkU",
@@ -42,6 +42,22 @@ export const createUserDocument = async (user, additionalData) => {
 
 
 };
+
+export const createJob = async () => {
+  const jobRef = collection(db, "jobs");
+  await addDoc(jobRef, {
+    title: "Production/Cook",
+    company: "Pizza Hut",
+    location: "Coppell, TX",
+    address: "820 S Macarthur Blvd, Coppell, TX",
+    salaryLow: 7.88,
+    salaryHigh: 9.6,
+    logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/d/d2/Pizza_Hut_logo.svg/2177px-Pizza_Hut_logo.svg.png"
+  });
+
+}
+// createJob();
+
 
 export const consolelogUID = (user) => {
   console.log();

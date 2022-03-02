@@ -13,6 +13,7 @@ import FAQ from "./pages/FAQ.jsx";
 import Results from "./pages/Results";
 import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
+import EmployerDashboard from "./components/Employer/EmployerDashboard";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,8 +32,9 @@ function App() {
         <Route path="results" element={<Results />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
-        <Route path="forgotpassword" element={<ForgotPassword />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/contactus" element={<Contact />} />
+        <Route path="/dashboard" element={<EmployerDashboard />} />
       </Routes>
       <Footer />
     </Router>
