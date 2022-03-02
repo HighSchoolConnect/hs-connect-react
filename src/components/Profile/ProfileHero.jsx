@@ -4,11 +4,7 @@ import hero from "../../images/hero-bg.png";
 
 import { Bg, BgImage } from "../../components/GeneralPurpose/GPElements";
 
-import {
-  ProfileContainer,
-  ProfileContent,
-  Cover,
-} from "./ProfileElements";
+import { ProfileContainer, ProfileContent, Cover } from "./ProfileElements";
 
 import { auth, db } from "../../components/Signup/Firebase";
 import {
@@ -51,12 +47,26 @@ const ProfileHero = () => {
     onClose: onCloseEdit,
   } = useDisclosure();
 
+  const {
+    isOpen: isOpenEdu,
+    onOpen: onOpenEdu,
+    onClose: onCloseEdu,
+  } = useDisclosure();
+
   const [displayName, setDisplayName] = useState("");
   const [currentPosition, setCurrentPosition] = useState("");
   const [location, setLocation] = useState("");
   const [education, setEducation] = useState("");
   const [phone, setPhone] = useState("");
   const [photoURL, setPhotoURL] = useState("");
+  const [about, setAbout] = useState("");
+
+  const [HSGradMonth, setHSGradMonth] = useState("");
+  const [HSGradYear, setHSGradYear] = useState("");
+  const [degree, setDegree] = useState("");
+  const [undergradCollege, setUndergradCollege] = useState("");
+  const [UStartYear, setUStartYear] = useState("");
+  const [UEndYear, setUEndYear] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -79,6 +89,13 @@ const ProfileHero = () => {
           setEducation(users.education);
           setPhone(users.phone);
           setPhotoURL(users.photoURL);
+          setAbout(users.about);
+          setHSGradMonth(users.HSGradMonth);
+          setHSGradYear(users.HSGradYear);
+          setDegree(users.degree);
+          setUndergradCollege(users.undergradCollege);
+          setUStartYear(users.UStartYear);
+          setUEndYear(users.setUEndYear);
         };
         getUserData();
       } else {
@@ -92,6 +109,14 @@ const ProfileHero = () => {
     users.education,
     users.phone,
     users.photoURL,
+    users.about,
+    users.HSGradMonth,
+    users.HSGradYear,
+    users.degree,
+    users.undergradCollege,
+    users.UStartYear,
+    users.UEndYear,
+    users.setUEndYear,
   ]);
 
   const handleEdit = async () => {
@@ -104,6 +129,13 @@ const ProfileHero = () => {
       education: education,
       phone: phone,
       photoURL: photoURL,
+      about: about,
+      HSGradMonth: HSGradMonth,
+      HSGradYear: HSGradYear,
+      degree: degree,
+      undergradCollege: undergradCollege,
+      UStartYear: UStartYear,
+      UEndYear: UEndYear,
     });
     const userData = await getDoc(userCollectionRef);
     console.log(userData.data());
@@ -119,6 +151,15 @@ const ProfileHero = () => {
   const handleChangeEducation = (event) => setEducation(event.target.value);
   const handleChangePhone = (event) => setPhone(event.target.value);
   const handleChangePhotoURL = (event) => setPhotoURL(event.target.value);
+  const handleChangeAbout = (event) => setAbout(event.target.value);
+
+  const handleChangeHSGradMonth = (event) => setHSGradMonth(event.target.value);
+  const handleChangeHSGradYear = (event) => setHSGradYear(event.target.value);
+  const handleChangeDegree = (event) => setDegree(event.target.value);
+  const handleChangeUndergradCollege = (event) =>
+    setUndergradCollege(event.target.value);
+  const handleChangeUStartYear = (event) => setUStartYear(event.target.value);
+  const handleChangeUEndYear = (event) => setUEndYear(event.target.value);
 
   return (
     <>
@@ -194,17 +235,6 @@ const ProfileHero = () => {
                                 </VStack>
                                 <VStack spacing={2} align="left">
                                   <Text fontSize="sm" color="white">
-                                    Education
-                                  </Text>
-                                  <Input
-                                    placeholder="Education"
-                                    color="white"
-                                    value={education}
-                                    onChange={handleChangeEducation}
-                                  />
-                                </VStack>
-                                <VStack spacing={2} align="left">
-                                  <Text fontSize="sm" color="white">
                                     Phone
                                   </Text>
                                   <Input
@@ -223,6 +253,17 @@ const ProfileHero = () => {
                                     color="white"
                                     value={photoURL}
                                     onChange={handleChangePhotoURL}
+                                  />
+                                </VStack>
+                                <VStack spacing={2} align="left">
+                                  <Text fontSize="sm" color="white">
+                                    About You
+                                  </Text>
+                                  <Input
+                                    placeholder="About"
+                                    color="white"
+                                    value={about}
+                                    onChange={handleChangeAbout}
                                   />
                                 </VStack>
                               </VStack>
@@ -318,7 +359,140 @@ const ProfileHero = () => {
                     </Text>
                   </VStack>
                 </HStack>
+                <Divider />
+                <HStack spacing={5} p={10}>
+                  <VStack align="left" spacing={5}>
+                    <Text fontSize="xl" fontWeight="semibold" color="#ffffff">
+                      Education
+                    </Text>
+                    <VStack spacing={2} align="left">
+                      <HStack>
+                        <VStack align="left" spacing={-1}>
+                          <Text fontWeight="bold" fontSize="lg" color="#ffffff">
+                            High School
+                          </Text>
+                          <Text fontSize="lg" color="#ffffff">
+                            {users.education} - {users.HSGradMonth}{" "}
+                            {users.HSGradYear}
+                          </Text>
+                        </VStack>
+                      </HStack>
+                      <HStack>
+                        <VStack align="left" spacing={-1}>
+                          <Text fontWeight="bold" fontSize="lg" color="#ffffff">
+                            Undergraduate
+                          </Text>
+                          <Text fontSize="lg" color="#ffffff">
+                            {users.degree} at {users.undergradCollege} -{" "}
+                            {users.UStartYear} to {users.UEndYear}
+                          </Text>
+                        </VStack>
+                      </HStack>
+                    </VStack>
+                  </VStack>
+                </HStack>
               </Box>
+              <Flex align="center" justify="right" spacing={5} p={5}>
+                <VStack align="center" spacing={5}>
+                  <IconButton colorScheme="teal" onClick={onOpenEdu}>
+                    <HStack spacing={2}>
+                      <EditIcon color="white" />
+                      {/* <Text fontSize="sm" color="white">
+                      Edit Profile
+                    </Text> */}
+                      <Modal isOpen={isOpenEdu} onClose={onCloseEdu} isCentered>
+                        <ModalOverlay />
+                        <ModalContent bg="teal">
+                          <ModalHeader color="white">Add Education</ModalHeader>
+                          <ModalCloseButton />
+                          <ModalBody>
+                            <Flex align="left">
+                              <VStack spacing={2} align="left">
+                                <Text fontSize="sm" color="white">
+                                  High School
+                                </Text>
+                                <Input
+                                  placeholder="N/A if N/A"
+                                  color="white"
+                                  value={education}
+                                  onChange={handleChangeEducation}
+                                />
+                                <Text fontSize="sm" color="white">
+                                  High School Graduation Month
+                                </Text>
+                                <Input
+                                  placeholder="Leave Blank if N/A"
+                                  color="white"
+                                  value={HSGradMonth}
+                                  onChange={handleChangeHSGradMonth}
+                                />
+                                <Text fontSize="sm" color="white">
+                                  High School Graduation Year
+                                </Text>
+                                <Input
+                                  placeholder="Leave Blank if N/A"
+                                  color="white"
+                                  value={HSGradYear}
+                                  onChange={handleChangeHSGradYear}
+                                />
+                                <Text fontSize="sm" color="white">
+                                  Undergraduate Degree
+                                </Text>
+                                <Input
+                                  placeholder="N/A if N/A"
+                                  color="white"
+                                  value={degree}
+                                  onChange={handleChangeDegree}
+                                />
+                                <Text fontSize="sm" color="white">
+                                  Undergraduate College
+                                </Text>
+                                <Input
+                                  placeholder="Leave Blank if N/A"
+                                  color="white"
+                                  value={undergradCollege}
+                                  onChange={handleChangeUndergradCollege}
+                                />
+                                <Text fontSize="sm" color="white">
+                                  Undergraduate Start Year
+                                </Text>
+                                <Input
+                                  placeholder="Leave Blank if N/A"
+                                  color="white"
+                                  value={UStartYear}
+                                  onChange={handleChangeUStartYear}
+                                />
+                                <Text fontSize="sm" color="white">
+                                  Undergraduate End Year
+                                </Text>
+                                <Input
+                                  placeholder="Leave Blank if N/A"
+                                  color="white"
+                                  value={UEndYear}
+                                  onChange={handleChangeUEndYear}
+                                />
+                              </VStack>
+                            </Flex>
+                          </ModalBody>
+                          <ModalFooter>
+                            <Button
+                              onClick={handleEdit}
+                              isLoading={isLoading}
+                              colorScheme="teal"
+                              mr={4}
+                            >
+                              Save
+                            </Button>
+                            <Button onClick={onCloseEdu} colorScheme="teal">
+                              Cancel
+                            </Button>
+                          </ModalFooter>
+                        </ModalContent>
+                      </Modal>
+                    </HStack>
+                  </IconButton>
+                </VStack>
+              </Flex>
             </Box>
           </VStack>
         </ProfileContent>
