@@ -345,7 +345,6 @@ const ProfileHero = () => {
                     </HStack>
                   </VStack>
                 </VStack>
-                <VStack></VStack>
               </HStack>
               <Divider />
               <Box bg="#000000" borderRadius="15px" w="auto" maxW="1000px">
@@ -407,7 +406,7 @@ const ProfileHero = () => {
                           <ModalCloseButton />
                           <ModalBody>
                             <Flex align="left">
-                              <VStack spacing={2} align="left">
+                              <VStack spacing={2} align="left" width="100%">
                                 <Text fontSize="sm" color="white">
                                   High School
                                 </Text>
