@@ -53,6 +53,18 @@ const ProfileHero = () => {
     onClose: onCloseEdu,
   } = useDisclosure();
 
+  const {
+    isOpen: isOpenAbout,
+    onOpen: onOpenAbout,
+    onClose: onCloseAbout,
+  } = useDisclosure();
+
+  const {
+    isOpen: isOpenWE,
+    onOpen: onOpenWE,
+    onClose: onCloseWE,
+  } = useDisclosure();
+
   const [displayName, setDisplayName] = useState("");
   const [currentPosition, setCurrentPosition] = useState("");
   const [location, setLocation] = useState("");
@@ -67,6 +79,22 @@ const ProfileHero = () => {
   const [undergradCollege, setUndergradCollege] = useState("");
   const [UStartYear, setUStartYear] = useState("");
   const [UEndYear, setUEndYear] = useState("");
+
+  const [jobTitle1, setJobTitle1] = useState("");
+  const [jobComp1, setJobComp1] = useState("");
+  const [jobDescription1, setJobDescription1] = useState("");
+  const [jobStart1, setJobStart1] = useState("");
+  const [jobEnd1, setJobEnd1] = useState("");
+  const [jobTitle2, setJobTitle2] = useState("");
+  const [jobComp2, setJobComp2] = useState("");
+  const [jobDescription2, setJobDescription2] = useState("");
+  const [jobStart2, setJobStart2] = useState("");
+  const [jobEnd2, setJobEnd2] = useState("");
+  const [jobTitle3, setJobTitle3] = useState("");
+  const [jobComp3, setJobComp3] = useState("");
+  const [jobDescription3, setJobDescription3] = useState("");
+  const [jobStart3, setJobStart3] = useState("");
+  const [jobEnd3, setJobEnd3] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -96,6 +124,21 @@ const ProfileHero = () => {
           setUndergradCollege(users.undergradCollege);
           setUStartYear(users.UStartYear);
           setUEndYear(users.UEndYear);
+          setJobTitle1(users.jobTitle1);
+          setJobComp1(users.jobComp1);
+          setJobDescription1(users.jobDescription1);
+          setJobStart1(users.jobStart1);
+          setJobEnd1(users.jobEnd1);
+          setJobTitle2(users.jobTitle2);
+          setJobComp2(users.jobComp2);
+          setJobDescription2(users.jobDescription2);
+          setJobStart2(users.jobStart2);
+          setJobEnd2(users.jobEnd2);
+          setJobTitle3(users.jobTitle3);
+          setJobComp3(users.jobComp3);
+          setJobDescription3(users.jobDescription3);
+          setJobStart3(users.jobStart3);
+          setJobEnd3(users.jobEnd3);
         };
         getUserData();
       } else {
@@ -116,7 +159,21 @@ const ProfileHero = () => {
     users.undergradCollege,
     users.UStartYear,
     users.UEndYear,
-    users.setUEndYear,
+    users.jobTitle1,
+    users.jobComp1,
+    users.jobDescription1,
+    users.jobStart1,
+    users.jobEnd1,
+    users.jobTitle2,
+    users.jobComp2,
+    users.jobDescription2,
+    users.jobStart2,
+    users.jobEnd2,
+    users.jobTitle3,
+    users.jobComp3,
+    users.jobDescription3,
+    users.jobStart3,
+    users.jobEnd3,
   ]);
 
   const handleEdit = async () => {
@@ -136,6 +193,21 @@ const ProfileHero = () => {
       undergradCollege: undergradCollege,
       UStartYear: UStartYear,
       UEndYear: UEndYear,
+      jobTitle1: jobTitle1,
+      jobComp1: jobComp1,
+      jobDescription1: jobDescription1,
+      jobStart1: jobStart1,
+      jobEnd1: jobEnd1,
+      jobTitle2: jobTitle2,
+      jobComp2: jobComp2,
+      jobDescription2: jobDescription2,
+      jobStart2: jobStart2,
+      jobEnd2: jobEnd2,
+      jobTitle3: jobTitle3,
+      jobComp3: jobComp3,
+      jobDescription3: jobDescription3,
+      jobStart3: jobStart3,
+      jobEnd3: jobEnd3,
     });
     const userData = await getDoc(userCollectionRef);
     console.log(userData.data());
@@ -161,6 +233,24 @@ const ProfileHero = () => {
   const handleChangeUStartYear = (event) => setUStartYear(event.target.value);
   const handleChangeUEndYear = (event) => setUEndYear(event.target.value);
 
+  const handleChangeJobTitle1 = (event) => setJobTitle1(event.target.value);
+  const handleChangeJobComp1 = (event) => setJobComp1(event.target.value);
+  const handleChangeJobDescription1 = (event) =>
+    setJobDescription1(event.target.value);
+  const handleChangeJobStart1 = (event) => setJobStart1(event.target.value);
+  const handleChangeJobEnd1 = (event) => setJobEnd1(event.target.value);
+  const handleChangeJobTitle2 = (event) => setJobTitle2(event.target.value);
+  const handleChangeJobComp2 = (event) => setJobComp2(event.target.value);
+  const handleChangeJobDescription2 = (event) =>
+    setJobDescription2(event.target.value);
+  const handleChangeJobStart2 = (event) => setJobStart2(event.target.value);
+  const handleChangeJobEnd2 = (event) => setJobEnd2(event.target.value);
+  const handleChangeJobTitle3 = (event) => setJobTitle3(event.target.value);
+  const handleChangeJobComp3 = (event) => setJobComp3(event.target.value);
+  const handleChangeJobDescription3 = (event) =>
+    setJobDescription3(event.target.value);
+  const handleChangeJobStart3 = (event) => setJobStart3(event.target.value);
+  const handleChangeJobEnd3 = (event) => setJobEnd3(event.target.value);
   return (
     <>
       <ProfileContainer id="profile">
@@ -180,6 +270,7 @@ const ProfileHero = () => {
                   overflow="hidden"
                 />
               </Cover>
+              {/* Basic Information */}
               <Flex align="center" justify="right" spacing={5} p={5}>
                 <VStack align="center" spacing={5}>
                   <IconButton colorScheme="teal" onClick={onOpenEdit}>
@@ -255,17 +346,6 @@ const ProfileHero = () => {
                                     onChange={handleChangePhotoURL}
                                   />
                                 </VStack>
-                                <VStack spacing={2} align="left">
-                                  <Text fontSize="sm" color="white">
-                                    About You
-                                  </Text>
-                                  <Input
-                                    placeholder="About"
-                                    color="white"
-                                    value={about}
-                                    onChange={handleChangeAbout}
-                                  />
-                                </VStack>
                               </VStack>
                             </Flex>
                           </ModalBody>
@@ -304,7 +384,6 @@ const ProfileHero = () => {
                     <Text fontSize="lg" color="#ffffff">
                       {users.currentPosition}
                     </Text>
-
                     <HStack spacing={5}>
                       <Text fontSize="lg" color="#ffffff">
                         {users.location}
@@ -347,6 +426,7 @@ const ProfileHero = () => {
                 </VStack>
               </HStack>
               <Divider />
+              {/* About You Section */}
               <Box bg="#000000" borderRadius="15px" w="auto" maxW="1000px">
                 <HStack spacing={5} p={10}>
                   <VStack align="left" spacing={5}>
@@ -358,7 +438,61 @@ const ProfileHero = () => {
                     </Text>
                   </VStack>
                 </HStack>
+                <Flex align="center" justify="right" spacing={5} p={5}>
+                  <VStack align="center" spacing={5}>
+                    <IconButton colorScheme="teal" onClick={onOpenAbout}>
+                      <HStack spacing={2}>
+                        <EditIcon color="white" />
+                        {/* <Text fontSize="sm" color="white">
+                      Edit Profile
+                    </Text> */}
+                        <Modal
+                          isOpen={isOpenAbout}
+                          onClose={onCloseAbout}
+                          isCentered
+                        >
+                          <ModalOverlay />
+                          <ModalContent bg="teal">
+                            <ModalHeader color="white">
+                              Add About You
+                            </ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody>
+                              <Flex align="left">
+                                <VStack spacing={2} align="left" width="100%">
+                                  <Text fontSize="sm" color="white">
+                                    About You
+                                  </Text>
+                                  <Input
+                                    placeholder="About"
+                                    color="white"
+                                    value={about}
+                                    onChange={handleChangeAbout}
+                                  />
+                                </VStack>
+                              </Flex>
+                            </ModalBody>
+                            <ModalFooter>
+                              <Button
+                                onClick={handleEdit}
+                                isLoading={isLoading}
+                                colorScheme="teal"
+                                mr={4}
+                              >
+                                Save
+                              </Button>
+                              <Button onClick={onCloseAbout} colorScheme="teal">
+                                Cancel
+                              </Button>
+                            </ModalFooter>
+                          </ModalContent>
+                        </Modal>
+                      </HStack>
+                    </IconButton>
+                  </VStack>
+                </Flex>
                 <Divider />
+                {/* Education Section */}
                 <HStack spacing={5} p={10}>
                   <VStack align="left" spacing={5}>
                     <Text fontSize="xl" fontWeight="semibold" color="#ffffff">
@@ -492,6 +626,261 @@ const ProfileHero = () => {
                   </IconButton>
                 </VStack>
               </Flex>
+              <Divider />
+              {/* Work Experience */}
+              <Box bg="#000000" borderRadius="15px" w="auto" maxW="1000px">
+                <HStack spacing={5} p={10}>
+                  <VStack align="left" spacing={5}>
+                    <Text fontSize="xl" fontWeight="semibold" color="#ffffff">
+                      Work Experience
+                    </Text>
+                    <VStack spacing={2} align="left">
+                      <HStack>
+                        <Text
+                          fontSize="xl"
+                          fontWeight="semibold"
+                          color="#ffffff"
+                        >
+                          {users.jobTitle1}
+                        </Text>
+                        <Text>
+                          {users.jobStart1} - {users.jobEnd1}
+                        </Text>
+                      </HStack>
+                      <Text>{users.jobComp1}</Text>
+                      <Text>{users.jobDescription1}</Text>
+                    </VStack>
+                    <VStack spacing={2} align="left">
+                      <HStack>
+                        <Text
+                          fontSize="xl"
+                          fontWeight="semibold"
+                          color="#ffffff"
+                        >
+                          {users.jobTitle2}
+                        </Text>
+                        <Text>
+                          {users.jobStart2} - {users.jobEnd2}
+                        </Text>
+                      </HStack>
+                      <Text>{users.jobComp2}</Text>
+                      <Text>{users.jobDescription2}</Text>
+                    </VStack>
+                    <VStack spacing={2} align="left">
+                      <HStack>
+                        <Text
+                          fontSize="xl"
+                          fontWeight="semibold"
+                          color="#ffffff"
+                        >
+                          {users.jobTitle3}
+                        </Text>
+                        <Text>
+                          {users.jobStart3} - {users.jobEnd3}
+                        </Text>
+                      </HStack>
+                      <Text>{users.jobComp3}</Text>
+                      <Text>{users.jobDescription3}</Text>
+                    </VStack>
+                  </VStack>
+                </HStack>
+                <Flex align="center" justify="right" spacing={5} p={5}>
+                  <VStack align="center" spacing={5}>
+                    <IconButton colorScheme="teal" onClick={onOpenWE}>
+                      <HStack spacing={2}>
+                        <EditIcon color="white" />
+                        {/* <Text fontSize="sm" color="white">
+                      Edit Profile
+                    </Text> */}
+                        <Modal isOpen={isOpenWE} onClose={onCloseWE} isCentered>
+                          <ModalOverlay />
+                          <ModalContent bg="teal">
+                            <ModalHeader color="white">
+                              Add Education
+                            </ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody>
+                              <Flex align="left">
+                                <VStack spacing={2} align="left" width="100%">
+                                  <Text
+                                    fontSize="xl"
+                                    fontWeight="semibold"
+                                    color="#ffffff"
+                                  >
+                                    Job Experience 1
+                                  </Text>
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 1 Title
+                                  </Text>
+                                  <Input
+                                    placeholder="Leave Blank"
+                                    color="white"
+                                    value={jobTitle1}
+                                    onChange={handleChangeJobTitle1}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 1 Company
+                                  </Text>
+                                  <Input
+                                    placeholder="Leave Blank if N/A"
+                                    color="white"
+                                    value={jobComp1}
+                                    onChange={handleChangeJobComp1}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 1 Description
+                                  </Text>
+                                  <Input
+                                    placeholder="Leave Blank if N/A"
+                                    color="white"
+                                    value={jobDescription1}
+                                    onChange={handleChangeJobDescription1}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 1 Start Date
+                                  </Text>
+                                  <Input
+                                    placeholder="Month Year"
+                                    color="white"
+                                    value={jobStart1}
+                                    onChange={handleChangeJobStart1}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 1 End Date
+                                  </Text>
+                                  <Input
+                                    placeholder="Month Year"
+                                    color="white"
+                                    value={jobEnd1}
+                                    onChange={handleChangeJobEnd1}
+                                  />
+                                  <Text
+                                    fontSize="xl"
+                                    fontWeight="semibold"
+                                    color="#ffffff"
+                                  >
+                                    Job Experience 2
+                                  </Text>
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 2 Title
+                                  </Text>
+                                  <Input
+                                    placeholder="Leave Blank"
+                                    color="white"
+                                    value={jobTitle2}
+                                    onChange={handleChangeJobTitle2}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 2 Company
+                                  </Text>
+                                  <Input
+                                    placeholder="Leave Blank if N/A"
+                                    color="white"
+                                    value={jobComp2}
+                                    onChange={handleChangeJobComp2}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 2 Description
+                                  </Text>
+                                  <Input
+                                    placeholder="Leave Blank if N/A"
+                                    color="white"
+                                    value={jobDescription2}
+                                    onChange={handleChangeJobDescription2}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 2 Start Date
+                                  </Text>
+                                  <Input
+                                    placeholder="Month Year"
+                                    color="white"
+                                    value={jobStart2}
+                                    onChange={handleChangeJobStart2}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 2 End Date
+                                  </Text>
+                                  <Input
+                                    placeholder="Month Year"
+                                    color="white"
+                                    value={jobEnd2}
+                                    onChange={handleChangeJobEnd2}
+                                  />
+                                  <Text
+                                    fontSize="xl"
+                                    fontWeight="semibold"
+                                    color="#ffffff"
+                                  >
+                                    Job Experience 3
+                                  </Text>
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 3 Title
+                                  </Text>
+                                  <Input
+                                    placeholder="Leave Blank"
+                                    color="white"
+                                    value={jobTitle3}
+                                    onChange={handleChangeJobTitle3}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 3 Company
+                                  </Text>
+                                  <Input
+                                    placeholder="Leave Blank if N/A"
+                                    color="white"
+                                    value={jobComp3}
+                                    onChange={handleChangeJobComp3}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 3 Description
+                                  </Text>
+                                  <Input
+                                    placeholder="Leave Blank if N/A"
+                                    color="white"
+                                    value={jobDescription3}
+                                    onChange={handleChangeJobDescription3}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 3 Start Date
+                                  </Text>
+                                  <Input
+                                    placeholder="Month Year"
+                                    color="white"
+                                    value={jobStart3}
+                                    onChange={handleChangeJobStart3}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Work Experience 3 End Date
+                                  </Text>
+                                  <Input
+                                    placeholder="Month Year"
+                                    color="white"
+                                    value={jobEnd3}
+                                    onChange={handleChangeJobEnd3}
+                                  />
+                                </VStack>
+                              </Flex>
+                            </ModalBody>
+                            <ModalFooter>
+                              <Button
+                                onClick={handleEdit}
+                                isLoading={isLoading}
+                                colorScheme="teal"
+                                mr={4}
+                              >
+                                Save
+                              </Button>
+                              <Button onClick={onCloseWE} colorScheme="teal">
+                                Cancel
+                              </Button>
+                            </ModalFooter>
+                          </ModalContent>
+                        </Modal>
+                      </HStack>
+                    </IconButton>
+                  </VStack>
+                </Flex>
+              </Box>
             </Box>
           </VStack>
         </ProfileContent>
