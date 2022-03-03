@@ -95,7 +95,7 @@ const ProfileHero = () => {
           setDegree(users.degree);
           setUndergradCollege(users.undergradCollege);
           setUStartYear(users.UStartYear);
-          setUEndYear(users.setUEndYear);
+          setUEndYear(users.UEndYear);
         };
         getUserData();
       } else {
