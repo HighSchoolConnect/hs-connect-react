@@ -6,7 +6,7 @@ export const AboutUsContainer = styled.div`
   justify-content: center;
   align-items: top;
   padding: 0 30px;
-  height: 80vh;
+  height: 100vh;
   position: relative;
   z-index: 1;
 
