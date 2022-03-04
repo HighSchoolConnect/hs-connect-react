@@ -23,7 +23,7 @@ export const SignupContainer = styled.div`
 export const SignupWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 660px;
+  height: 670px;
   width: 100%;
   max-width: 1100px;
   margin-right: auto;
@@ -85,7 +85,7 @@ export const SignupForm = styled.form`
 `;
 
 export const FormDivider = styled.div`
-  height: 40px;
+  height: 0px;
 `;
 
 export const ImgWrap = styled.div`
@@ -99,6 +99,10 @@ export const ImgWrap = styled.div`
 
 export const Img = styled.img`
   width: 100%;
-  height: 660px;
-  margin: 0 0 10px 0;
+  height: 670px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: -10px;
+  margin-bottom: 20px;
+
 `;
