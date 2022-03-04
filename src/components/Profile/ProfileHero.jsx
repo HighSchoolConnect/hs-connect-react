@@ -27,6 +27,11 @@ import {
   Input,
   IconButton,
   Divider,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
 } from "@chakra-ui/react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { EditIcon } from "@chakra-ui/icons";
@@ -539,73 +544,101 @@ const ProfileHero = () => {
                           <ModalHeader color="white">Add Education</ModalHeader>
                           <ModalCloseButton />
                           <ModalBody>
-                            <Flex align="left">
-                              <VStack spacing={2} align="left" width="100%">
-                                <Text fontSize="sm" color="white">
-                                  High School
-                                </Text>
-                                <Input
-                                  placeholder="N/A if N/A"
-                                  color="white"
-                                  value={education}
-                                  onChange={handleChangeEducation}
-                                />
-                                <Text fontSize="sm" color="white">
-                                  High School Graduation Month
-                                </Text>
-                                <Input
-                                  placeholder="Leave Blank if N/A"
-                                  color="white"
-                                  value={HSGradMonth}
-                                  onChange={handleChangeHSGradMonth}
-                                />
-                                <Text fontSize="sm" color="white">
-                                  High School Graduation Year
-                                </Text>
-                                <Input
-                                  placeholder="Leave Blank if N/A"
-                                  color="white"
-                                  value={HSGradYear}
-                                  onChange={handleChangeHSGradYear}
-                                />
-                                <Text fontSize="sm" color="white">
-                                  Undergraduate Degree
-                                </Text>
-                                <Input
-                                  placeholder="N/A if N/A"
-                                  color="white"
-                                  value={degree}
-                                  onChange={handleChangeDegree}
-                                />
-                                <Text fontSize="sm" color="white">
-                                  Undergraduate College
-                                </Text>
-                                <Input
-                                  placeholder="Leave Blank if N/A"
-                                  color="white"
-                                  value={undergradCollege}
-                                  onChange={handleChangeUndergradCollege}
-                                />
-                                <Text fontSize="sm" color="white">
-                                  Undergraduate Start Year
-                                </Text>
-                                <Input
-                                  placeholder="Leave Blank if N/A"
-                                  color="white"
-                                  value={UStartYear}
-                                  onChange={handleChangeUStartYear}
-                                />
-                                <Text fontSize="sm" color="white">
-                                  Undergraduate End Year
-                                </Text>
-                                <Input
-                                  placeholder="Leave Blank if N/A"
-                                  color="white"
-                                  value={UEndYear}
-                                  onChange={handleChangeUEndYear}
-                                />
-                              </VStack>
-                            </Flex>
+                            <Tabs
+                              isFitted
+                              variant="soft-rounded"
+                              colorScheme="teal"
+                            >
+                              <TabList mb="1em">
+                                <Tab>High School</Tab>
+                                <Tab>Undergraduate</Tab>
+                              </TabList>
+                              <TabPanels>
+                                <TabPanel>
+                                  <Flex align="left">
+                                    <VStack
+                                      spacing={2}
+                                      align="left"
+                                      width="100%"
+                                    >
+                                      <Text fontSize="sm" color="white">
+                                        High School
+                                      </Text>
+                                      <Input
+                                        placeholder="N/A if N/A"
+                                        color="white"
+                                        value={education}
+                                        onChange={handleChangeEducation}
+                                      />
+                                      <Text fontSize="sm" color="white">
+                                        High School Graduation Month
+                                      </Text>
+                                      <Input
+                                        placeholder="Leave Blank if N/A"
+                                        color="white"
+                                        value={HSGradMonth}
+                                        onChange={handleChangeHSGradMonth}
+                                      />
+                                      <Text fontSize="sm" color="white">
+                                        High School Graduation Year
+                                      </Text>
+                                      <Input
+                                        placeholder="Leave Blank if N/A"
+                                        color="white"
+                                        value={HSGradYear}
+                                        onChange={handleChangeHSGradYear}
+                                      />
+                                    </VStack>
+                                  </Flex>
+                                </TabPanel>
+                                <TabPanel>
+                                  <Flex align="left">
+                                    <VStack
+                                      spacing={2}
+                                      align="left"
+                                      width="100%"
+                                    >
+                                      <Text fontSize="sm" color="white">
+                                        Undergraduate Degree
+                                      </Text>
+                                      <Input
+                                        placeholder="N/A if N/A"
+                                        color="white"
+                                        value={degree}
+                                        onChange={handleChangeDegree}
+                                      />
+                                      <Text fontSize="sm" color="white">
+                                        Undergraduate College
+                                      </Text>
+                                      <Input
+                                        placeholder="Leave Blank if N/A"
+                                        color="white"
+                                        value={undergradCollege}
+                                        onChange={handleChangeUndergradCollege}
+                                      />
+                                      <Text fontSize="sm" color="white">
+                                        Undergraduate Start Year
+                                      </Text>
+                                      <Input
+                                        placeholder="Leave Blank if N/A"
+                                        color="white"
+                                        value={UStartYear}
+                                        onChange={handleChangeUStartYear}
+                                      />
+                                      <Text fontSize="sm" color="white">
+                                        Undergraduate End Year
+                                      </Text>
+                                      <Input
+                                        placeholder="Leave Blank if N/A"
+                                        color="white"
+                                        value={UEndYear}
+                                        onChange={handleChangeUEndYear}
+                                      />
+                                    </VStack>
+                                  </Flex>
+                                </TabPanel>
+                              </TabPanels>
+                            </Tabs>
                           </ModalBody>
                           <ModalFooter>
                             <Button
@@ -700,166 +733,214 @@ const ProfileHero = () => {
                             </ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                              <Flex align="left">
-                                <VStack spacing={2} align="left" width="100%">
-                                  <Text
-                                    fontSize="xl"
-                                    fontWeight="semibold"
-                                    color="#ffffff"
-                                  >
-                                    Job Experience 1
-                                  </Text>
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 1 Title
-                                  </Text>
-                                  <Input
-                                    placeholder="Leave Blank"
-                                    color="white"
-                                    value={jobTitle1}
-                                    onChange={handleChangeJobTitle1}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 1 Company
-                                  </Text>
-                                  <Input
-                                    placeholder="Leave Blank if N/A"
-                                    color="white"
-                                    value={jobComp1}
-                                    onChange={handleChangeJobComp1}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 1 Description
-                                  </Text>
-                                  <Input
-                                    placeholder="Leave Blank if N/A"
-                                    color="white"
-                                    value={jobDescription1}
-                                    onChange={handleChangeJobDescription1}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 1 Start Date
-                                  </Text>
-                                  <Input
-                                    placeholder="Month Year"
-                                    color="white"
-                                    value={jobStart1}
-                                    onChange={handleChangeJobStart1}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 1 End Date
-                                  </Text>
-                                  <Input
-                                    placeholder="Month Year"
-                                    color="white"
-                                    value={jobEnd1}
-                                    onChange={handleChangeJobEnd1}
-                                  />
-                                  <Text
-                                    fontSize="xl"
-                                    fontWeight="semibold"
-                                    color="#ffffff"
-                                  >
-                                    Job Experience 2
-                                  </Text>
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 2 Title
-                                  </Text>
-                                  <Input
-                                    placeholder="Leave Blank"
-                                    color="white"
-                                    value={jobTitle2}
-                                    onChange={handleChangeJobTitle2}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 2 Company
-                                  </Text>
-                                  <Input
-                                    placeholder="Leave Blank if N/A"
-                                    color="white"
-                                    value={jobComp2}
-                                    onChange={handleChangeJobComp2}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 2 Description
-                                  </Text>
-                                  <Input
-                                    placeholder="Leave Blank if N/A"
-                                    color="white"
-                                    value={jobDescription2}
-                                    onChange={handleChangeJobDescription2}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 2 Start Date
-                                  </Text>
-                                  <Input
-                                    placeholder="Month Year"
-                                    color="white"
-                                    value={jobStart2}
-                                    onChange={handleChangeJobStart2}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 2 End Date
-                                  </Text>
-                                  <Input
-                                    placeholder="Month Year"
-                                    color="white"
-                                    value={jobEnd2}
-                                    onChange={handleChangeJobEnd2}
-                                  />
-                                  <Text
-                                    fontSize="xl"
-                                    fontWeight="semibold"
-                                    color="#ffffff"
-                                  >
-                                    Job Experience 3
-                                  </Text>
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 3 Title
-                                  </Text>
-                                  <Input
-                                    placeholder="Leave Blank"
-                                    color="white"
-                                    value={jobTitle3}
-                                    onChange={handleChangeJobTitle3}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 3 Company
-                                  </Text>
-                                  <Input
-                                    placeholder="Leave Blank if N/A"
-                                    color="white"
-                                    value={jobComp3}
-                                    onChange={handleChangeJobComp3}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 3 Description
-                                  </Text>
-                                  <Input
-                                    placeholder="Leave Blank if N/A"
-                                    color="white"
-                                    value={jobDescription3}
-                                    onChange={handleChangeJobDescription3}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 3 Start Date
-                                  </Text>
-                                  <Input
-                                    placeholder="Month Year"
-                                    color="white"
-                                    value={jobStart3}
-                                    onChange={handleChangeJobStart3}
-                                  />
-                                  <Text fontSize="sm" color="white">
-                                    Work Experience 3 End Date
-                                  </Text>
-                                  <Input
-                                    placeholder="Month Year"
-                                    color="white"
-                                    value={jobEnd3}
-                                    onChange={handleChangeJobEnd3}
-                                  />
-                                </VStack>
-                              </Flex>
+                              <Tabs>
+                                <TabList>
+                                  <Tab>
+                                    <Text fontSize="sm" color="white">
+                                      Work Experience 1
+                                    </Text>
+                                  </Tab>
+                                  <Tab>
+                                    <Text fontSize="sm" color="white">
+                                      Work Experience 2
+                                    </Text>
+                                  </Tab>
+                                  <Tab>
+                                    <Text fontSize="sm" color="white">
+                                      Work Experience 3
+                                    </Text>
+                                  </Tab>
+                                </TabList>
+                                <TabPanels>
+                                  <TabPanel>
+                                    <Flex align="left">
+                                      <VStack
+                                        spacing={2}
+                                        align="left"
+                                        width="100%"
+                                      >
+                                        <Text
+                                          fontSize="xl"
+                                          fontWeight="semibold"
+                                          color="#ffffff"
+                                        >
+                                          Job Experience 1
+                                        </Text>
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 1 Title
+                                        </Text>
+                                        <Input
+                                          placeholder="Leave Blank"
+                                          color="white"
+                                          value={jobTitle1}
+                                          onChange={handleChangeJobTitle1}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 1 Company
+                                        </Text>
+                                        <Input
+                                          placeholder="Leave Blank if N/A"
+                                          color="white"
+                                          value={jobComp1}
+                                          onChange={handleChangeJobComp1}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 1 Description
+                                        </Text>
+                                        <Input
+                                          placeholder="Leave Blank if N/A"
+                                          color="white"
+                                          value={jobDescription1}
+                                          onChange={handleChangeJobDescription1}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 1 Start Date
+                                        </Text>
+                                        <Input
+                                          placeholder="Month Year"
+                                          color="white"
+                                          value={jobStart1}
+                                          onChange={handleChangeJobStart1}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 1 End Date
+                                        </Text>
+                                        <Input
+                                          placeholder="Month Year"
+                                          color="white"
+                                          value={jobEnd1}
+                                          onChange={handleChangeJobEnd1}
+                                        />
+                                      </VStack>
+                                    </Flex>
+                                  </TabPanel>
+                                  <TabPanel>
+                                    <Flex align="left">
+                                      <VStack
+                                        spacing={2}
+                                        align="left"
+                                        width="100%"
+                                      >
+                                        <Text
+                                          fontSize="xl"
+                                          fontWeight="semibold"
+                                          color="#ffffff"
+                                        >
+                                          Job Experience 2
+                                        </Text>
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 2 Title
+                                        </Text>
+                                        <Input
+                                          placeholder="Leave Blank"
+                                          color="white"
+                                          value={jobTitle2}
+                                          onChange={handleChangeJobTitle2}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 2 Company
+                                        </Text>
+                                        <Input
+                                          placeholder="Leave Blank if N/A"
+                                          color="white"
+                                          value={jobComp2}
+                                          onChange={handleChangeJobComp2}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 2 Description
+                                        </Text>
+                                        <Input
+                                          placeholder="Leave Blank if N/A"
+                                          color="white"
+                                          value={jobDescription2}
+                                          onChange={handleChangeJobDescription2}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 2 Start Date
+                                        </Text>
+                                        <Input
+                                          placeholder="Month Year"
+                                          color="white"
+                                          value={jobStart2}
+                                          onChange={handleChangeJobStart2}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 2 End Date
+                                        </Text>
+                                        <Input
+                                          placeholder="Month Year"
+                                          color="whie"
+                                          value={jobEnd2}
+                                          onChange={handleChangeJobEnd2}
+                                        />
+                                        />
+                                      </VStack>
+                                    </Flex>
+                                  </TabPanel>
+                                  <TabPanel>
+                                    <Flex align="left">
+                                      <VStack
+                                        spacing={2}
+                                        align="left"
+                                        width="100%"
+                                      >
+                                        <Text
+                                          fontSize="xl"
+                                          fontWeight="semibold"
+                                          color="#ffffff"
+                                        >
+                                          Job Experience 3
+                                        </Text>
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 3 Title
+                                        </Text>
+                                        <Input
+                                          placeholder="Leave Blank"
+                                          color="white"
+                                          value={jobTitle3}
+                                          onChange={handleChangeJobTitle3}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 3 Company
+                                        </Text>
+                                        <Input
+                                          placeholder="Leave Blank if N/A"
+                                          color="white"
+                                          value={jobComp3}
+                                          onChange={handleChangeJobComp3}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 3 Description
+                                        </Text>
+                                        <Input
+                                          placeholder="Leave Blank if N/A"
+                                          color="white"
+                                          value={jobDescription3}
+                                          onChange={handleChangeJobDescription3}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 3 Start Date
+                                        </Text>
+                                        <Input
+                                          placeholder="Month Year"
+                                          color="white"
+                                          value={jobStart3}
+                                          onChange={handleChangeJobStart3}
+                                        />
+                                        <Text fontSize="sm" color="white">
+                                          Work Experience 3 End Date
+                                        </Text>
+                                        <Input
+                                          placeholder="Month Year"
+                                          color="white"
+                                          value={jobEnd3}
+                                          onChange={handleChangeJobEnd3}
+                                        />
+                                      </VStack>
+                                    </Flex>
+                                  </TabPanel>
+                                </TabPanels>
+                              </Tabs>
                             </ModalBody>
                             <ModalFooter>
                               <Button
