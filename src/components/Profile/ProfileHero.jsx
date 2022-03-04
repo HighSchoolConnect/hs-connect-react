@@ -129,21 +129,21 @@ const ProfileHero = () => {
           setUndergradCollege(users.undergradCollege);
           setUStartYear(users.UStartYear);
           setUEndYear(users.UEndYear);
-          setJobTitle1(users.jobTitle1);
-          setJobComp1(users.jobComp1);
-          setJobDescription1(users.jobDescription1);
-          setJobStart1(users.jobStart1);
-          setJobEnd1(users.jobEnd1);
-          setJobTitle2(users.jobTitle2);
-          setJobComp2(users.jobComp2);
-          setJobDescription2(users.jobDescription2);
-          setJobStart2(users.jobStart2);
-          setJobEnd2(users.jobEnd2);
-          setJobTitle3(users.jobTitle3);
-          setJobComp3(users.jobComp3);
-          setJobDescription3(users.jobDescription3);
-          setJobStart3(users.jobStart3);
-          setJobEnd3(users.jobEnd3);
+          // setJobTitle1(users.jobTitle1);
+          // setJobComp1(users.jobComp1);
+          // setJobDescription1(users.jobDescription1);
+          // setJobStart1(users.jobStart1);
+          // setJobEnd1(users.jobEnd1);
+          // setJobTitle2(users.jobTitle2);
+          // setJobComp2(users.jobComp2);
+          // setJobDescription2(users.jobDescription2);
+          // setJobStart2(users.jobStart2);
+          // setJobEnd2(users.jobEnd2);
+          // setJobTitle3(users.jobTitle3);
+          // setJobComp3(users.jobComp3);
+          // setJobDescription3(users.jobDescription3);
+          // setJobStart3(users.jobStart3);
+          // setJobEnd3(users.jobEnd3);
         };
         getUserData();
       } else {
@@ -164,21 +164,21 @@ const ProfileHero = () => {
     users.undergradCollege,
     users.UStartYear,
     users.UEndYear,
-    users.jobTitle1,
-    users.jobComp1,
-    users.jobDescription1,
-    users.jobStart1,
-    users.jobEnd1,
-    users.jobTitle2,
-    users.jobComp2,
-    users.jobDescription2,
-    users.jobStart2,
-    users.jobEnd2,
-    users.jobTitle3,
-    users.jobComp3,
-    users.jobDescription3,
-    users.jobStart3,
-    users.jobEnd3,
+    // users.jobTitle1,
+    // users.jobComp1,
+    // users.jobDescription1,
+    // users.jobStart1,
+    // users.jobEnd1,
+    // users.jobTitle2,
+    // users.jobComp2,
+    // users.jobDescription2,
+    // users.jobStart2,
+    // users.jobEnd2,
+    // users.jobTitle3,
+    // users.jobComp3,
+    // users.jobDescription3,
+    // users.jobStart3,
+    // users.jobEnd3,
   ]);
 
   const handleEdit = async () => {
@@ -198,27 +198,30 @@ const ProfileHero = () => {
       undergradCollege: undergradCollege,
       UStartYear: UStartYear,
       UEndYear: UEndYear,
-      jobTitle1: jobTitle1,
-      jobComp1: jobComp1,
-      jobDescription1: jobDescription1,
-      jobStart1: jobStart1,
-      jobEnd1: jobEnd1,
-      jobTitle2: jobTitle2,
-      jobComp2: jobComp2,
-      jobDescription2: jobDescription2,
-      jobStart2: jobStart2,
-      jobEnd2: jobEnd2,
-      jobTitle3: jobTitle3,
-      jobComp3: jobComp3,
-      jobDescription3: jobDescription3,
-      jobStart3: jobStart3,
-      jobEnd3: jobEnd3,
+      // jobTitle1: jobTitle1,
+      // jobComp1: jobComp1,
+      // jobDescription1: jobDescription1,
+      // jobStart1: jobStart1,
+      // jobEnd1: jobEnd1,
+      // jobTitle2: jobTitle2,
+      // jobComp2: jobComp2,
+      // jobDescription2: jobDescription2,
+      // jobStart2: jobStart2,
+      // jobEnd2: jobEnd2,
+      // jobTitle3: jobTitle3,
+      // jobComp3: jobComp3,
+      // jobDescription3: jobDescription3,
+      // jobStart3: jobStart3,
+      // jobEnd3: jobEnd3,
     });
     const userData = await getDoc(userCollectionRef);
     console.log(userData.data());
     setUsers(userData.data());
     setIsLoading(false);
     onCloseEdit();
+    onCloseAbout();
+    onCloseEdu();
+    onCloseWE();
   };
 
   const handleChangeDisplayName = (event) => setDisplayName(event.target.value);
