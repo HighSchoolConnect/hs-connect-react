@@ -728,9 +728,7 @@ const ProfileHero = () => {
                         <Modal isOpen={isOpenWE} onClose={onCloseWE} isCentered>
                           <ModalOverlay />
                           <ModalContent bg="teal">
-                            <ModalHeader color="white">
-                              Add Job
-                            </ModalHeader>
+                            <ModalHeader color="white">Add Job</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
                               <Tabs
@@ -864,7 +862,6 @@ const ProfileHero = () => {
                                           color="whie"
                                           value={jobEnd2}
                                           onChange={handleChangeJobEnd2}
-                                        />
                                         />
                                       </VStack>
                                     </Flex>
