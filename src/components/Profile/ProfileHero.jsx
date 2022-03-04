@@ -729,27 +729,19 @@ const ProfileHero = () => {
                           <ModalOverlay />
                           <ModalContent bg="teal">
                             <ModalHeader color="white">
-                              Add Education
+                              Add Job Experience
                             </ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
-                              <Tabs>
+                              <Tabs
+                                isFitted
+                                variant="soft-rounded"
+                                colorScheme="teal"
+                              >
                                 <TabList>
-                                  <Tab>
-                                    <Text fontSize="sm" color="white">
-                                      Work Experience 1
-                                    </Text>
-                                  </Tab>
-                                  <Tab>
-                                    <Text fontSize="sm" color="white">
-                                      Work Experience 2
-                                    </Text>
-                                  </Tab>
-                                  <Tab>
-                                    <Text fontSize="sm" color="white">
-                                      Work Experience 3
-                                    </Text>
-                                  </Tab>
+                                  <Tab>Job 1</Tab>
+                                  <Tab>Job 2</Tab>
+                                  <Tab>Job 3</Tab>
                                 </TabList>
                                 <TabPanels>
                                   <TabPanel>
