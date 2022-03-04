@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Page,
   Text,
@@ -107,6 +108,43 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     paddingBottom: 10,
   },
+  accompTitle: {
+    fontSize: 18,
+    textAlign: "left",
+    paddingBottom: 10,
+    fontFamily: "Montserrat-Bold",
+  },
+  accomp: {
+    fontSize: 12,
+    textAlign: "left",
+    marginLeft: 5,
+    paddingBottom: 10,
+  },
+  workTitle: {
+    fontSize: 18,
+    textAlign: "left",
+    paddingBottom: 10,
+    fontFamily: "Montserrat-Bold",
+  },
+  workCname: {
+    fontSize: 15,
+    textAlign: "left",
+    marginLeft: 5,
+    paddingBottom: 10,
+    fontFamily: "Montserrat-Bold",
+  },
+  workLocDate: {
+    fontSize: 14,
+    textAlign: "left",
+    marginLeft: 5,
+    paddingBottom: 10,
+  },
+  workSum: {
+    fontSize: 12,
+    textAlign: "left",
+    marginLeft: 5,
+    paddingBottom: 10,
+  },
 });
 
 const Resume = () => {
@@ -150,6 +188,36 @@ const Resume = () => {
                 started developing websites and applications in 2018. I have
                 experience in modern programming languages like Swift,
                 JavaScript & Python.
+              </Text>
+              <Text style={styles.accompTitle}>Accomplishments</Text>
+              <Text style={styles.accomp}>· Regionals in TSA competition</Text>
+              <Text style={styles.accomp}>· Got into Computer Science UTD</Text>
+              <Text style={styles.accomp}>· Made apps with hundreds of downloads</Text>
+  
+              <Text style={styles.workTitle}>Work History</Text>
+              <Text style={styles.workCname}>Apple</Text>
+              <Text style={styles.workLocDate}>California - 2021</Text>
+              <Text style={styles.workSum}>
+                I worked under the CEO and created multiple apps that 
+                have the capabilities to solve multiple problems. I was able
+                to help the overall workflow of the company and created a postive 
+                work environment for my peers.
+              </Text>
+              <Text style={styles.workCname}>Microsoft</Text>
+              <Text style={styles.workLocDate}>Washington - 2021</Text>
+              <Text style={styles.workSum}>
+                I worked with the lead development team and created a new 
+                windows version that was made to compensate for various bugs. 
+                I was able to positively influence the overall atmosphere 
+                of the company by implementing new strategies.
+              </Text>
+              <Text style={styles.workCname}>Tesla</Text>
+              <Text style={styles.workLocDate}>Texas - 2021</Text>
+              <Text style={styles.workSum}>
+                I was in a group that researched different ways to improve 
+                the production of the Model T car. After implementing this change
+                the production cycle has increased by 15% and made jobs for 
+                hundreds.
               </Text>
             </View>
           </Page>
