@@ -235,20 +235,17 @@ const ProfileHero = () => {
 
   const handleChangeJobTitle1 = (event) => setJobTitle1(event.target.value);
   const handleChangeJobComp1 = (event) => setJobComp1(event.target.value);
-  const handleChangeJobDescription1 = (event) =>
-    setJobDescription1(event.target.value);
+  const handleChangeJobDescription1 = (event) => setJobDescription1(event.target.value);
   const handleChangeJobStart1 = (event) => setJobStart1(event.target.value);
   const handleChangeJobEnd1 = (event) => setJobEnd1(event.target.value);
   const handleChangeJobTitle2 = (event) => setJobTitle2(event.target.value);
   const handleChangeJobComp2 = (event) => setJobComp2(event.target.value);
-  const handleChangeJobDescription2 = (event) =>
-    setJobDescription2(event.target.value);
+  const handleChangeJobDescription2 = (event) => setJobDescription2(event.target.value);
   const handleChangeJobStart2 = (event) => setJobStart2(event.target.value);
   const handleChangeJobEnd2 = (event) => setJobEnd2(event.target.value);
   const handleChangeJobTitle3 = (event) => setJobTitle3(event.target.value);
   const handleChangeJobComp3 = (event) => setJobComp3(event.target.value);
-  const handleChangeJobDescription3 = (event) =>
-    setJobDescription3(event.target.value);
+  const handleChangeJobDescription3 = (event) => setJobDescription3(event.target.value);
   const handleChangeJobStart3 = (event) => setJobStart3(event.target.value);
   const handleChangeJobEnd3 = (event) => setJobEnd3(event.target.value);
   return (
@@ -643,12 +640,12 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle1}
                         </Text>
-                        <Text>
+                        <Text Text fontSize="lg" color="#ffffff">
                           {users.jobStart1} - {users.jobEnd1}
                         </Text>
                       </HStack>
-                      <Text>{users.jobComp1}</Text>
-                      <Text>{users.jobDescription1}</Text>
+                      <Text Text fontSize="lg" color="#ffffff">{users.jobComp1}</Text>
+                      <Text Text fontSize="lg" color="#ffffff">{users.jobDescription1}</Text>
                     </VStack>
                     <VStack spacing={2} align="left">
                       <HStack>
@@ -659,12 +656,12 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle2}
                         </Text>
-                        <Text>
+                        <Text Text fontSize="lg" color="#ffffff">
                           {users.jobStart2} - {users.jobEnd2}
                         </Text>
                       </HStack>
-                      <Text>{users.jobComp2}</Text>
-                      <Text>{users.jobDescription2}</Text>
+                      <Text Text fontSize="lg" color="#ffffff">{users.jobComp2}</Text>
+                      <Text Text fontSize="lg" color="#ffffff">{users.jobDescription2}</Text>
                     </VStack>
                     <VStack spacing={2} align="left">
                       <HStack>
@@ -675,12 +672,12 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle3}
                         </Text>
-                        <Text>
+                        <Text Text fontSize="lg" color="#ffffff">
                           {users.jobStart3} - {users.jobEnd3}
                         </Text>
                       </HStack>
-                      <Text>{users.jobComp3}</Text>
-                      <Text>{users.jobDescription3}</Text>
+                      <Text Text fontSize="lg" color="#ffffff">{users.jobComp3}</Text>
+                      <Text Text fontSize="lg" color="#ffffff">{users.jobDescription3}</Text>
                     </VStack>
                   </VStack>
                 </HStack>
@@ -689,9 +686,6 @@ const ProfileHero = () => {
                     <IconButton colorScheme="teal" onClick={onOpenWE}>
                       <HStack spacing={2}>
                         <EditIcon color="white" />
-                        {/* <Text fontSize="sm" color="white">
-                      Edit Profile
-                    </Text> */}
                         <Modal isOpen={isOpenWE} onClose={onCloseWE} isCentered>
                           <ModalOverlay />
                           <ModalContent bg="teal">
