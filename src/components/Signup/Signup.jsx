@@ -115,7 +115,7 @@ const Signup = () => {
   }
 
   if (authDone === true) {
-    if (checkboxRef.current.checked === true) {
+    if (employerCheckboxRef.current.checked === true) {
       return <Navigate to="/dashboard" />;
     } else {
       return <Navigate to="/profile" />;
