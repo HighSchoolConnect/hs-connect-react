@@ -40,7 +40,7 @@ export const createUserDocument = async (user, additionalData) => {
     location: "",
     education: "",
     phone: "",
-    photoURL: "",
+    photoURL: "https://firebasestorage.googleapis.com/v0/b/thehsconnect.appspot.com/o/undraw_profile_pic_ic-5-t%20(1).svg?alt=media&token=49609533-c10e-43fd-863d-1de315962adf",
     about: "",
     HSGradMonth: "",
     HSGradYear: "",
