@@ -14,22 +14,32 @@ import {
   FormDivider,
 } from "./SigninElements";
 
-import { Input, Button, Checkbox, Link, HStack } from "@chakra-ui/react";
+import {
+  Input,
+  Button,
+  Checkbox,
+  Link,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
 
-import { useAuth, login } from "../Signup/Firebase";
+import { useAuth, login, db, auth } from "../Signup/Firebase";
 
 import { Navigate } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
   const [authDone, setAuthDone] = useState(false);
   const [signup, setSignup] = useState(false);
   const [forgotPassword, setForgotPassword] = useState(false);
-
   const currentUser = useAuth();
 
   const emailRef = useRef();
   const passwordRef = useRef();
+  const employerCheckboxRef = useRef();
+
+  const [isEmployer, setIsEmployer] = useState(false);
 
   async function handleLogin() {
     setLoading(true);
@@ -51,7 +61,30 @@ const Signin = () => {
   }
 
   if (authDone === true) {
-    return <Navigate to="/profile" />;
+    if (employerCheckboxRef.current.checked === true) {
+      const getUserData = async () => {
+        const userCollectionRef = await doc(
+          db,
+          "employers",
+          auth.currentUser.uid
+        );
+
+        const userData = await getDoc(userCollectionRef);
+        if (userData.data().employer === true) {
+          console.log("employer");
+          setIsEmployer(true);
+        }
+      };
+      getUserData();
+
+      if (isEmployer === true) {
+        return <Navigate to="/dashboard" />;
+      } else {
+        return <Navigate to="/profile" />;
+      }
+    } else {
+      return <Navigate to="/profile" />;
+    }
   }
 
   if (signup === true) {
@@ -91,7 +124,12 @@ const Signin = () => {
                 size="lg"
               />
               <HStack spacing={20}>
-                <Checkbox>Keep me logged in</Checkbox>
+                <VStack align="left">
+                  <Checkbox>Keep me logged in</Checkbox>
+                  <Checkbox colorScheme="teal" ref={employerCheckboxRef}>
+                    I am an employer
+                  </Checkbox>
+                </VStack>
                 <Link onClick={navigateToForgotPassword}>Forgot Password?</Link>
               </HStack>
 

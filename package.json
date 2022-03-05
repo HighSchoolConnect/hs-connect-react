@@ -5,28 +5,35 @@
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.7.2",
+    "@craco/craco": "^7.0.0-alpha.0",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@react-pdf/renderer": "^2.1.1",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "assert": "^2.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
     "firebase": "^9.6.7",
     "framer-motion": "^4.1.17",
+    "process": "^0.11.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-firebase-hooks": "^4.0.1",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.0",
     "react-scroll": "^1.8.4",
+    "stream-browserify": "^3.0.0",
     "styled-components": "^5.3.3",
+    "util": "^0.12.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-error-overlay": "^6.0.9"
   }
 }

@@ -16,7 +16,12 @@ import {
 
 import { Input, Button, Checkbox, Link, useToast } from "@chakra-ui/react";
 
-import { createUserDocument, signup, useAuth } from "./Firebase.js";
+import {
+  createEmployerDocument,
+  createUserDocument,
+  signup,
+  useAuth,
+} from "./Firebase.js";
 
 import { Navigate } from "react-router-dom";
 
@@ -31,6 +36,9 @@ const Signup = () => {
   const displayNameRef = useRef();
   const toast = useToast();
   const checkboxRef = useRef();
+  const companyRef = useRef();
+
+  const employerCheckboxRef = useRef();
 
   async function handleSignup() {
     setLoading(true);
@@ -43,7 +51,40 @@ const Signup = () => {
         isClosable: true,
       });
     } else {
-      if (emailRef && passwordRef) {
+      if (
+        emailRef &&
+        passwordRef &&
+        employerCheckboxRef.current.checked === true
+      ) {
+        try {
+          await signup(emailRef.current.value, passwordRef.current.value);
+          await createEmployerDocument(
+            currentUser,
+            displayNameRef.current.value,
+            companyRef.current.value
+          );
+          setAuthDone(true);
+          toast({
+            title: "Account created.",
+            description: "We've created your account for you.",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
+        } catch (error) {
+          toast({
+            title: "Please check all the fields",
+            description: error.message,
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          });
+        }
+      } else if (
+        emailRef &&
+        passwordRef &&
+        employerCheckboxRef.current.checked === false
+      ) {
         try {
           await signup(emailRef.current.value, passwordRef.current.value);
           await createUserDocument(currentUser, displayNameRef.current.value);
@@ -74,7 +115,11 @@ const Signup = () => {
   }
 
   if (authDone === true) {
-    return <Navigate to="/profile" />;
+    if (checkboxRef.current.checked === true) {
+      return <Navigate to="/dashboard" />;
+    } else {
+      return <Navigate to="/profile" />;
+    }
   }
 
   if (signin === true) {
@@ -96,6 +141,17 @@ const Signup = () => {
                 color="white"
                 _placeholder={{ color: "white" }}
                 ref={displayNameRef}
+                width={400}
+                size="lg"
+              />
+              <Input
+                placeholder="Company"
+                type="text"
+                bg="#00c6d3"
+                borderColor="#00c6d3"
+                color="white"
+                _placeholder={{ color: "white" }}
+                ref={companyRef}
                 width={400}
                 size="lg"
               />
@@ -132,9 +188,13 @@ const Signup = () => {
                 width={400}
                 size="lg"
               />
+              <Checkbox colorScheme="teal" ref={employerCheckboxRef}>
+                I am an employer
+              </Checkbox>
               <Checkbox colorScheme="teal" ref={checkboxRef}>
                 I agree to the <Link color="#00c6d3">license</Link> terms
               </Checkbox>
+
               <FormDivider></FormDivider>
               <Button
                 isLoading={loading}

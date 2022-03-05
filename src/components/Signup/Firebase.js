@@ -36,6 +36,22 @@ export const createUserDocument = async (user, additionalData) => {
   const userRef = doc(db, "users", auth.currentUser.uid);
   await setDoc(userRef, {
     displayName: additionalData,
+    employer: false,
+    email: auth.currentUser.email,
+    createdAt: new Date(),
+  });
+
+
+};
+
+export const createEmployerDocument = async (user, additionalData, additionalData2) => {
+
+
+  const userRef = doc(db, "employers", auth.currentUser.uid);
+  await setDoc(userRef, {
+    displayName: additionalData,
+    company: additionalData2,
+    employer: true,
     email: auth.currentUser.email,
     createdAt: new Date(),
   });
