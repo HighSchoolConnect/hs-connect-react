@@ -70,11 +70,15 @@ export const TextP = styled.p`
   padding: 20px;
 
   @media screen and (max-width: 768px) {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 16px;
+    font-size: 10px;
+  }
+
+  @media screen and (max-width: 950px) {
+    font-size: 14px;
   }
 `;
 
@@ -86,11 +90,15 @@ export const TextH1 = styled.h1`
   font-weight: 400;
 
   @media screen and (max-width: 768px) {
-    font-size: 70px;
+    font-size: 60px;
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 60px;
+    font-size: 50px;
+  }
+
+  @media screen and (max-width: 950px) {
+    font-size: 75px;
   }
 `;
 
@@ -102,7 +110,7 @@ export const TextH2 = styled.h2`
   font-weight: 400;
 
   @media screen and (max-width: 950px) {
-    font-size: 70px;
+    font-size: 60px;
   }
 
   @media screen and (max-width: 848px) {
@@ -122,7 +130,7 @@ export const TextH3 = styled.h3`
   font-weight: 400;
 
   @media screen and (max-width: 950px) {
-    font-size: 30px;
+    font-size: 35px;
   }
 
   @media screen and (max-width: 848px) {
@@ -130,6 +138,6 @@ export const TextH3 = styled.h3`
   }
 
   @media screen and (max-width: 600px) {
-    font-size: 30px;
+    font-size: 20px;
   }
 `;

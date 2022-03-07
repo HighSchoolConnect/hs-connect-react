@@ -41,7 +41,7 @@ const AboutUs = () => {
            Gana Ventrapragada - Front End Developer
           </TextP>
           <TextP>
-            Kamalesh Mohanasundar - I did no work!
+            Kamalesh Mohanasundar - Front End Developer
           </TextP>
         </TextCont>
       </AboutUsContent>
