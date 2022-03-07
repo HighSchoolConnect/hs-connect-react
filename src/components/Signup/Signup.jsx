@@ -115,6 +115,9 @@ const Signup = () => {
   }
 
   if (authDone === true) {
+    window.location.reload(false);
+    
+
     if (employerCheckboxRef.current.checked === true) {
       return <Navigate to="/dashboard" />;
     } else {

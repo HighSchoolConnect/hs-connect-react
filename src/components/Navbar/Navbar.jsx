@@ -60,6 +60,7 @@ const Navbar = ({ toggle }) => {
   async function handleLogout() {
     try {
       await logout();
+      window.location.reload(false);
     } catch {
       alert("Error signing out");
     }
