@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import {
   Page,
   Text,
@@ -13,6 +14,8 @@ import styled from "styled-components";
 import { Flex } from "@chakra-ui/react";
 import MontserratRegular from "./Montserrat-Regular.ttf";
 import MontserratBold from "./Montserrat-Bold.ttf";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../../components/Signup/Firebase";
 
 Font.register({
   family: "Montserrat-Regular",
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     padding: 10,
     flexGrow: 1,
     width: "100px",
-    backgroundColor: "#84c5f0",
+    backgroundColor: "#a1caff",
   },
   title: {
     fontSize: 32,
@@ -65,6 +68,7 @@ const styles = StyleSheet.create({
   },
   image: {
     borderRadius: "50%",
+    marginBottom: 10,
   },
   skills: {
     fontSize: 18,
@@ -107,50 +111,127 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     paddingBottom: 10,
   },
+  accompTitle: {
+    fontSize: 18,
+    textAlign: "left",
+    paddingBottom: 10,
+    fontFamily: "Montserrat-Bold",
+  },
+  accomp: {
+    fontSize: 12,
+    textAlign: "left",
+    marginLeft: 5,
+    paddingBottom: 10,
+  },
+  workTitle: {
+    fontSize: 18,
+    textAlign: "left",
+    paddingBottom: 10,
+    fontFamily: "Montserrat-Bold",
+  },
+  workCname: {
+    fontSize: 15,
+    textAlign: "left",
+    marginLeft: 5,
+    paddingBottom: 10,
+    fontFamily: "Montserrat-Bold",
+  },
+  workLocDate: {
+    fontSize: 14,
+    textAlign: "left",
+    marginLeft: 5,
+    paddingBottom: 10,
+  },
+  workSum: {
+    fontSize: 12,
+    textAlign: "left",
+    marginLeft: 5,
+    paddingBottom: 10,
+  },
 });
 
 const Resume = () => {
+  const [users, setUsers] = useState({});
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  useEffect(() => {
+    const unsub = auth.onAuthStateChanged((authObj) => {
+      unsub();
+      if (authObj) {
+        const getUserData = async () => {
+          const userCollectionRef = await doc(
+            db,
+            "users",
+            auth.currentUser.uid
+          );
+          const userData = await getDoc(userCollectionRef);
+          console.log(userData.data());
+          setUsers(userData.data());
+          setFirstName(userData.data().displayName.split(" ")[0]);
+          setLastName(userData.data().displayName.split(" ")[1]);
+        };
+        getUserData();
+      } else {
+        // not logged in
+      }
+    });
+  }, []);
   return (
     <Flex direction="column" justify="center" align="center">
       <PDFViewer width="700px" height="1000px">
         <Document title="ResumeGG" author="HS Connect">
           <Page size="Letter" style={styles.page}>
             <View style={styles.leftSection}>
-              <Image
-                src="https://avatars.githubusercontent.com/u/47117192?v=4"
-                style={styles.image}
-              />
-              <Text style={styles.title}>Geeth</Text>
-              <Text style={styles.title}>Gunnampalli</Text>
+              <Image src={users.photoURL} style={styles.image} />
+              <Text style={styles.title}>{firstName}</Text>
+              <Text style={styles.title}>{lastName}</Text>
 
-              <Text style={styles.email}>geeth.gunnampalli@gmail.com</Text>
-              <Text style={styles.phoneNumber}>+1 (972) 829 - 5173</Text>
-              <Text style={styles.location}>Coppell, TX</Text>
+              <Text style={styles.email}>{users.email}</Text>
+              <Text style={styles.phoneNumber}>{users.phone}</Text>
+              <Text style={styles.location}>{users.location}</Text>
 
               <Text style={styles.skills}>Skills</Text>
-              <Text style={styles.skillItem}>· Swift</Text>
-              <Text style={styles.skillItem}>· JavaScript</Text>
-              <Text style={styles.skillItem}>· Java</Text>
-              <Text style={styles.skillItem}>· Python</Text>
+              <Text style={styles.skillItem}>{users.skill1}</Text>
+              <Text style={styles.skillItem}>{users.skill2}</Text>
+              <Text style={styles.skillItem}>{users.skill3}</Text>
+              <Text style={styles.skillItem}>{users.skill4}</Text>
+              <Text style={styles.skillItem}>{users.skill5}</Text>
 
               <Text style={styles.education}>Education</Text>
               <Text style={styles.educationItem}>
-                {" "}
-                · Coppell High School (2018 - 2022)
+                {users.education} - {users.HSGradMonth} {users.HSGradYear}
               </Text>
               <Text style={styles.educationItem}>
-                {" "}
-                · University of Texas at Dallas (2022 - Present)
+                {users.undergradCollege} - {users.UStartYear} - {users.UEndYear}{" "}
               </Text>
             </View>
             <View style={styles.rightSection}>
               <Text style={styles.summaryTtile}>Professional Summary</Text>
-              <Text style={styles.summary}>
-                I'm Geeth Gunnampalli, a senior at Coppell High School. I
-                started developing websites and applications in 2018. I have
-                experience in modern programming languages like Swift,
-                JavaScript & Python.
+              <Text style={styles.summary}>{users.about}</Text>
+              <Text style={styles.accompTitle}>Accomplishments</Text>
+              <Text style={styles.accomp}>{users.ac1}</Text>
+              <Text style={styles.accomp}>{users.ac2}</Text>
+              <Text style={styles.accomp}>{users.ac3}</Text>
+
+              <Text style={styles.workTitle}>Work History</Text>
+
+              <Text style={styles.workCname}>{users.jobComp1}</Text>
+              <Text style={styles.workLocDate}>
+                {users.jobStart1} - {users.jobEnd1}
               </Text>
+              <Text style={styles.workSum}>{users.jobDescription1}</Text>
+              <Text style={styles.workCname}>{users.jobComp2}</Text>
+              <Text style={styles.workLocDate}>
+                {users.jobStart2} - {users.jobEnd2}
+              </Text>
+              <Text style={styles.workSum}>{users.jobDescription2}</Text>
+
+              <Text style={styles.workCname}>{users.jobComp3}</Text>
+              <Text style={styles.workLocDate}>
+                {users.jobStart3} - {users.jobEnd3}
+              </Text>
+              <Text style={styles.workSum}>{users.jobDescription3}</Text>
             </View>
           </Page>
         </Document>

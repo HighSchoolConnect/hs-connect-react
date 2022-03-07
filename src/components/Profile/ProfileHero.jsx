@@ -70,6 +70,18 @@ const ProfileHero = () => {
     onClose: onCloseWE,
   } = useDisclosure();
 
+  const {
+    isOpen: isOpenSk,
+    onOpen: onOpenSk,
+    onClose: onCloseSk,
+  } = useDisclosure();
+
+  const {
+    isOpen: isOpenAc,
+    onOpen: onOpenAc,
+    onClose: onCloseAc,
+  } = useDisclosure();
+
   const [displayName, setDisplayName] = useState("");
   const [currentPosition, setCurrentPosition] = useState("");
   const [location, setLocation] = useState("");
@@ -101,6 +113,16 @@ const ProfileHero = () => {
   const [jobStart3, setJobStart3] = useState("");
   const [jobEnd3, setJobEnd3] = useState("");
 
+  const [skill1, setSkill1] = useState("");
+  const [skill2, setSkill2] = useState("");
+  const [skill3, setSkill3] = useState("");
+  const [skill4, setSkill4] = useState("");
+  const [skill5, setSkill5] = useState("");
+
+  const [ac1, setAc1] = useState("");
+  const [ac2, setAc2] = useState("");
+  const [ac3, setAc3] = useState("");
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -129,21 +151,29 @@ const ProfileHero = () => {
           setUndergradCollege(users.undergradCollege);
           setUStartYear(users.UStartYear);
           setUEndYear(users.UEndYear);
-          // setJobTitle1(users.jobTitle1);
-          // setJobComp1(users.jobComp1);
-          // setJobDescription1(users.jobDescription1);
-          // setJobStart1(users.jobStart1);
-          // setJobEnd1(users.jobEnd1);
-          // setJobTitle2(users.jobTitle2);
-          // setJobComp2(users.jobComp2);
-          // setJobDescription2(users.jobDescription2);
-          // setJobStart2(users.jobStart2);
-          // setJobEnd2(users.jobEnd2);
-          // setJobTitle3(users.jobTitle3);
-          // setJobComp3(users.jobComp3);
-          // setJobDescription3(users.jobDescription3);
-          // setJobStart3(users.jobStart3);
-          // setJobEnd3(users.jobEnd3);
+          setJobTitle1(users.jobTitle1);
+          setJobComp1(users.jobComp1);
+          setJobDescription1(users.jobDescription1);
+          setJobStart1(users.jobStart1);
+          setJobEnd1(users.jobEnd1);
+          setJobTitle2(users.jobTitle2);
+          setJobComp2(users.jobComp2);
+          setJobDescription2(users.jobDescription2);
+          setJobStart2(users.jobStart2);
+          setJobEnd2(users.jobEnd2);
+          setJobTitle3(users.jobTitle3);
+          setJobComp3(users.jobComp3);
+          setJobDescription3(users.jobDescription3);
+          setJobStart3(users.jobStart3);
+          setJobEnd3(users.jobEnd3);
+          setSkill1(users.skill1);
+          setSkill2(users.skill2);
+          setSkill3(users.skill3);
+          setSkill4(users.skill4);
+          setSkill5(users.skill5);
+          setAc1(users.ac1);
+          setAc1(users.ac2);
+          setAc1(users.ac3);
         };
         getUserData();
       } else {
@@ -164,21 +194,29 @@ const ProfileHero = () => {
     users.undergradCollege,
     users.UStartYear,
     users.UEndYear,
-    // users.jobTitle1,
-    // users.jobComp1,
-    // users.jobDescription1,
-    // users.jobStart1,
-    // users.jobEnd1,
-    // users.jobTitle2,
-    // users.jobComp2,
-    // users.jobDescription2,
-    // users.jobStart2,
-    // users.jobEnd2,
-    // users.jobTitle3,
-    // users.jobComp3,
-    // users.jobDescription3,
-    // users.jobStart3,
-    // users.jobEnd3,
+    users.jobTitle1,
+    users.jobComp1,
+    users.jobDescription1,
+    users.jobStart1,
+    users.jobEnd1,
+    users.jobTitle2,
+    users.jobComp2,
+    users.jobDescription2,
+    users.jobStart2,
+    users.jobEnd2,
+    users.jobTitle3,
+    users.jobComp3,
+    users.jobDescription3,
+    users.jobStart3,
+    users.jobEnd3,
+    users.skill1,
+    users.skill2,
+    users.skill3,
+    users.skill4,
+    users.skill5,
+    users.ac1,
+    users.ac2,
+    users.ac3,
   ]);
 
   const handleEdit = async () => {
@@ -198,21 +236,29 @@ const ProfileHero = () => {
       undergradCollege: undergradCollege,
       UStartYear: UStartYear,
       UEndYear: UEndYear,
-      // jobTitle1: jobTitle1,
-      // jobComp1: jobComp1,
-      // jobDescription1: jobDescription1,
-      // jobStart1: jobStart1,
-      // jobEnd1: jobEnd1,
-      // jobTitle2: jobTitle2,
-      // jobComp2: jobComp2,
-      // jobDescription2: jobDescription2,
-      // jobStart2: jobStart2,
-      // jobEnd2: jobEnd2,
-      // jobTitle3: jobTitle3,
-      // jobComp3: jobComp3,
-      // jobDescription3: jobDescription3,
-      // jobStart3: jobStart3,
-      // jobEnd3: jobEnd3,
+      jobTitle1: jobTitle1,
+      jobComp1: jobComp1,
+      jobDescription1: jobDescription1,
+      jobStart1: jobStart1,
+      jobEnd1: jobEnd1,
+      jobTitle2: jobTitle2,
+      jobComp2: jobComp2,
+      jobDescription2: jobDescription2,
+      jobStart2: jobStart2,
+      jobEnd2: jobEnd2,
+      jobTitle3: jobTitle3,
+      jobComp3: jobComp3,
+      jobDescription3: jobDescription3,
+      jobStart3: jobStart3,
+      jobEnd3: jobEnd3,
+      skill1: skill1,
+      skill2: skill2,
+      skill3: skill3,
+      skill4: skill4,
+      skill5: skill5,
+      ac1: ac1,
+      ac2: ac2,
+      ac3: ac3,
     });
     const userData = await getDoc(userCollectionRef);
     console.log(userData.data());
@@ -222,6 +268,8 @@ const ProfileHero = () => {
     onCloseAbout();
     onCloseEdu();
     onCloseWE();
+    onCloseSk();
+    onCloseAc();
   };
 
   const handleChangeDisplayName = (event) => setDisplayName(event.target.value);
@@ -259,6 +307,16 @@ const ProfileHero = () => {
     setJobDescription3(event.target.value);
   const handleChangeJobStart3 = (event) => setJobStart3(event.target.value);
   const handleChangeJobEnd3 = (event) => setJobEnd3(event.target.value);
+
+  const handleChangeSkill1 = (event) => setSkill1(event.target.value);
+  const handleChangeSkill2 = (event) => setSkill2(event.target.value);
+  const handleChangeSkill3 = (event) => setSkill3(event.target.value);
+  const handleChangeSkill4 = (event) => setSkill4(event.target.value);
+  const handleChangeSkill5 = (event) => setSkill5(event.target.value);
+
+  const handleChangeAc1 = (event) => setAc1(event.target.value);
+  const handleChangeAc2 = (event) => setAc2(event.target.value);
+  const handleChangeAc3 = (event) => setAc3(event.target.value);
   return (
     <>
       <ProfileContainer id="profile">
@@ -284,9 +342,6 @@ const ProfileHero = () => {
                   <IconButton colorScheme="teal" onClick={onOpenEdit}>
                     <HStack spacing={2}>
                       <EditIcon color="white" />
-                      {/* <Text fontSize="sm" color="white">
-                      Edit Profile
-                    </Text> */}
                       <Modal
                         isOpen={isOpenEdit}
                         onClose={onCloseEdit}
@@ -679,12 +734,16 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle1}
                         </Text>
-                        <Text>
+                        <Text fontSize="lg" color="#ffffff">
                           {users.jobStart1} - {users.jobEnd1}
                         </Text>
                       </HStack>
-                      <Text>{users.jobComp1}</Text>
-                      <Text>{users.jobDescription1}</Text>
+                      <Text fontSize="lg" color="#ffffff">
+                        {users.jobComp1}
+                      </Text>
+                      <Text fontSize="lg" color="#ffffff">
+                        {users.jobDescription1}
+                      </Text>
                     </VStack>
                     <VStack spacing={2} align="left">
                       <HStack>
@@ -695,12 +754,16 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle2}
                         </Text>
-                        <Text>
+                        <Text fontSize="lg" color="#ffffff">
                           {users.jobStart2} - {users.jobEnd2}
                         </Text>
                       </HStack>
-                      <Text>{users.jobComp2}</Text>
-                      <Text>{users.jobDescription2}</Text>
+                      <Text fontSize="lg" color="#ffffff">
+                        {users.jobComp2}
+                      </Text>
+                      <Text fontSize="lg" color="#ffffff">
+                        {users.jobDescription2}
+                      </Text>
                     </VStack>
                     <VStack spacing={2} align="left">
                       <HStack>
@@ -711,12 +774,16 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle3}
                         </Text>
-                        <Text>
+                        <Text fontSize="lg" color="#ffffff">
                           {users.jobStart3} - {users.jobEnd3}
                         </Text>
                       </HStack>
-                      <Text>{users.jobComp3}</Text>
-                      <Text>{users.jobDescription3}</Text>
+                      <Text fontSize="lg" color="#ffffff">
+                        {users.jobComp3}
+                      </Text>
+                      <Text fontSize="lg" color="#ffffff">
+                        {users.jobDescription3}
+                      </Text>
                     </VStack>
                   </VStack>
                 </HStack>
@@ -725,9 +792,6 @@ const ProfileHero = () => {
                     <IconButton colorScheme="teal" onClick={onOpenWE}>
                       <HStack spacing={2}>
                         <EditIcon color="white" />
-                        {/* <Text fontSize="sm" color="white">
-                      Edit Profile
-                    </Text> */}
                         <Modal isOpen={isOpenWE} onClose={onCloseWE} isCentered>
                           <ModalOverlay />
                           <ModalContent bg="teal">
@@ -944,6 +1008,220 @@ const ProfileHero = () => {
                                 Save
                               </Button>
                               <Button onClick={onCloseWE} colorScheme="teal">
+                                Cancel
+                              </Button>
+                            </ModalFooter>
+                          </ModalContent>
+                        </Modal>
+                      </HStack>
+                    </IconButton>
+                  </VStack>
+                </Flex>
+              </Box>
+              <Divider />
+              {/* Skills Section */}
+              <Box
+                bg="#000000"
+                borderRadius="15px"
+                w="auto"
+                maxW="1000px"
+                align="left"
+              >
+                <HStack spacing={5} p={10}>
+                  <VStack align="left" spacing={5}>
+                    <Text fontSize="xl" fontWeight="semibold" color="#ffffff">
+                      Skills
+                    </Text>
+                    <VStack align="left">
+                      <Text fontSize="xl" color="#ffffff">
+                        - {users.skill1}
+                      </Text>
+                      <Text fontSize="xl" color="#ffffff">
+                        - {users.skill2}
+                      </Text>
+                      <Text fontSize="xl" color="#ffffff">
+                        - {users.skill3}
+                      </Text>
+                      <Text fontSize="xl" color="#ffffff">
+                        - {users.skill4}
+                      </Text>
+                      <Text fontSize="xl" color="#ffffff">
+                        - {users.skill5}
+                      </Text>
+                    </VStack>
+                    <Text fontSize="lg" color="#ffffff"></Text>
+                  </VStack>
+                </HStack>
+                <Flex align="center" justify="right" spacing={5} p={5}>
+                  <VStack align="center" spacing={5}>
+                    <IconButton colorScheme="teal" onClick={onOpenSk}>
+                      <HStack spacing={2}>
+                        <EditIcon color="white" />
+                        {/* <Text fontSize="sm" color="white">
+                      Edit Profile
+                    </Text> */}
+                        <Modal isOpen={isOpenSk} onClose={onCloseSk} isCentered>
+                          <ModalOverlay />
+                          <ModalContent bg="teal">
+                            <ModalHeader color="white">Add Skills</ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody>
+                              <Flex align="left">
+                                <VStack spacing={2} align="left" width="100%">
+                                  <Text fontSize="sm" color="white">
+                                    Skill 1
+                                  </Text>
+                                  <Input
+                                    placeholder="Skill 1"
+                                    color="white"
+                                    value={skill1}
+                                    onChange={handleChangeSkill1}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Skill 2
+                                  </Text>
+                                  <Input
+                                    placeholder="Skill 2"
+                                    color="white"
+                                    value={skill2}
+                                    onChange={handleChangeSkill2}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Skill 3
+                                  </Text>
+                                  <Input
+                                    placeholder="Skill 3"
+                                    color="white"
+                                    value={skill3}
+                                    onChange={handleChangeSkill3}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Skill 4
+                                  </Text>
+                                  <Input
+                                    placeholder="Skill 4"
+                                    color="white"
+                                    value={skill4}
+                                    onChange={handleChangeSkill4}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Skill 5
+                                  </Text>
+                                  <Input
+                                    placeholder="Skill 5"
+                                    color="white"
+                                    value={skill5}
+                                    onChange={handleChangeSkill5}
+                                  />
+                                </VStack>
+                              </Flex>
+                            </ModalBody>
+                            <ModalFooter>
+                              <Button
+                                onClick={handleEdit}
+                                isLoading={isLoading}
+                                colorScheme="teal"
+                                mr={4}
+                              >
+                                Save
+                              </Button>
+                              <Button onClick={onCloseSk} colorScheme="teal">
+                                Cancel
+                              </Button>
+                            </ModalFooter>
+                          </ModalContent>
+                        </Modal>
+                      </HStack>
+                    </IconButton>
+                  </VStack>
+                </Flex>
+              </Box>
+              <Divider />
+              {/* Accomplishments Section */}
+              <Box
+                bg="#000000"
+                borderRadius="15px"
+                w="auto"
+                maxW="1000px"
+                align="left"
+              >
+                <HStack spacing={5} p={10}>
+                  <VStack align="left" spacing={5}>
+                    <Text fontSize="xl" fontWeight="semibold" color="#ffffff">
+                      Accomplishments
+                    </Text>
+                    <VStack align="left">
+                      <Text fontSize="xl" color="#ffffff">
+                        - {users.ac1}
+                      </Text>
+                      <Text fontSize="xl" color="#ffffff">
+                        - {users.ac2}
+                      </Text>
+                      <Text fontSize="xl" color="#ffffff">
+                        - {users.ac3}
+                      </Text>
+                    </VStack>
+                    <Text fontSize="lg" color="#ffffff"></Text>
+                  </VStack>
+                </HStack>
+                <Flex align="center" justify="right" spacing={5} p={5}>
+                  <VStack align="center" spacing={5}>
+                    <IconButton colorScheme="teal" onClick={onOpenAc}>
+                      <HStack spacing={2}>
+                        <EditIcon color="white" />
+                        {/* <Text fontSize="sm" color="white">
+                      Edit Profile
+                    </Text> */}
+                        <Modal isOpen={isOpenAc} onClose={onCloseAc} isCentered>
+                          <ModalOverlay />
+                          <ModalContent bg="teal">
+                            <ModalHeader color="white">
+                              Add Accomplishments
+                            </ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody>
+                              <Flex align="left">
+                                <VStack spacing={2} align="left" width="100%">
+                                  <Text fontSize="sm" color="white">
+                                    Accomplishment 1
+                                  </Text>
+                                  <Input
+                                    placeholder="Accomplishment 1"
+                                    color="white"
+                                    value={ac1}
+                                    onChange={handleChangeAc1}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Accomplishment 2
+                                  </Text>
+                                  <Input
+                                    placeholder="Accomplishment 2"
+                                    color="white"
+                                    value={ac2}
+                                    onChange={handleChangeAc2}
+                                  />
+                                  <Text fontSize="sm" color="white">
+                                    Accomplishment 3
+                                  </Text>
+                                  <Input
+                                    placeholder="Accomplishment 3"
+                                    color="white"
+                                    value={ac3}
+                                    onChange={handleChangeAc3}
+                                  />
+                                </VStack>
+                              </Flex>
+                            </ModalBody>
+                            <ModalFooter>
+                              <Button
+                                onClick={handleEdit}
+                                isLoading={isLoading}
+                                colorScheme="teal"
+                                mr={4}
+                              >
+                                Save
+                              </Button>
+                              <Button onClick={onCloseAc} colorScheme="teal">
                                 Cancel
                               </Button>
                             </ModalFooter>

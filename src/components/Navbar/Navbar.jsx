@@ -12,11 +12,13 @@ import {
   NavLinks,
 } from "./NavbarElements";
 
-import { useAuth, logout } from "../Signup/Firebase";
-import { Button } from "@chakra-ui/react";
+import { useAuth, logout, db, auth } from "../Signup/Firebase";
+import { Button, Image } from "@chakra-ui/react";
+import { doc, getDoc } from "firebase/firestore";
 
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
+  const [users, setUsers] = useState({});
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -28,6 +30,25 @@ const Navbar = ({ toggle }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
+
+    const unsub = auth.onAuthStateChanged((authObj) => {
+      unsub();
+      if (authObj) {
+        const getUserData = async () => {
+          const userCollectionRef = await doc(
+            db,
+            "users",
+            auth.currentUser.uid
+          );
+          const userData = await getDoc(userCollectionRef);
+          console.log(userData.data());
+          setUsers(userData.data());
+        };
+        getUserData();
+      } else {
+        // not logged in
+      }
+    });
   }, []);
 
   const toggleHome = () => {
@@ -82,6 +103,7 @@ const Navbar = ({ toggle }) => {
               {" "}
               HS Connect
             </NavLogo>
+
             <MobileIcon onClick={toggle}>
               <FaBars />
             </MobileIcon>
@@ -96,18 +118,7 @@ const Navbar = ({ toggle }) => {
                   About Us
                 </NavLinks>
               </NavItem>
-              <NavItem>
-                {" "}
-                <NavLinks
-                  to={currentRoute}
-                  duration={500}
-                  exact="true"
-                  offset={-80}
-                  // onClick={loggedInChecker}
-                >
-                  Profile
-                </NavLinks>
-              </NavItem>
+
               <NavItem>
                 <NavLinks to="faq" duration={500} exact="true" offset={-80}>
                   FAQ
@@ -125,6 +136,27 @@ const Navbar = ({ toggle }) => {
               </NavItem>
 
               <NavItem>{button}</NavItem>
+              <NavItem>
+                {" "}
+                <NavLinks
+                  to={currentRoute}
+                  duration={500}
+                  exact="true"
+                  offset={-80}
+                  // onClick={loggedInChecker}
+                >
+                  <Image
+                    src={
+                      users.photoURL ||
+                      "https://firebasestorage.googleapis.com/v0/b/thehsconnect.appspot.com/o/undraw_profile_pic_ic-5-t%20(1).svg?alt=media&token=49609533-c10e-43fd-863d-1de315962adf"
+                    }
+                    h="45px"
+                    borderRadius="full"
+                    borderColor="teal"
+                    borderWidth="1px"
+                  />
+                </NavLinks>
+              </NavItem>
             </NavMenu>
           </NavbarContainer>
         </Nav>

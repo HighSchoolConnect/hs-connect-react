@@ -61,6 +61,11 @@ const Hero = () => {
             boxShadow=" 4px 4px 15px #000000"
           />
         </HeroFilter> */}
+        <HStack align="right">
+          <Button to="/Signup">
+            <Text>For Employers</Text>
+          </Button>
+        </HStack>
       </HeroContent>
     </HeroContainer>
   );
