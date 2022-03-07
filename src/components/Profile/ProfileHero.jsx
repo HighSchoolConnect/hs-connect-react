@@ -22,7 +22,6 @@ import {
   ModalBody,
   ModalFooter,
   Link,
-  Button,
   Flex,
   Input,
   IconButton,
@@ -35,6 +34,7 @@ import {
 } from "@chakra-ui/react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { EditIcon } from "@chakra-ui/icons";
+import { Button } from "../ButtonElement";
 
 const ProfileHero = () => {
   // const currentUser = useAuth();
@@ -367,7 +367,7 @@ const ProfileHero = () => {
                                 </VStack>
                                 <VStack spacing={2} align="left">
                                   <Text fontSize="sm" color="white">
-                                    Position and
+                                    Position and Company
                                   </Text>
                                   <Input
                                     placeholder="Position, Company"
@@ -1308,6 +1308,9 @@ const ProfileHero = () => {
                 </HStack>
               </Box>
             </Box>
+            <Button to="/Resume">
+              <Text>Generate Your Resume Now!</Text>
+            </Button>
           </VStack>
         </ProfileContent>
       </ProfileContainer>
