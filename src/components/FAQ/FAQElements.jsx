@@ -44,10 +44,14 @@ export const FAQH1 = styled.h1`
   font-weight: 400;
 
   @media screen and (max-width: 768px) {
-    font-size: 70px;
+    font-size: 60px;
   }
 
-  @media screen and (max-width: 480px) {
-    font-size: 60px;
+  @media screen and (max-width: 512px) {
+    font-size: 10px;
+  }
+
+  @media screen and (max-width: 950px) {
+    font-size: 75px;
   }
 `;
