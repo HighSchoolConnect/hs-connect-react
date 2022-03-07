@@ -734,14 +734,14 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle1}
                         </Text>
-                        <Text Text fontSize="lg" color="#ffffff">
+                        <Text fontSize="lg" color="#ffffff">
                           {users.jobStart1} - {users.jobEnd1}
                         </Text>
                       </HStack>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobComp1}
                       </Text>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobDescription1}
                       </Text>
                     </VStack>
@@ -754,14 +754,14 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle2}
                         </Text>
-                        <Text Text fontSize="lg" color="#ffffff">
+                        <Text fontSize="lg" color="#ffffff">
                           {users.jobStart2} - {users.jobEnd2}
                         </Text>
                       </HStack>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobComp2}
                       </Text>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobDescription2}
                       </Text>
                     </VStack>
@@ -774,14 +774,14 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle3}
                         </Text>
-                        <Text Text fontSize="lg" color="#ffffff">
+                        <Text fontSize="lg" color="#ffffff">
                           {users.jobStart3} - {users.jobEnd3}
                         </Text>
                       </HStack>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobComp3}
                       </Text>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobDescription3}
                       </Text>
                     </VStack>
