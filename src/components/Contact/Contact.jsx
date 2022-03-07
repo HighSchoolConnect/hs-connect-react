@@ -25,7 +25,7 @@ const Contact = () => {
   // const formSparkUrl = "https://submit-form.com/hGlsjDhY";
   const toast = useToast();
 
-  const submitForm = async (event: FormEvent) => {
+  const submitForm = async () => {
     if (name && email && message != null && emptyFields === true) {
       event.preventDefault();
       setSubmitting(true);
