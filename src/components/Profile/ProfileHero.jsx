@@ -216,7 +216,7 @@ const ProfileHero = () => {
     users.skill5,
     users.ac1,
     users.ac2,
-    users.ac3
+    users.ac3,
   ]);
 
   const handleEdit = async () => {
@@ -268,6 +268,7 @@ const ProfileHero = () => {
     onCloseAbout();
     onCloseEdu();
     onCloseWE();
+    onCloseSk();
     onCloseAc();
   };
 
@@ -1019,17 +1020,23 @@ const ProfileHero = () => {
               </Box>
               <Divider />
               {/* Skills Section */}
-              <Box bg="#000000" borderRadius="15px" w="auto" maxW="1000px" align = "left">
+              <Box
+                bg="#000000"
+                borderRadius="15px"
+                w="auto"
+                maxW="1000px"
+                align="left"
+              >
                 <HStack spacing={5} p={10}>
                   <VStack align="left" spacing={5}>
                     <Text fontSize="xl" fontWeight="semibold" color="#ffffff">
                       Skills
                     </Text>
-                    <VStack>
+                    <VStack align="left">
                       <Text fontSize="xl" color="#ffffff">
                         - {users.skill1}
                       </Text>
-                      <Text fontSize="xl"color="#ffffff">
+                      <Text fontSize="xl" color="#ffffff">
                         - {users.skill2}
                       </Text>
                       <Text fontSize="xl" color="#ffffff">
@@ -1042,8 +1049,7 @@ const ProfileHero = () => {
                         - {users.skill5}
                       </Text>
                     </VStack>
-                    <Text fontSize="lg" color="#ffffff">
-                    </Text>
+                    <Text fontSize="lg" color="#ffffff"></Text>
                   </VStack>
                 </HStack>
                 <Flex align="center" justify="right" spacing={5} p={5}>
@@ -1054,16 +1060,10 @@ const ProfileHero = () => {
                         {/* <Text fontSize="sm" color="white">
                       Edit Profile
                     </Text> */}
-                        <Modal
-                          isOpen={isOpenSk}
-                          onClose={onCloseSk}
-                          isCentered
-                        >
+                        <Modal isOpen={isOpenSk} onClose={onCloseSk} isCentered>
                           <ModalOverlay />
                           <ModalContent bg="teal">
-                            <ModalHeader color="white">
-                              Add Skills
-                            </ModalHeader>
+                            <ModalHeader color="white">Add Skills</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
                               <Flex align="left">
@@ -1138,25 +1138,30 @@ const ProfileHero = () => {
               </Box>
               <Divider />
               {/* Accomplishments Section */}
-              <Box bg="#000000" borderRadius="15px" w="auto" maxW="1000px" align = "left">
+              <Box
+                bg="#000000"
+                borderRadius="15px"
+                w="auto"
+                maxW="1000px"
+                align="left"
+              >
                 <HStack spacing={5} p={10}>
                   <VStack align="left" spacing={5}>
                     <Text fontSize="xl" fontWeight="semibold" color="#ffffff">
                       Accomplishments
                     </Text>
-                    <VStack>
+                    <VStack align="left">
                       <Text fontSize="xl" color="#ffffff">
                         - {users.ac1}
                       </Text>
-                      <Text fontSize="xl"color="#ffffff">
+                      <Text fontSize="xl" color="#ffffff">
                         - {users.ac2}
                       </Text>
                       <Text fontSize="xl" color="#ffffff">
                         - {users.ac3}
                       </Text>
                     </VStack>
-                    <Text fontSize="lg" color="#ffffff">
-                    </Text>
+                    <Text fontSize="lg" color="#ffffff"></Text>
                   </VStack>
                 </HStack>
                 <Flex align="center" justify="right" spacing={5} p={5}>
@@ -1167,11 +1172,7 @@ const ProfileHero = () => {
                         {/* <Text fontSize="sm" color="white">
                       Edit Profile
                     </Text> */}
-                        <Modal
-                          isOpen={isOpenAc}
-                          onClose={onCloseAc}
-                          isCentered
-                        >
+                        <Modal isOpen={isOpenAc} onClose={onCloseAc} isCentered>
                           <ModalOverlay />
                           <ModalContent bg="teal">
                             <ModalHeader color="white">

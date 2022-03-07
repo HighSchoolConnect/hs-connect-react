@@ -16,8 +16,6 @@ import { useAuth, logout, db, auth } from "../Signup/Firebase";
 import { Button, Image } from "@chakra-ui/react";
 import { doc, getDoc } from "firebase/firestore";
 
-import logo from "../../images/HSConnectLogo.jpg";
-
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
   const [users, setUsers] = useState({});
