@@ -22,6 +22,7 @@ import {
   ModalBody,
   ModalFooter,
   Link,
+  Button,
   Flex,
   Input,
   IconButton,
@@ -34,7 +35,7 @@ import {
 } from "@chakra-ui/react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { EditIcon } from "@chakra-ui/icons";
-import { Button } from "../ButtonElement";
+import { Button as RouteButton } from "../ButtonElement";
 
 const ProfileHero = () => {
   // const currentUser = useAuth();
@@ -1011,14 +1012,14 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle1}
                         </Text>
-                        <Text Text fontSize="lg" color="#ffffff">
+                        <Text fontSize="lg" color="#ffffff">
                           {users.jobStart1} - {users.jobEnd1}
                         </Text>
                       </HStack>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobComp1}
                       </Text>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobDescription1}
                       </Text>
                     </VStack>
@@ -1031,14 +1032,14 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle2}
                         </Text>
-                        <Text Text fontSize="lg" color="#ffffff">
+                        <Text fontSize="lg" color="#ffffff">
                           {users.jobStart2} - {users.jobEnd2}
                         </Text>
                       </HStack>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobComp2}
                       </Text>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobDescription2}
                       </Text>
                     </VStack>
@@ -1051,14 +1052,14 @@ const ProfileHero = () => {
                         >
                           {users.jobTitle3}
                         </Text>
-                        <Text Text fontSize="lg" color="#ffffff">
+                        <Text fontSize="lg" color="#ffffff">
                           {users.jobStart3} - {users.jobEnd3}
                         </Text>
                       </HStack>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobComp3}
                       </Text>
-                      <Text Text fontSize="lg" color="#ffffff">
+                      <Text fontSize="lg" color="#ffffff">
                         {users.jobDescription3}
                       </Text>
                     </VStack>
@@ -1308,9 +1309,9 @@ const ProfileHero = () => {
                 </HStack>
               </Box>
             </Box>
-            <Button to="/Resume">
+            <RouteButton to="/resume">
               <Text>Generate Your Resume Now!</Text>
-            </Button>
+            </RouteButton>
           </VStack>
         </ProfileContent>
       </ProfileContainer>
