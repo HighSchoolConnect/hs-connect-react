@@ -16,6 +16,7 @@ import MontserratRegular from "./Montserrat-Regular.ttf";
 import MontserratBold from "./Montserrat-Bold.ttf";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../../components/Signup/Firebase";
+import { Button as RouteButton } from "../ButtonElement";
 
 Font.register({
   family: "Montserrat-Regular",
@@ -179,6 +180,9 @@ const Resume = () => {
   }, []);
   return (
     <Flex direction="column" justify="center" align="center">
+      <RouteButton to="/Profile">
+        <Text>Back to Profile Page</Text>
+      </RouteButton>
       <PDFViewer width="700px" height="1000px">
         <Document title="ResumeGG" author="HS Connect">
           <Page size="Letter" style={styles.page}>
