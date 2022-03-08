@@ -85,6 +85,7 @@ const EmployerDashboard = () => {
       salaryLow,
       salaryHigh,
       logoURL,
+      employerID: auth.currentUser.uid,
     });
     setIsLoading(false);
     onClose();
