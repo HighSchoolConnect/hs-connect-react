@@ -13,6 +13,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "assert": "^2.0.0",
+    "axios": "^0.26.0",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
     "firebase": "^9.6.7",

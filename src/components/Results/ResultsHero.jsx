@@ -21,7 +21,7 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BG from "../../images/hero-bg.png";
 
 import {
@@ -34,12 +34,15 @@ import {
 } from "./ResultsElements";
 import ResultItem from "./ResultItem";
 
-import { results } from "./SampleResults";
+// import { results } from "./SampleResults";
 
 import { FaSearch } from "react-icons/fa";
 import { HeroForm, HeroInput, HeroBtn } from "../Hero/HeroElements";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const ResultsHero = () => {
+const ResultsHero = ({ title }) => {
+  const { id } = useParams();
   // const {
   //   isOpen: isOpenReportModal,
   //   onOpen: onOpenReportModal,
@@ -53,6 +56,23 @@ const ResultsHero = () => {
   const [sliderValue, setSliderValue] = useState(50);
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    if (id !== undefined) {
+      setSearchTerm(id);
+    } else {
+      setSearchTerm("");
+    }
+
+    const fetchData = async () => {
+      const response = await axios.get("http://localhost:3001/");
+
+      setResults(response.data);
+    };
+
+    fetchData();
+  }, [title, id]);
 
   return (
     <ResultsContainer>
@@ -69,6 +89,7 @@ const ResultsHero = () => {
               name="s"
               autoComplete="off"
               onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm}
             />
             <HeroBtn type="button" to="/results">
               <FaSearch />
@@ -195,10 +216,10 @@ const ResultsHero = () => {
                 }
                 return true;
               })
-              .map((item) => {
+              .map((item, index) => {
                 return (
                   <ResultItem
-                    key={item.id}
+                    key={index}
                     id={item.id}
                     title={item.title}
                     company={item.company}

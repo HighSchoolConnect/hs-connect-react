@@ -3,7 +3,7 @@ import ResultsHero from "../components/Results/ResultsHero";
 const Results = () => {
   return (
       <>
-      <ResultsHero />
+      <ResultsHero  />
       </>
 
   );
