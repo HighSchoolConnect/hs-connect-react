@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "../../images/hero-bg.png";
 
 import { FaSearch } from "react-icons/fa";
@@ -11,12 +11,17 @@ import {
   HeroH1,
   HeroP,
   TextContainer,
+  HeroForm,
+  HeroInput,
+  HeroBtn,
 } from "./HeroElements";
 
 import { HStack, Text, VStack } from "@chakra-ui/react";
 import { Button } from "../ButtonElement";
 
 const Hero = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <HeroContainer id="home">
       <HeroBg>
@@ -29,6 +34,21 @@ const Hero = () => {
         </TextContainer>
 
         <VStack m={10}>
+          <VStack>
+            <HeroForm action="/" method="get">
+              <HeroInput
+                type="text"
+                placeholder="EX: Software Engineer, Medical Assistant"
+                name="s"
+                autoComplete="off"
+                onChange={(e) => setSearchTerm(e.target.value)}
+                value={searchTerm}
+              />
+              <HeroBtn type="button" to={"/results/" + searchTerm}>
+                <FaSearch />
+              </HeroBtn>
+            </HeroForm>
+          </VStack>
           <Button to="/results">
             <HStack>
               <Text> Get Started</Text>

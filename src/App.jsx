@@ -30,12 +30,14 @@ function App() {
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="results" element={<Results />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/results/:id" element={<Results />} />
+
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/contactus" element={<Contact />} />
-        <Route path="/dashboard" element={<EmployerDashboard />} />{" "}
+        <Route path="/dashboard" element={<EmployerDashboard />} />
         <Route path="/resume" element={<Resume />} />
       </Routes>
       <Footer />

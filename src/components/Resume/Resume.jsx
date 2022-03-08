@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   page: {
     flexDirection: "row",
     backgroundColor: "#E4E4E4",
-    width: 300,
     fontFamily: "Montserrat-Regular",
   },
   section: {
@@ -154,6 +153,7 @@ const Resume = () => {
   const [users, setUsers] = useState({});
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
 
   useEffect(() => {
     const unsub = auth.onAuthStateChanged((authObj) => {
@@ -170,6 +170,7 @@ const Resume = () => {
           setUsers(userData.data());
           setFirstName(userData.data().displayName.split(" ")[0]);
           setLastName(userData.data().displayName.split(" ")[1]);
+          setPhotoURL(userData.data().photoURL);
         };
         getUserData();
       } else {
@@ -183,7 +184,7 @@ const Resume = () => {
         <Document title="ResumeGG" author="HS Connect">
           <Page size="Letter" style={styles.page}>
             <View style={styles.leftSection}>
-              <Image src={users.photoURL} style={styles.image} />
+              <Image src={photoURL} style={styles.image} />
               <Text style={styles.title}>{firstName}</Text>
               <Text style={styles.title}>{lastName}</Text>
 

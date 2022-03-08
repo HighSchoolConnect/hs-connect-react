@@ -78,8 +78,6 @@ const Signin = () => {
       getUserData();
 
       if (isEmployer === true) {
-        window.location.reload(false);
-
         return <Navigate to="/dashboard" />;
       } else {
         return <Navigate to="/profile" />;
