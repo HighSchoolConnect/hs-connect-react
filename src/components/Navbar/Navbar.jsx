@@ -18,7 +18,8 @@ import { doc, getDoc } from "firebase/firestore";
 
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  const [users, setUsers] = useState({});
+  // const [users, setUsers] = useState({});
+  const [photoURL, setPhotoURL] = useState("");
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -42,11 +43,12 @@ const Navbar = ({ toggle }) => {
           );
           const userData = await getDoc(userCollectionRef);
           console.log(userData.data());
-          setUsers(userData.data());
+          // setUsers(userData.data());
+          setPhotoURL(userData.data().photoURL);
         };
         getUserData();
       } else {
-        // not logged in
+        setPhotoURL("");
       }
     });
   }, []);
@@ -60,7 +62,6 @@ const Navbar = ({ toggle }) => {
   async function handleLogout() {
     try {
       await logout();
-      window.location.reload(false);
     } catch {
       alert("Error signing out");
     }
@@ -148,7 +149,7 @@ const Navbar = ({ toggle }) => {
                 >
                   <Image
                     src={
-                      users.photoURL ||
+                      photoURL ||
                       "https://firebasestorage.googleapis.com/v0/b/thehsconnect.appspot.com/o/undraw_profile_pic_ic-5-t%20(1).svg?alt=media&token=49609533-c10e-43fd-863d-1de315962adf"
                     }
                     h="45px"
