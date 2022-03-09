@@ -66,7 +66,7 @@ const ResultsHero = ({ title }) => {
     }
 
     const fetchData = async () => {
-      const response = await axios.get("http://localhost:3001/");
+      const response = await axios.get("https://server.hsc.geethg.com/");
 
       setResults(response.data);
     };

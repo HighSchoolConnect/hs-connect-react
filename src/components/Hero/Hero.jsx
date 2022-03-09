@@ -18,16 +18,34 @@ import {
 
 import { HStack, Text, VStack } from "@chakra-ui/react";
 import { Button } from "../ButtonElement";
+import Particles from "react-tsparticles";
+import particlesConfig from "./particles.json";
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  // const particlesInit = (main) => {
+  //   console.log(main);
 
+  //   // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+  // };
+
+  // const particlesLoaded = (container) => {
+  //   console.log(container);
+  // };
   return (
     <HeroContainer id="home">
       <HeroBg>
         <HeroBgImage src={Image} type="image/jpg" />
       </HeroBg>
+
       <HeroContent>
+        <Particles
+          id="tsparticles"
+          // init={particlesInit}
+          // loaded={particlesLoaded}
+          height="50%"
+          options={particlesConfig}
+        />
         <TextContainer>
           <HeroH1>HS Connect</HeroH1>
           <HeroP>Find Internships, Jobs, and Volunteering</HeroP>

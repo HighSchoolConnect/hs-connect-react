@@ -3,6 +3,11 @@ import { Link } from "react-scroll";
 
 export const FooterContainer = styled.div`
   background-color: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+
 `;
 
 export const FooterWrap = styled.div`

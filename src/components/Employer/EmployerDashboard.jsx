@@ -35,6 +35,7 @@ const EmployerDashboard = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [title, setTitle] = useState("");
+  const [type, setType] = useState("");
   const [company, setCompany] = useState("");
   const [address, setAddress] = useState("");
   const [location, setLocation] = useState("");
@@ -94,6 +95,10 @@ const EmployerDashboard = () => {
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
   };
+  const handleChangeType = (e) => {
+    setType(e.target.value);
+  };
+
   const handleChangeCompany = (e) => {
     setCompany(e.target.value);
   };
@@ -185,6 +190,18 @@ const EmployerDashboard = () => {
                       onChange={handleChangeTitle}
                     />
                   </VStack>
+                  <VStack spacing={2} align="left">
+                    <Text fontSize="sm" color="white">
+                      Type
+                    </Text>
+                    <Input
+                      placeholder="Type"
+                      value={type}
+                      color="white"
+                      onChange={handleChangeType}
+                    />
+                  </VStack>
+
                   <VStack spacing={2} align="left">
                     <Text fontSize="sm" color="white">
                       Company

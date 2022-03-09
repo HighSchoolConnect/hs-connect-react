@@ -19,6 +19,7 @@ const AboutUs = () => {
       <AboutUsBg>
         <AboutUsBgImage src={Image} type="image/jpg" />
       </AboutUsBg>
+
       <AboutUsContent>
         <TextCont>
           <TextH2>About HS Connect</TextH2>
