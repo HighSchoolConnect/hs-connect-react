@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Image from "../../images/hero-bg.png";
+import Image from "../../images/hero-bg.jpg";
 
 import { FaSearch } from "react-icons/fa";
 

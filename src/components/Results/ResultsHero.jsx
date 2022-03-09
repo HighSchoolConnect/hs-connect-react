@@ -22,7 +22,7 @@ import {
   RangeSliderThumb,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import BG from "../../images/hero-bg.png";
+import BG from "../../images/hero-bg.jpg";
 
 import {
   ResultsContainer,

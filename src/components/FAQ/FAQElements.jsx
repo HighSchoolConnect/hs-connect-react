@@ -38,20 +38,21 @@ export const FAQAccordions = styled.div`
 
 export const FAQH1 = styled.h1`
   color: #fff;
-  font-size: 60px;
+  font-size: 70px;
   text-align: center;
   text-shadow: 4px 4px 25px #000000;
   font-weight: 400;
+
+  @media screen and (max-width: 950px) {
+    font-size: 65px;
+  }
 
   @media screen and (max-width: 768px) {
     font-size: 60px;
   }
 
   @media screen and (max-width: 512px) {
-    font-size: 10px;
+    font-size: 55px;
   }
 
-  @media screen and (max-width: 950px) {
-    font-size: 75px;
-  }
 `;
