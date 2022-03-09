@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import hero from "../../images/hero-bg.png";
+import hero from "../../images/hero-bg.jpg";
 // import Joe from "../../images/JOEMAMA.jpeg";
 
 import { Bg, BgImage } from "../../components/GeneralPurpose/GPElements";

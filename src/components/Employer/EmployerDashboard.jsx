@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Bg, BgImage, TextH1 } from "../GeneralPurpose/GPElements";
-import hero from "../../images/hero-bg.png";
+import hero from "../../images/hero-bg.jpg";
 import {
   Table,
   Thead,
