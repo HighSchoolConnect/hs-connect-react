@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Image from "../../images/hero-bg.png";
+import Image from "../../images/hero-bg.jpg";
 
 export const SignupContainer = styled.div`
   background-color: #010024;
@@ -9,7 +9,7 @@ export const SignupContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; */
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;

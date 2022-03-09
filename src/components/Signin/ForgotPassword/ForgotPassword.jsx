@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import Image from "../../../images/hero-bg.png";
+import Image from "../../../images/hero-bg.jpg";
 
 import {
   ForgotPasswordContainer,
