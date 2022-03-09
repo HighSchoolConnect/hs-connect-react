@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Image from "../../images/hero-bg.png";
+import Image from "../../images/hero-bg.jpg";
 
 export const SigninContainer = styled.div`
   background-color: #010024;
