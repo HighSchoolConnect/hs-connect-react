@@ -34,7 +34,7 @@ const Hero = () => {
   // };
   return (
     <HeroContainer id="home">
-      <HeroBg>
+      <HeroBg isDisabled={true}>
         <HeroBgImage src={Image} type="image/jpg" />
       </HeroBg>
 
@@ -67,12 +67,7 @@ const Hero = () => {
               </HeroBtn>
             </HeroForm>
           </VStack>
-          <Button to="/results">
-            <HStack>
-              <Text> Get Started</Text>
-              <FaSearch />
-            </HStack>
-          </Button>
+
           {/* <HeroBtn to="/results">
             <FaSearch color="#00c6d3" />
           </HeroBtn> */}

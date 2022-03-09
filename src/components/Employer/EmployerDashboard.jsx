@@ -41,7 +41,7 @@ const EmployerDashboard = () => {
   const [location, setLocation] = useState("");
   const [salaryLow, setSalaryLow] = useState(0);
   const [salaryHigh, setSalaryHigh] = useState(0);
-  const [logoURL, setLogoURL] = useState("");
+  const [logo, setLogo] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -85,7 +85,7 @@ const EmployerDashboard = () => {
       location,
       salaryLow,
       salaryHigh,
-      logoURL,
+      logo,
       employerID: auth.currentUser.uid,
     });
     setIsLoading(false);
@@ -115,7 +115,7 @@ const EmployerDashboard = () => {
     setSalaryHigh(e.target.value);
   };
   const handleChangeLogoURL = (e) => {
-    setLogoURL(e.target.value);
+    setLogo(e.target.value);
   };
 
   let applicantsList;
@@ -263,7 +263,7 @@ const EmployerDashboard = () => {
                     </Text>
                     <Input
                       placeholder="Logo URL"
-                      value={logoURL}
+                      value={logo}
                       color="white"
                       onChange={handleChangeLogoURL}
                     />
