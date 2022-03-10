@@ -159,7 +159,7 @@ const ResultItem = ({ id, title, company, location, salary, logo, type }) => {
             <ModalFooter>
               <RouteBtn
                 to={
-                  "/apply/" +
+                  "/applicationPage/" +
                   "company=" +
                   company +
                   "&" +
