@@ -16,6 +16,7 @@ import Contact from "./components/Contact/Contact";
 import EmployerDashboard from "./components/Employer/EmployerDashboard";
 import Resume from "./components/Resume/Resume";
 import EmployeeSignin from "./components/Signin/EmployeeSignin";
+import ApplicationPage from "./components/ApplicationPage/ApplicationPage";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +41,7 @@ function App() {
         <Route path="/contactus" element={<Contact />} />
         <Route path="/dashboard" element={<EmployerDashboard />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/applicationPage" element={<ApplicationPage />} />
       </Routes>
       <Footer />
     </Router>
