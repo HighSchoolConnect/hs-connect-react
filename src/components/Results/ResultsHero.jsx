@@ -14,6 +14,7 @@ import {
   Select,
   Text,
   Input,
+  Spinner,
   Radio,
   RadioGroup,
   RangeSlider,
@@ -50,7 +51,7 @@ const ResultsHero = ({ title }) => {
   // } = useDisclosure();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-
+  const [loading, setLoading] = useState(false);
   const [value, setValue] = React.useState("1");
 
   const [sliderValue, setSliderValue] = useState(50);
@@ -66,13 +67,30 @@ const ResultsHero = ({ title }) => {
     }
 
     const fetchData = async () => {
+      setLoading(true);
       const response = await axios.get("https://server.hsc.geethg.com/");
 
       setResults(response.data);
+      setLoading(false);
     };
 
     fetchData();
   }, [title, id]);
+
+  let loadingDiv;
+  let noResultsDiv;
+
+  if (loading) {
+    loadingDiv = (
+      <div>
+        <Spinner color="white" />
+      </div>
+    );
+  } else {
+  }
+
+
+  
 
   return (
     <ResultsContainer>
@@ -102,6 +120,8 @@ const ResultsHero = ({ title }) => {
             <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
               All Filters
             </Button>
+            {loadingDiv}
+
             <Drawer
               isOpen={isOpen}
               placement="left"
@@ -116,7 +136,6 @@ const ResultsHero = ({ title }) => {
                     All Filters
                   </Heading>
                 </DrawerHeader>
-
                 <DrawerBody>
                   <VStack align="left" spacing="3">
                     <Text color="#ffffff" fontWeight="bold">
@@ -207,6 +226,8 @@ const ResultsHero = ({ title }) => {
                 </DrawerFooter>
               </DrawerContent>
             </Drawer>
+            {noResultsDiv}
+
             {results
               .filter((val) => {
                 if (searchTerm.length > 0) {

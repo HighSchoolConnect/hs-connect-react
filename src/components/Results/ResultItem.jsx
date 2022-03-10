@@ -81,7 +81,7 @@ const ResultItem = ({ id, title, company, location, salary, logo, type }) => {
                   w="full"
                   h={64}
                   fit="cover"
-                  src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                  src={logo}
                   alt="Article"
                 />
                 <Box p={6}>

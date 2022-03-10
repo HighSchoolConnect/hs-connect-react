@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "../../images/hero-bg.jpg";
 
 import {
@@ -23,15 +23,17 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-import { useAuth, login } from "../Signup/Firebase";
+import { useAuth, login, db, auth } from "../Signup/Firebase";
 
 import { Navigate } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
 
-const Signin = () => {
+const EmployeeSignin = () => {
   const [loading, setLoading] = useState(false);
   const [authDone, setAuthDone] = useState(false);
   const [signup, setSignup] = useState(false);
   const [forgotPassword, setForgotPassword] = useState(false);
+  const [employer, setEmployer] = useState(false);
   const currentUser = useAuth();
 
   const emailRef = useRef();
@@ -56,9 +58,33 @@ const Signin = () => {
     setForgotPassword(true);
   }
 
-  if (currentUser && authDone) {
-    return <Navigate to="/profile" />;
-  }
+  useEffect(() => {
+    if (authDone === true) {
+      console.log("auth done");
+
+      const unsub = auth.onAuthStateChanged((authObj) => {
+        unsub();
+        if (authObj) {
+          const getUserData = async () => {
+            const userCollectionRef = await doc(
+              db,
+              "employers",
+              auth.currentUser.uid
+            );
+            const userData = await getDoc(userCollectionRef);
+
+            if (userData.data().employer) {
+              setEmployer(true);
+              console.log("is employer");
+              console.log(employer);
+            }
+          };
+          getUserData();
+        } else {
+        }
+      });
+    }
+  }, [authDone, employer]);
 
   // if (employerCheckboxRef.current.checked === true) {
   //   console.log("checking...");
@@ -91,6 +117,12 @@ const Signin = () => {
   // }
   // }
 
+  if (authDone === true) {
+    if (employer === true) {
+      return <Navigate to="/dashboard" />;
+    }
+  }
+
   if (signup === true) {
     return <Navigate to="/signup" />;
   }
@@ -103,7 +135,7 @@ const Signin = () => {
       <SigninWrapper>
         <SignInRow imgStart={false}>
           <Column1>
-            <SigninTitle>Login</SigninTitle>
+            <SigninTitle>Employer Login</SigninTitle>
             <SigninForm>
               <Input
                 placeholder="Email"
@@ -130,9 +162,7 @@ const Signin = () => {
               <HStack spacing={20}>
                 <VStack align="left">
                   <Checkbox>Keep me logged in</Checkbox>
-                  <Link href="/employer/signin">I am an employer</Link>
                 </VStack>
-
                 <Link onClick={navigateToForgotPassword}>Forgot Password?</Link>
               </HStack>
 
@@ -179,4 +209,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default EmployeeSignin;

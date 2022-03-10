@@ -15,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
 import EmployerDashboard from "./components/Employer/EmployerDashboard";
 import Resume from "./components/Resume/Resume";
+import EmployeeSignin from "./components/Signin/EmployeeSignin";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +33,9 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/results" element={<Results />} />
         <Route path="/results/:id" element={<Results />} />
-
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/employer/signin" element={<EmployeeSignin />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/contactus" element={<Contact />} />
         <Route path="/dashboard" element={<EmployerDashboard />} />

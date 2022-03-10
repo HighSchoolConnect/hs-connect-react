@@ -20,6 +20,8 @@ const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
   // const [users, setUsers] = useState({});
   const [photoURL, setPhotoURL] = useState("");
+  const [isApplicant, setIsApplicant] = useState(false);
+  const [isEmployer, setIsEmployer] = useState(true);
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -44,7 +46,15 @@ const Navbar = ({ toggle }) => {
           const userData = await getDoc(userCollectionRef);
           console.log(userData.data());
           // setUsers(userData.data());
+
           setPhotoURL(userData.data().photoURL);
+          setIsApplicant(true);
+
+          if (userData.data().isEmployer === false) {
+            setIsApplicant(false);
+            setIsEmployer(true);
+            setPhotoURL("");
+          }
         };
         getUserData();
       } else {
@@ -62,6 +72,7 @@ const Navbar = ({ toggle }) => {
   async function handleLogout() {
     try {
       await logout();
+      window.location.reload(false);
     } catch {
       alert("Error signing out");
     }
@@ -69,8 +80,10 @@ const Navbar = ({ toggle }) => {
 
   var currentRoute = "/";
 
-  if (currentUser != null) {
+  if (isApplicant) {
     currentRoute = "/profile";
+  } else if (isEmployer) {
+    currentRoute = "/dashboard";
   } else {
     currentRoute = "/signup";
   }

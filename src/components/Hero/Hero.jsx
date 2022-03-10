@@ -51,7 +51,7 @@ const Hero = () => {
           <HeroP>Find Internships, Jobs, and Volunteering</HeroP>
         </TextContainer>
 
-        <VStack m={10}>
+        <VStack m={10} zIndex={3}>
           <VStack>
             <HeroForm action="/" method="get">
               <HeroInput
@@ -94,7 +94,7 @@ const Hero = () => {
             boxShadow=" 4px 4px 15px #000000"
           />
         </HeroFilter> */}
-        <HStack align="right">
+        <HStack align="right" zIndex={3}>
           <Button to="/Signup">
             <Text>For Employers</Text>
           </Button>
