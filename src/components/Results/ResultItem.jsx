@@ -25,6 +25,7 @@ import { FaArrowCircleRight } from "react-icons/fa";
 
 import { Button as RouteBtn } from "../ButtonElement";
 
+
 const ResultItem = ({ id, title, company, location, salary, logo, type }) => {
   const btnRef = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -159,16 +160,7 @@ const ResultItem = ({ id, title, company, location, salary, logo, type }) => {
             <ModalFooter>
               <RouteBtn
                 to={
-                  "/applicationPage/" +
-                  "company=" +
-                  company +
-                  "&" +
-                  "title=" +
-                  "&" +
-                  title +
-                  "location=" +
-                  "&" +
-                  location
+                  "/applicationPage/" + id + "/" + title
                 }
               >
                 <HStack>

@@ -68,7 +68,7 @@ const ResultsHero = ({ title }) => {
 
     const fetchData = async () => {
       setLoading(true);
-      const response = await axios.get("https://server.hsc.geethg.com/");
+      const response = await axios.get("https://server.hsc.geethg.com/jobs/");
 
       setResults(response.data);
       setLoading(false);
@@ -88,9 +88,6 @@ const ResultsHero = ({ title }) => {
     );
   } else {
   }
-
-
-  
 
   return (
     <ResultsContainer>
@@ -241,7 +238,7 @@ const ResultsHero = ({ title }) => {
                 return (
                   <ResultItem
                     key={index}
-                    id={item.id}
+                    id={item.employerID}
                     title={item.title}
                     company={item.company}
                     location={item.location}

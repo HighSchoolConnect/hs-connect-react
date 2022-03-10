@@ -20,6 +20,7 @@
     "framer-motion": "^4.1.17",
     "process": "^0.11.10",
     "react": "^17.0.2",
+    "react-confetti": "^6.0.1",
     "react-dom": "^17.0.2",
     "react-firebase-hooks": "^4.0.1",
     "react-icons": "^4.3.1",

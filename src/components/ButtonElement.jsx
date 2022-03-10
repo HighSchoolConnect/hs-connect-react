@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+export const Chakra = styled(Link)``;
 export const Button = styled(Link)`
   border-radius: 50px;
   background: ${({ primary }) => (primary ? "#00c6d3" : "#000000")};

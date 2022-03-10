@@ -42,6 +42,10 @@ function App() {
         <Route path="/dashboard" element={<EmployerDashboard />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/applicationPage" element={<ApplicationPage />} />
+        <Route
+          path="/applicationPage/:id/:title"
+          element={<ApplicationPage />}
+        />
       </Routes>
       <Footer />
     </Router>
