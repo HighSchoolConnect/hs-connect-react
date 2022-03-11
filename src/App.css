@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Montserrat-Black";
-  src: local("Montserrat-Black") url("./fonts/Montserrat-Black.ttf")
-    format("truetype");
-  font-weight: 900;
+  font-family: "Comfortaa";
+  src: url("./fonts/Comfortaa-Regular.ttf") format("truetype"),
+    url("./fonts/Comfortaa-Bold.ttf") format("truetype");
+  font-style: bold;
 }
 body {
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Comfortaa", sans-serif !important;
 
   background-color: #000000 !important;
 }
