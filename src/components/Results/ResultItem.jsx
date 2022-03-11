@@ -2,13 +2,10 @@ import React from "react";
 import {
   Box,
   useDisclosure,
-  Button,
   HStack,
   VStack,
   Image,
   Text,
-  Divider,
-  Center,
   Flex,
   chakra,
   Link,
@@ -19,11 +16,9 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
-  useColorModeValue,
   GridItem,
 } from "@chakra-ui/react";
 //import {results} from "./SampleResults";
-import { FaArrowCircleRight } from "react-icons/fa";
 
 import { Button as RouteBtn } from "../ButtonElement";
 

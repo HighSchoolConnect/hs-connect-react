@@ -30,7 +30,6 @@ import BG from "../../images/hero-bg.jpg";
 import {
   ResultsContainer,
   ResultsWrapper,
-  ResultsTitle,
   ResultsBg,
   ResultsImage,
   ResultsColumn,
@@ -43,11 +42,9 @@ import { FaSearch } from "react-icons/fa";
 import { HeroForm, HeroInput, HeroBtn } from "../Hero/HeroElements";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { TextH1 } from "../GeneralPurpose/GPElements";
 
 const ResultsHero = ({ title }) => {
-  const [isLessThan480] = useMediaQuery("(max-width: 1080px)");
-  const [isLargerThan1280] = useMediaQuery("(min-width: 1080px)");
+  const [isLargerThan1080] = useMediaQuery("(min-width: 1080px)");
 
   const { id } = useParams();
   // const {
@@ -231,7 +228,7 @@ const ResultsHero = ({ title }) => {
             {noResultsDiv}
             <Grid
               templateColumns={
-                isLargerThan1280 ? "repeat(2, 1fr)" : "repeat(1, 1fr)"
+                isLargerThan1080 ? "repeat(2, 1fr)" : "repeat(1, 1fr)"
               }
               gap={6}
             >

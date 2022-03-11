@@ -16,8 +16,7 @@ import {
   HeroBtn,
 } from "./HeroElements";
 
-import { HStack, Text, VStack } from "@chakra-ui/react";
-import { Button } from "../ButtonElement";
+import { VStack } from "@chakra-ui/react";
 import Particles from "react-tsparticles";
 import particlesConfig from "./particles.json";
 
