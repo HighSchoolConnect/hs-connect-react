@@ -177,7 +177,7 @@ const ApplicationPage = () => {
                     <Image
                       w={20}
                       h={20}
-                      fit="cover"
+                      fit="contain"
                       rounded="full"
                       borderStyle="solid"
                       bg="black"
