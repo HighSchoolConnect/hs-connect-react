@@ -19,56 +19,95 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  useColorModeValue,
+  GridItem,
 } from "@chakra-ui/react";
 //import {results} from "./SampleResults";
 import { FaArrowCircleRight } from "react-icons/fa";
 
 import { Button as RouteBtn } from "../ButtonElement";
 
-
-const ResultItem = ({ id, title, company, location, salary, logo, type }) => {
+const ResultItem = ({
+  id,
+  title,
+  company,
+  address,
+  location,
+  salaryLow,
+  salaryHigh,
+  logo,
+  type,
+}) => {
   const btnRef = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box bg="black" p={4} color="white" borderRadius={15}>
-      <HStack>
-        <Image src={logo} type="image/svg" boxSize="75px" />
-        <Text fontSize="xl" fontWeight="bold" ml={4} noOfLines={3}>
-          {title}
-        </Text>
-        <Center height="50px">
-          <Divider orientation="vertical" />
-        </Center>
-        <VStack>
-          <Text fontSize="sm" ml={4}>
+    <GridItem w="100%" h="100%" p={4}>
+      <Box maxW="xs" mx="auto" bg="black" shadow="lg" rounded="lg">
+        <Box px={4} py={2}>
+          <chakra.h1
+            color="white"
+            fontWeight="bold"
+            fontSize="3xl"
+            textTransform="uppercase"
+          >
+            {title}
+          </chakra.h1>
+          <chakra.p mt={1} fontSize="sm" color="white">
             {company}
-          </Text>
-          <Text fontSize="sm" ml={4}>
+          </chakra.p>
+          <chakra.p mt={1} fontSize="sm" color="white">
             {location}
-          </Text>
-          <Text fontSize="sm" ml={4}>
-            {salary}
-          </Text>
-        </VStack>
-        <Center height="50px">
-          <Divider orientation="vertical" />
-        </Center>
+          </chakra.p>
+          <chakra.p mt={1} fontSize="sm" color="white">
+            {address}
+          </chakra.p>
+          <chakra.p mt={1} fontSize="sm" color="white">
+            {salaryLow} - {salaryHigh}
+          </chakra.p>
+        </Box>
 
-        <Button
-          ref={btnRef}
-          colorScheme="clear"
-          onClick={onOpen}
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            width: 100,
-            height: 100,
-            backgroundColor: "#0000000",
-            borderRadius: 100,
-          }}
+        <Image
+          h={48}
+          w="100%"
+          fit="contain"
+          mt={2}
+          pb={2}
+          src={logo}
+          alt={title}
+        />
+
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          px={4}
+          py={2}
+          bg="teal"
+          roundedBottom="lg"
         >
-          <FaArrowCircleRight size={100} color="#00c6d3" />
-        </Button>
+          <chakra.h1 color="white" fontWeight="bold" fontSize="lg">
+            {type}
+          </chakra.h1>
+          <chakra.button
+            px={2}
+            py={1}
+            bg="white"
+            fontSize="xs"
+            color="gray.900"
+            fontWeight="bold"
+            rounded="lg"
+            textTransform="uppercase"
+            ref={btnRef}
+            onClick={onOpen}
+            _hover={{
+              bg: "gray.200",
+            }}
+            _focus={{
+              bg: "gray.400",
+            }}
+          >
+            Apply
+          </chakra.button>
+        </Flex>
 
         <Modal isOpen={isOpen} onClose={onClose} isCentered>
           <ModalOverlay />
@@ -114,7 +153,7 @@ const ResultItem = ({ id, title, company, location, salary, logo, type }) => {
                         bg="teal"
                         color="white"
                       >
-                        {salary}
+                        Salary: {salaryLow} - {salaryHigh}
                       </Text>
                     </VStack>
 
@@ -158,11 +197,7 @@ const ResultItem = ({ id, title, company, location, salary, logo, type }) => {
             </ModalBody>
 
             <ModalFooter>
-              <RouteBtn
-                to={
-                  "/applicationPage/" + id + "/" + title
-                }
-              >
+              <RouteBtn to={"/apply/" + id + "/" + title}>
                 <HStack>
                   <Text>Apply</Text>
                 </HStack>
@@ -170,8 +205,8 @@ const ResultItem = ({ id, title, company, location, salary, logo, type }) => {
             </ModalFooter>
           </ModalContent>
         </Modal>
-      </HStack>
-    </Box>
+      </Box>
+    </GridItem>
   );
 };
 

@@ -17,6 +17,7 @@ import EmployerDashboard from "./components/Employer/EmployerDashboard";
 import Resume from "./components/Resume/Resume";
 import EmployeeSignin from "./components/Signin/EmployeeSignin";
 import ApplicationPage from "./components/ApplicationPage/ApplicationPage";
+import ResumeEmployer from "./components/Resume/ResumeEmployer";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,11 +42,9 @@ function App() {
         <Route path="/contactus" element={<Contact />} />
         <Route path="/dashboard" element={<EmployerDashboard />} />
         <Route path="/resume" element={<Resume />} />
-        <Route path="/applicationPage" element={<ApplicationPage />} />
-        <Route
-          path="/applicationPage/:id/:title"
-          element={<ApplicationPage />}
-        />
+        <Route path="/resume/:id" element={<ResumeEmployer />} />
+        <Route path="/apply" element={<ApplicationPage />} />
+        <Route path="/apply/:id/:title" element={<ApplicationPage />} />
       </Routes>
       <Footer />
     </Router>

@@ -8,11 +8,19 @@ import {
   ApplicationPageContainer,
   ApplicationPageContent,
 } from "./ApplicationPageElements";
-import { Box, VStack, Image, Flex, chakra, Button } from "@chakra-ui/react";
+import {
+  Box,
+  VStack,
+  Image,
+  Flex,
+  chakra,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Chakra } from "../ButtonElement";
-import { getDoc, setDoc, doc } from "firebase/firestore";
+import { getDoc, setDoc, doc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../Signup/Firebase";
 import Confetti from "react-confetti";
 
@@ -44,6 +52,7 @@ function useWindowSize() {
 
 const ApplicationPage = () => {
   const { width, height } = useWindowSize();
+  const toast = useToast();
 
   const { id, title } = useParams();
   const [result, setResult] = useState({});
@@ -95,25 +104,52 @@ const ApplicationPage = () => {
     );
     await setDoc(jobRef, {
       id: auth.currentUser.uid,
+      jobTitle: title,
       name: user.displayName,
       email: user.email,
       currentPosition: user.currentPosition,
       status: "Awaiting Review",
       experience: "null",
     });
+    const userCollectionRef = await doc(db, "users", auth.currentUser.uid);
+
+    await updateDoc(userCollectionRef, {
+      appliedTo: {
+        id: id,
+        title: title,
+      },
+    });
     setIsLoading(false);
     setApplied(true);
+    toast({
+      title: "Congratulations, Your Application has been submitted",
+      description:
+        "You will be notified when the company reviews your application",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
   };
   let confet;
+  let appliedText;
   if (applied) {
     confet = (
       <Confetti
-        width={width-25}
-        height={height-50}
+        width={width - 25}
+        height={height - 50}
         numberOfPieces={500}
         recycle={false}
       />
     );
+
+    // appliedText = (
+    //   <Text fontSize="xl" fontWeight="bold" color="green.500">
+    //     Applied Successfully <br />
+    //     <Text fontSize="sm" color="gray.500">
+    //       You will be notified when the company reviews your application
+    //     </Text>
+    //   </Text>
+    // );
   }
 
   return (
@@ -122,7 +158,7 @@ const ApplicationPage = () => {
         <BgImage src={hero} type="image/jpg" />
       </Bg>
       <ApplicationPageContent>
-       {confet}
+        {confet}
         <VStack spacing={8}>
           <Box bg="#000000" borderRadius="15px" w="auto" maxW="1000px">
             <Flex align="center" justify="center" spacing={5} p={5}>
@@ -258,14 +294,16 @@ const ApplicationPage = () => {
                     fontWeight="bold"
                   >
                     Step 3: Apply!
+                    {appliedText}
                   </chakra.h2>
 
                   <Button
                     colorScheme="teal"
                     isLoading={isloading}
                     onClick={handleSubmit}
+                    isDisabled={user?.appliedTo?.title === title}
                   >
-                    Apply!
+                    {user?.appliedTo?.title === title ? "Applied" : "Apply"}
                   </Button>
                 </Box>
               </VStack>

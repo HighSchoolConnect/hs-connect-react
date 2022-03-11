@@ -21,6 +21,8 @@ import {
   RangeSliderTrack,
   RangeSliderFilledTrack,
   RangeSliderThumb,
+  Grid,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import BG from "../../images/hero-bg.jpg";
@@ -41,8 +43,12 @@ import { FaSearch } from "react-icons/fa";
 import { HeroForm, HeroInput, HeroBtn } from "../Hero/HeroElements";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { TextH1 } from "../GeneralPurpose/GPElements";
 
 const ResultsHero = ({ title }) => {
+  const [isLessThan480] = useMediaQuery("(max-width: 1080px)");
+  const [isLargerThan1280] = useMediaQuery("(min-width: 1080px)");
+
   const { id } = useParams();
   // const {
   //   isOpen: isOpenReportModal,
@@ -95,7 +101,6 @@ const ResultsHero = ({ title }) => {
         <ResultsImage src={BG} type="image/jpg" />
       </ResultsBg>
       <ResultsWrapper>
-        <ResultsTitle>Results</ResultsTitle>
         <VStack>
           <HeroForm action="/" method="get">
             <HeroInput
@@ -224,30 +229,38 @@ const ResultsHero = ({ title }) => {
               </DrawerContent>
             </Drawer>
             {noResultsDiv}
-
-            {results
-              .filter((val) => {
-                if (searchTerm.length > 0) {
-                  return val.title
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase());
-                }
-                return true;
-              })
-              .map((item, index) => {
-                return (
-                  <ResultItem
-                    key={index}
-                    id={item.employerID}
-                    title={item.title}
-                    company={item.company}
-                    location={item.location}
-                    salary={item.salary}
-                    logo={item.logo}
-                    type={item.type}
-                  />
-                );
-              })}
+            <Grid
+              templateColumns={
+                isLargerThan1280 ? "repeat(2, 1fr)" : "repeat(1, 1fr)"
+              }
+              gap={6}
+            >
+              {results
+                .filter((val) => {
+                  if (searchTerm.length > 0) {
+                    return val.title
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase());
+                  }
+                  return true;
+                })
+                .map((item, index) => {
+                  return (
+                    <ResultItem
+                      key={index}
+                      id={item.employerID}
+                      title={item.title}
+                      company={item.company}
+                      location={item.location}
+                      salaryLow={item.salaryLow}
+                      salaryHigh={item.salaryHigh}
+                      address={item.address}
+                      logo={item.logo}
+                      type={item.type}
+                    />
+                  );
+                })}
+            </Grid>
           </VStack>
         </ResultsColumn>
       </ResultsWrapper>

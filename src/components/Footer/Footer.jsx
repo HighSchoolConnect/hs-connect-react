@@ -1,3 +1,4 @@
+import { Link } from "@chakra-ui/react";
 import React from "react";
 import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
@@ -30,6 +31,9 @@ const Footer = () => {
         <FooterLinksContainer>
           <FooterLinksWrapper>
             <FooterLinkItem>
+              <FooterLinkTitle>
+                <Link textDecoration="underline" href="employer/signin">Employer Login</Link>
+              </FooterLinkTitle>
               <FooterLinkTitle>Made With:</FooterLinkTitle>
               <FooterLink to="/">React.js,</FooterLink>
               <FooterLink to="/">Styled Components,</FooterLink>

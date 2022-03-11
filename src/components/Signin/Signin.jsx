@@ -41,6 +41,7 @@ const Signin = () => {
     setLoading(true);
     try {
       await login(emailRef.current.value, passwordRef.current.value);
+
       setAuthDone(true);
     } catch (error) {
       alert(error.message);

@@ -326,7 +326,13 @@ const ProfileHero = () => {
         </Bg>
         <ProfileContent>
           <VStack spacing={8}>
-            <Box bg="#000000" borderRadius="15px" w="auto" maxW="1000px">
+            <Box
+              bg="#000000"
+              borderRadius="15px"
+              w="auto"
+              maxW="1000px"
+              boxShadow="0px 0px 10px #000;"
+            >
               <Cover>
                 <Image
                   src={hero}

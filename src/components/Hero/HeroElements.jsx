@@ -42,11 +42,15 @@ export const HeroBg = styled.div`
 
 export const HeroBgImage = styled.img`
   background-color: black;
-  filter: blur(15px);
+  filter: blur(5px);
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 `;
 
 export const HeroContent = styled.div`
@@ -155,7 +159,7 @@ export const HeroBtn = styled(Link)`
   width: 40px;
   float: right;
   display: flex;
-
+  padding-right: 10px;
   justify-content: center;
   align-items: center;
   border-radius: 50%;

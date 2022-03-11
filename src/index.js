@@ -8,6 +8,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 
 
 
+import './fonts/Montserrat-Regular.ttf'
+import './fonts/Montserrat-Black.ttf'
 
 // Initialize Firebase
 

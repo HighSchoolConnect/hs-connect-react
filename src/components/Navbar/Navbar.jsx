@@ -21,7 +21,7 @@ const Navbar = ({ toggle }) => {
   // const [users, setUsers] = useState({});
   const [photoURL, setPhotoURL] = useState("");
   const [isApplicant, setIsApplicant] = useState(false);
-  const [isEmployer, setIsEmployer] = useState(true);
+  const [isEmployer, setIsEmployer] = useState(false);
 
   const changeNav = () => {
     if (window.scrollY >= 80) {

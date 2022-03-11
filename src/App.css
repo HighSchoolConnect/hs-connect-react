@@ -1,7 +1,13 @@
+@font-face {
+  font-family: "Montserrat-Black";
+  src: local("Montserrat-Black") url("./fonts/Montserrat-Black.ttf")
+    format("truetype");
+  font-weight: 900;
+}
 body {
-  font-family: "Montserrat", sans-serif!important;
+  font-family: "Montserrat", sans-serif !important;
 
-  background-color: #000000!important;
+  background-color: #000000 !important;
 }
 * {
   box-sizing: border-box;

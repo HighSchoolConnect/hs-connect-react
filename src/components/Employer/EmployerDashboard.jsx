@@ -80,6 +80,7 @@ const EmployerDashboard = () => {
     const jobRef = collection(db, "jobs");
     await addDoc(jobRef, {
       title,
+      type,
       company,
       address,
       location,
@@ -149,7 +150,7 @@ const EmployerDashboard = () => {
           <Td>{applicant.currentPosition}</Td>
           <Td>
             <Button colorScheme="teal">
-              <Link href={applicant.resumeURL} isExternal>
+              <Link href={"/resume/" + applicant.id} isExternal>
                 View
               </Link>
             </Button>
