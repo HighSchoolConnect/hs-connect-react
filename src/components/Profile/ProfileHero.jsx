@@ -46,7 +46,6 @@ const ProfileHero = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [uploaded, setUploaded] = useState();
 
-
   const {
     isOpen: isOpenContact,
     onOpen: onOpenContact,
@@ -285,7 +284,6 @@ const ProfileHero = () => {
   const handleChangeLocation = (event) => setLocation(event.target.value);
   const handleChangeEducation = (event) => setEducation(event.target.value);
   const handleChangePhone = (event) => setPhone(event.target.value);
-  const handleChangePhotoURL = (event) => setPhotoURL(event.target.value);
   const handleChangeAbout = (event) => setAbout(event.target.value);
 
   const handleChangeHSGradMonth = (event) => setHSGradMonth(event.target.value);
