@@ -18,7 +18,7 @@ import { doc, getDoc } from "firebase/firestore";
 
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  // const [users, setUsers] = useState({});
+  const [company, setCompany] = useState("");
   const [photoURL, setPhotoURL] = useState("");
   const [isApplicant, setIsApplicant] = useState(false);
   const [isEmployer, setIsEmployer] = useState(false);
@@ -45,15 +45,27 @@ const Navbar = ({ toggle }) => {
           );
           const userData = await getDoc(userCollectionRef);
           console.log(userData.data());
-          // setUsers(userData.data());
+          // setUser(userData.data());
 
-          setPhotoURL(userData.data().photoURL);
-          setIsApplicant(true);
-
-          if (userData.data().isEmployer === false) {
+          if (userData.data() === undefined) {
             setIsApplicant(false);
             setIsEmployer(true);
             setPhotoURL("");
+
+            const userCollectionRef = await doc(
+              db,
+              "employers",
+              auth.currentUser.uid
+            );
+            const userData = await getDoc(userCollectionRef);
+            console.log(userData.data().company);
+            setCompany(userData.data().company);
+          }
+
+          if (userData.data() !== undefined) {
+            setPhotoURL(userData.data().photoURL);
+            setIsApplicant(true);
+            console.log("qqq");
           }
         };
         getUserData();
@@ -114,8 +126,7 @@ const Navbar = ({ toggle }) => {
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
             <NavLogo to="/" onClick={toggleHome}>
-              {" "}
-              HS Connect
+              {isEmployer ? "HS Connect: " + company : "HS Connect"}
             </NavLogo>
 
             <MobileIcon onClick={toggle}>

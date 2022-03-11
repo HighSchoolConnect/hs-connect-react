@@ -6,7 +6,7 @@ import { Bg, BgImage } from "../../components/GeneralPurpose/GPElements";
 
 import { ProfileContainer, ProfileContent, Cover } from "./ProfileElements";
 
-import { auth, db } from "../../components/Signup/Firebase";
+import { auth, db, storage } from "../../components/Signup/Firebase";
 import {
   Box,
   HStack,
@@ -32,14 +32,20 @@ import {
   TabPanels,
   Tab,
   TabPanel,
+  useToast,
 } from "@chakra-ui/react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { EditIcon } from "@chakra-ui/icons";
 import { Button as RouteButton } from "../ButtonElement";
+import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
 
 const ProfileHero = () => {
   // const currentUser = useAuth();
   const [users, setUsers] = useState({});
+  const toast = useToast();
+  const [selectedFile, setSelectedFile] = useState();
+  const [uploaded, setUploaded] = useState();
+
 
   const {
     isOpen: isOpenContact,
@@ -318,6 +324,32 @@ const ProfileHero = () => {
   const handleChangeAc1 = (event) => setAc1(event.target.value);
   const handleChangeAc2 = (event) => setAc2(event.target.value);
   const handleChangeAc3 = (event) => setAc3(event.target.value);
+
+  const handleChangeFile = async (e) => {
+    setSelectedFile(e.target.files[0]);
+    const storageRef = ref(
+      storage,
+      `users/${auth.currentUser.uid}/${e.target.files[0].name}`
+    );
+    await uploadBytes(storageRef, e.target.files[0]);
+    await getDownloadURL(storageRef)
+      .then((url) => {
+        setPhotoURL(url);
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
+    toast({
+      position: "bottom",
+      description: "File Uploaded",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+
+    setUploaded(true);
+  };
+
   return (
     <>
       <ProfileContainer id="profile">
@@ -409,11 +441,11 @@ const ProfileHero = () => {
                                   <Text fontSize="sm" color="white">
                                     Photo URL
                                   </Text>
-                                  <Input
+                                  <input
                                     placeholder="Photo URL"
-                                    color="white"
-                                    value={photoURL}
-                                    onChange={handleChangePhotoURL}
+                                    type="file"
+                                    name={selectedFile?.name}
+                                    onChange={handleChangeFile}
                                   />
                                 </VStack>
                               </VStack>
@@ -423,6 +455,7 @@ const ProfileHero = () => {
                             <Button
                               onClick={handleEdit}
                               isLoading={isLoading}
+                              isDisabled={uploaded === false}
                               colorScheme="teal"
                               mr={4}
                             >

@@ -14,6 +14,8 @@ import {
 import "firebase/firestore";
 
 import { getFirestore } from "@firebase/firestore";
+import { getStorage } from "@firebase/storage";
+
 import { doc, setDoc, addDoc, collection } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -29,6 +31,7 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 
 export const db = getFirestore(app);
+export const storage = getStorage(app);
 
 export const createUserDocument = async (user, additionalData) => {
 

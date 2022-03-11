@@ -25,13 +25,17 @@ import {
   VStack,
   Text,
   Input,
+  useToast,
 } from "@chakra-ui/react";
-import { auth, db } from "../Signup/Firebase";
+import { auth, db, storage } from "../Signup/Firebase";
 import { useEffect } from "react";
 import { addDoc, collection, getDocs } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 const EmployerDashboard = () => {
+  const toast = useToast();
   const [applicants, setApplicants] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [uploaded, setUploaded] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [title, setTitle] = useState("");
@@ -42,6 +46,7 @@ const EmployerDashboard = () => {
   const [salaryLow, setSalaryLow] = useState(0);
   const [salaryHigh, setSalaryHigh] = useState(0);
   const [logo, setLogo] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
 
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -115,8 +120,29 @@ const EmployerDashboard = () => {
   const handleChangeSalaryHigh = (e) => {
     setSalaryHigh(e.target.value);
   };
-  const handleChangeLogoURL = (e) => {
-    setLogo(e.target.value);
+  const handleChangeFile = async (e) => {
+    setSelectedFile(e.target.files[0]);
+    const storageRef = ref(
+      storage,
+      `employers/${auth.currentUser.uid}/${e.target.files[0].name}`
+    );
+    await uploadBytes(storageRef, e.target.files[0]);
+    await getDownloadURL(storageRef)
+      .then((url) => {
+        setLogo(url);
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
+    toast({
+      position: "bottom",
+      description: "File Uploaded",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+
+    setUploaded(true);
   };
 
   let applicantsList;
@@ -262,11 +288,10 @@ const EmployerDashboard = () => {
                     <Text fontSize="sm" color="white">
                       Logo URL
                     </Text>
-                    <Input
-                      placeholder="Logo URL"
-                      value={logo}
-                      color="white"
-                      onChange={handleChangeLogoURL}
+                    <input
+                      type="file"
+                      name={selectedFile?.name}
+                      onChange={handleChangeFile}
                     />
                   </VStack>
                 </VStack>
@@ -277,8 +302,9 @@ const EmployerDashboard = () => {
               <Button
                 colorScheme="teal"
                 mr={4}
-                onClick={handleSubmit}
                 isLoading={isLoading}
+                isDisabled={uploaded === false}
+                onClick={handleSubmit}
               >
                 Save
               </Button>
