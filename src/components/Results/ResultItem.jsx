@@ -21,6 +21,7 @@ import {
 //import {results} from "./SampleResults";
 
 import { Button as RouteBtn } from "../ButtonElement";
+import { auth } from "../Signup/Firebase";
 
 const ResultItem = ({
   id,
@@ -192,7 +193,7 @@ const ResultItem = ({
             </ModalBody>
 
             <ModalFooter>
-              <RouteBtn to={"/apply/" + id + "/" + title}>
+              <RouteBtn to={auth?.currentUser?.uid != null ? "/apply/" + id + "/" + title : "/signup"}>
                 <HStack>
                   <Text>Apply</Text>
                 </HStack>
