@@ -106,7 +106,7 @@ export const createEmployerDocument = async (user, additionalData, additionalDat
     emp_email: auth.currentUser.email,
     emp_id: auth.currentUser.uid,
   }
-  await emailjs.send('service_8uh0bel', 'template_hupg6iv', toSend, '5fnN4zD6LQXEY6zUK')
+  await emailjs.send('service_r7s3grc', 'template_jtgm1z4', toSend, 'XSCvgMOK1wXl7zeqa')
     .then((result) => {
       console.log(result.text);
     }, (error) => {
