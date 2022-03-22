@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import emailjs from '@emailjs/browser';
 
 import { initializeApp } from "firebase/app";
 import {
@@ -34,6 +35,7 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 
 export const createUserDocument = async (user, additionalData) => {
+
 
 
   const userRef = doc(db, "users", auth.currentUser.uid);
@@ -95,6 +97,21 @@ export const createEmployerDocument = async (user, additionalData, additionalDat
     email: auth.currentUser.email,
     createdAt: new Date(),
   });
+
+  const toSend = {
+    from_name: 'The HS Connect',
+    to_name: "Admin",
+    emp_name: additionalData,
+    emp_company: additionalData2,
+    emp_email: auth.currentUser.email,
+    emp_id: auth.currentUser.uid,
+  }
+  await emailjs.send('service_8uh0bel', 'template_hupg6iv', toSend, '5fnN4zD6LQXEY6zUK')
+    .then((result) => {
+      console.log(result.text);
+    }, (error) => {
+      console.log(error.text);
+    });
 
 
 };

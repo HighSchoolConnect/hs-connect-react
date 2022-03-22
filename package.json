@@ -6,6 +6,7 @@
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.7.2",
     "@craco/craco": "^7.0.0-alpha.0",
+    "@emailjs/browser": "^3.4.0",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@react-pdf/renderer": "^2.1.1",
