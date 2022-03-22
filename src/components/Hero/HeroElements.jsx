@@ -56,10 +56,14 @@ export const HeroBgImage = styled.img`
 export const HeroContent = styled.div`
   z-index: 3;
   max-width: 1200px;
-  padding: 8px 24px;
+  /* padding: 8px 24px; */
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 `;
 export const TextContainer = styled.div`
   display: flex;
@@ -84,7 +88,7 @@ export const HeroH1 = styled.h1`
   }
 
   @media screen and (max-width: 580px) {
-    font-size: 60px;
+    font-size: 55px;
   }
 `;
 
@@ -128,7 +132,8 @@ export const HeroForm = styled.div`
   justify-content: center;
 
   @media screen and (max-width: 580px) {
-    height: 40px;
+    height: 50px;
+    margin: 10px;
   }
 `;
 
@@ -154,7 +159,7 @@ export const HeroInput = styled.input`
   }
 
   @media screen and (max-width: 580px) {
-    width: 250px;
+    width: 270px;
     font-size: 10px;
   }
 `;
