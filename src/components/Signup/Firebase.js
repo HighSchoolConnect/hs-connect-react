@@ -101,10 +101,12 @@ export const createEmployerDocument = async (user, additionalData, additionalDat
   const toSend = {
     from_name: 'The HS Connect',
     to_name: "Admin",
+    reply_to: auth.currentUser.email,
     emp_name: additionalData,
     emp_company: additionalData2,
     emp_email: auth.currentUser.email,
     emp_id: auth.currentUser.uid,
+
   }
   await emailjs.send('service_r7s3grc', 'template_jtgm1z4', toSend, 'XSCvgMOK1wXl7zeqa')
     .then((result) => {
