@@ -29,7 +29,7 @@ import {
 } from "@chakra-ui/react";
 import { auth, db, storage } from "../Signup/Firebase";
 import { useEffect } from "react";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 const EmployerDashboard = () => {
   const toast = useToast();
@@ -37,6 +37,7 @@ const EmployerDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [uploaded, setUploaded] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [user, setUser] = useState({});
 
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
@@ -71,7 +72,18 @@ const EmployerDashboard = () => {
           );
           console.log(applicants);
         };
+        const getUserData = async () => {
+          const userCollectionRef = await doc(
+            db,
+            "employers",
+            auth.currentUser.uid
+          );
+          const userData = await getDoc(userCollectionRef);
+          console.log(userData.data());
+          setUser(userData.data());
+        };
         getApplicants();
+        getUserData();
         setLoading(false);
       } else {
         // not logged in
@@ -166,7 +178,7 @@ const EmployerDashboard = () => {
         </Td>
       </Tr>
     );
-  } else {
+  } else if (user.verified) {
     applicantsList = applicants.map((applicant) => {
       return (
         <Tr key={applicant.id}>
@@ -185,7 +197,6 @@ const EmployerDashboard = () => {
       );
     });
   }
-
   return (
     <EmployerDashboardContainer>
       <Bg>
@@ -194,9 +205,13 @@ const EmployerDashboard = () => {
 
       <EmployerDashboardContent>
         <TextH1>Dashboard</TextH1>
-        <Button onClick={onOpen} m={10} colorScheme="teal">
-          Post a Job
-        </Button>
+        {user.verified ? (
+          <Button onClick={onOpen} m={10} colorScheme="teal">
+            Post a Job
+          </Button>
+        ) : (
+          <div />
+        )}
 
         <Modal isOpen={isOpen} onClose={onClose} isCentered>
           <ModalOverlay />
@@ -314,28 +329,34 @@ const EmployerDashboard = () => {
             </ModalFooter>
           </ModalContent>
         </Modal>
-        <Table variant="striped" size="lg" bg="white" borderRadius={12}>
-          {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
-          <Thead>
-            <Tr>
-              <Th>Name</Th>
-              <Th>Status</Th>
-              <Th>Matches to Job Post</Th>
-              <Th>Current Experience</Th>
-              <Th>Resume</Th>
-            </Tr>
-          </Thead>
-          <Tbody>{applicantsList}</Tbody>
-          <Tfoot>
-            <Tr>
-              <Th>Name</Th>
-              <Th>Status</Th>
-              <Th>Matches to Job Post</Th>
-              <Th>Current Experience</Th>
-              <Th>Resume</Th>
-            </Tr>
-          </Tfoot>
-        </Table>
+        {user.verified ? (
+          <Table variant="striped" size="lg" bg="white" borderRadius={12}>
+            {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
+            <Thead>
+              <Tr>
+                <Th>Name</Th>
+                <Th>Status</Th>
+                <Th>Matches to Job Post</Th>
+                <Th>Current Experience</Th>
+                <Th>Resume</Th>
+              </Tr>
+            </Thead>
+            <Tbody>{applicantsList}</Tbody>
+            <Tfoot>
+              <Tr>
+                <Th>Name</Th>
+                <Th>Status</Th>
+                <Th>Matches to Job Post</Th>
+                <Th>Current Experience</Th>
+                <Th>Resume</Th>
+              </Tr>
+            </Tfoot>
+          </Table>
+        ) : (
+          <Text fontSize="xl" color="white">
+            Please wait till we verify your account
+          </Text>
+        )}
       </EmployerDashboardContent>
     </EmployerDashboardContainer>
   );

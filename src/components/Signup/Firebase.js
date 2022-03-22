@@ -91,6 +91,7 @@ export const createEmployerDocument = async (user, additionalData, additionalDat
     displayName: additionalData,
     company: additionalData2,
     employer: true,
+    verified: false,
     email: auth.currentUser.email,
     createdAt: new Date(),
   });
