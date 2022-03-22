@@ -134,18 +134,36 @@ const Navbar = ({ toggle }) => {
             </MobileIcon>
             <NavMenu>
               <NavItem>
-                <NavLinks to="/" duration={500} exact="true" offset={-80}>
+                <NavLinks
+                  to="/"
+                  duration={500}
+                  exact="true"
+                  offset={-80}
+                  onClick={toggleHome}
+                >
                   Home
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="aboutus" duration={500} exact="true" offset={-80}>
+                <NavLinks
+                  to="aboutus"
+                  duration={500}
+                  exact="true"
+                  offset={-80}
+                  onClick={toggleHome}
+                >
                   About Us
                 </NavLinks>
               </NavItem>
 
               <NavItem>
-                <NavLinks to="faq" duration={500} exact="true" offset={-80}>
+                <NavLinks
+                  to="faq"
+                  duration={500}
+                  exact="true"
+                  offset={-80}
+                  onClick={toggleHome}
+                >
                   FAQ
                 </NavLinks>
               </NavItem>
@@ -155,6 +173,7 @@ const Navbar = ({ toggle }) => {
                   duration={500}
                   exact="true"
                   offset={-80}
+                  onClick={toggleHome}
                 >
                   Contact Us
                 </NavLinks>
@@ -168,6 +187,7 @@ const Navbar = ({ toggle }) => {
                   duration={500}
                   exact="true"
                   offset={-80}
+                  onClick={toggleHome}
                   // onClick={loggedInChecker}
                 >
                   <Image

@@ -19,9 +19,11 @@ import {
 import { VStack } from "@chakra-ui/react";
 import Particles from "react-tsparticles";
 import particlesConfig from "./particles.json";
+import { Navigate } from "react-router-dom";
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchComplete, setSearchComplete] = useState(false);
   // const particlesInit = (main) => {
   //   console.log(main);
 
@@ -31,6 +33,16 @@ const Hero = () => {
   // const particlesLoaded = (container) => {
   //   console.log(container);
   // };
+  const something = (event) => {
+    if (event.keyCode === 13) {
+      setSearchComplete(true);
+    }
+  };
+
+  if (searchComplete === true) {
+    return <Navigate to={`/results/${searchTerm}`} />;
+  }
+
   return (
     <HeroContainer id="home">
       <HeroBg isDisabled={true}>
@@ -60,8 +72,9 @@ const Hero = () => {
                 autoComplete="off"
                 onChange={(e) => setSearchTerm(e.target.value)}
                 value={searchTerm}
+                onKeyDown={(e) => something(e)}
               />
-              <HeroBtn type="button" to={"/results/" + searchTerm}>
+              <HeroBtn type="submit" to={"/results/" + searchTerm}>
                 <FaSearch />
               </HeroBtn>
             </HeroForm>
