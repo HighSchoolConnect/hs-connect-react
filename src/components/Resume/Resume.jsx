@@ -184,8 +184,8 @@ const Resume = () => {
       <RouteButton to="/Profile">
         <Text>Back to Profile Page</Text>
       </RouteButton>
-      <PDFViewer width="700px" height="1000px">
-        <Document title="ResumeGG" author="HS Connect">
+      <PDFViewer style={{ height: "100vh", width: "50%" }}>
+        <Document title={`HSConnect-${firstName}${lastName}`} author="HS Connect">
           <Page size="Letter" style={styles.page}>
             <View style={styles.leftSection}>
               <Image src={photoURL} style={styles.image} />

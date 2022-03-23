@@ -179,7 +179,7 @@ const ResumeEmployer = () => {
   return (
     <Flex direction="column" justify="center" align="center">
       <PDFViewer style={{ height: "100vh", width: "50%" }}>
-        <Document title="ResumeGG" author="HS Connect">
+        <Document title={`${users.displayName} Resume`} author="HS Connect">
           <Page size="Letter" style={styles.page}>
             <View style={styles.leftSection}>
               <Image src={photoURL} style={styles.image} />
