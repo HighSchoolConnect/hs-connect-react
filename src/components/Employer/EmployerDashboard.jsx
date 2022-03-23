@@ -26,6 +26,7 @@ import {
   Text,
   Input,
   useToast,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { auth, db, storage } from "../Signup/Firebase";
 import { useEffect } from "react";
@@ -48,6 +49,7 @@ const EmployerDashboard = () => {
   const [salaryHigh, setSalaryHigh] = useState(0);
   const [logo, setLogo] = useState("");
   const [selectedFile, setSelectedFile] = useState();
+
 
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -184,8 +186,7 @@ const EmployerDashboard = () => {
         <Tr key={applicant.id}>
           <Td>{applicant.name}</Td>
           <Td>{applicant.status}</Td>
-          <Td>{applicant.experience}</Td>
-          <Td>{applicant.currentPosition}</Td>
+          <Td>{applicant.jobTitle}</Td>
           <Td>
             <Button colorScheme="teal">
               <Link href={"/resume/" + applicant.id} isExternal>
@@ -330,14 +331,33 @@ const EmployerDashboard = () => {
           </ModalContent>
         </Modal>
         {user.verified ? (
-          <Table variant="striped" size="lg" bg="white" borderRadius={12}>
-            {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
+          <Table
+            variant="striped"
+            sx={{
+              "@media screen and (max-width: 768px)": {
+                tableLayout: "fixed",
+                size: "sm",
+                fontSize: "xs",
+              },
+              "@media screen and (min-width: 1280px)": {
+                tableLayout: "fixed",
+                size: "md",
+              },
+              "@media screen and (min-width: 1920px)": {
+                tableLayout: "fixed",
+                size: "lg",
+              },
+            }}
+            borderColor="teal.500"
+            bg="white"
+            borderRadius={12}
+          >
+            {/* <TableCaption>Applications</TableCaption> */}
             <Thead>
               <Tr>
                 <Th>Name</Th>
                 <Th>Status</Th>
-                <Th>Matches to Job Post</Th>
-                <Th>Current Experience</Th>
+                <Th>Applied To</Th>
                 <Th>Resume</Th>
               </Tr>
             </Thead>
@@ -346,8 +366,7 @@ const EmployerDashboard = () => {
               <Tr>
                 <Th>Name</Th>
                 <Th>Status</Th>
-                <Th>Matches to Job Post</Th>
-                <Th>Current Experience</Th>
+                <Th>Applied To</Th>
                 <Th>Resume</Th>
               </Tr>
             </Tfoot>
