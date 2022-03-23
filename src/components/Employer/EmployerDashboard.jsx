@@ -26,7 +26,6 @@ import {
   Text,
   Input,
   useToast,
-  useMediaQuery,
 } from "@chakra-ui/react";
 import { auth, db, storage } from "../Signup/Firebase";
 import { useEffect } from "react";
