@@ -243,6 +243,17 @@ const EmployerDashboard = () => {
                       onChange={handleChangeType}
                     />
                   </VStack>
+                  <VStack spacing={2} align="left">
+                    <Text fontSize="sm" color="white">
+                      Description
+                    </Text>
+                    <Input
+                      placeholder="Decription"
+                      value={type}
+                      color="white"
+                      onChange={handleChangeType}
+                    />
+                  </VStack>
 
                   <VStack spacing={2} align="left">
                     <Text fontSize="sm" color="white">
