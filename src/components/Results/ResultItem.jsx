@@ -165,7 +165,7 @@ const ResultItem = ({
 
                     <chakra.p mt={2} fontSize="sm" color="white">
                       The Software Engineering Intern will be a passionate,
-                      opinionated and creative individual who can develop web
+                      opinionated, and creative individual who can develop web
                       applications from the ground up. You will understand web
                       strengths and constraints and build pixel perfect
                       solutions. You should be capable, and willing, to assist
@@ -193,7 +193,13 @@ const ResultItem = ({
             </ModalBody>
 
             <ModalFooter>
-              <RouteBtn to={auth?.currentUser?.uid != null ? "/apply/" + id + "/" + title : "/signup"}>
+              <RouteBtn
+                to={
+                  auth?.currentUser?.uid != null
+                    ? "/apply/" + id + "/" + title
+                    : "/signup"
+                }
+              >
                 <HStack>
                   <Text>Apply</Text>
                 </HStack>
