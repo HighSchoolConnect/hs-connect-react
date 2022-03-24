@@ -372,7 +372,7 @@ const EmployerDashboard = () => {
           </Table>
         ) : (
           <Text fontSize="xl" color="white">
-            Please wait till we verify your account
+            Please wait until we verify your account
           </Text>
         )}
       </EmployerDashboardContent>
