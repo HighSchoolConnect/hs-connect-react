@@ -45,10 +45,9 @@ const EmployerDashboard = () => {
   const [address, setAddress] = useState("");
   const [location, setLocation] = useState("");
   const [salaryLow, setSalaryLow] = useState(0);
-  const [salaryHigh, setSalaryHigh] = useState(0);
+  // const [salaryHigh, setSalaryHigh] = useState(0);
   const [logo, setLogo] = useState("");
   const [selectedFile, setSelectedFile] = useState();
-
 
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -103,7 +102,6 @@ const EmployerDashboard = () => {
       address,
       location,
       salaryLow,
-      salaryHigh,
       logo,
       employerID: auth.currentUser.uid,
     });
@@ -130,9 +128,9 @@ const EmployerDashboard = () => {
   const handleChangeSalaryLow = (e) => {
     setSalaryLow(e.target.value);
   };
-  const handleChangeSalaryHigh = (e) => {
-    setSalaryHigh(e.target.value);
-  };
+  // const handleChangeSalaryHigh = (e) => {
+  //   setSalaryHigh(e.target.value);
+  // };
   const handleChangeFile = async (e) => {
     setSelectedFile(e.target.files[0]);
     const storageRef = ref(
