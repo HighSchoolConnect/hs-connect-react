@@ -14,18 +14,12 @@ import {
   FormDivider,
 } from "./SigninElements";
 
-import {
-  Input,
-  Button,
-  Checkbox,
-  Link,
-  HStack,
-  VStack,
-} from "@chakra-ui/react";
+import { Input, Button, Link, HStack } from "@chakra-ui/react";
 
-import { useAuth, login } from "../Signup/Firebase";
+import { useAuth, login, db, auth } from "../Signup/Firebase";
 
 import { Navigate } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -33,6 +27,7 @@ const Signin = () => {
   const [signup, setSignup] = useState(false);
   const [forgotPassword, setForgotPassword] = useState(false);
   const currentUser = useAuth();
+  const [userData, setUserData] = useState({});
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -41,6 +36,27 @@ const Signin = () => {
     setLoading(true);
     try {
       await login(emailRef.current.value, passwordRef.current.value);
+      const getUserData = async () => {
+        const userCollectionRef = await doc(db, "users", auth.currentUser.uid);
+        const userData = await getDoc(userCollectionRef);
+        console.log(userData.data());
+        // setUser(userData.data());
+
+        if (userData.data() === undefined) {
+          const userCollectionRef = await doc(
+            db,
+            "employers",
+            auth.currentUser.uid
+          );
+          const userData = await getDoc(userCollectionRef);
+          setUserData(userData.data());
+        }
+
+        if (userData.data() !== undefined) {
+          setUserData(userData.data());
+        }
+      };
+      await getUserData();
 
       setAuthDone(true);
     } catch (error) {
@@ -57,40 +73,11 @@ const Signin = () => {
     setForgotPassword(true);
   }
 
-  if (currentUser && authDone) {
+  if (currentUser && authDone && userData.employer) {
+    return <Navigate to="/dashboard" />;
+  } else if (currentUser && authDone && userData.employer === false) {
     return <Navigate to="/profile" />;
   }
-
-  // if (employerCheckboxRef.current.checked === true) {
-  //   console.log("checking...");
-  //   const getUserData = async () => {
-  //     const userCollectionRef = await doc(
-  //       db,
-  //       "employers",
-  //       auth.currentUser.uid
-  //     );
-
-  //     const userData = await getDoc(userCollectionRef);
-  //     setUser(userData.data());
-
-  //     if (userData.data().employer === true) {
-  //       console.log(userData.data().employer);
-  //       setEmployer(userData.data().employer);
-
-  //       console.log(user.employer);
-  //     }
-  //   };
-  //   getUserData();
-
-  //   if (user.employer) {
-  //     return <Navigate to="/dashboard" />;
-  //   } else {
-  //     return <Navigate to="/dashboard" />;
-  //   }
-  // } else {
-  //   return <Navigate to="/dashboard" />;
-  // }
-  // }
 
   if (signup === true) {
     return <Navigate to="/signup" />;
@@ -129,11 +116,6 @@ const Signin = () => {
                 size="lg"
               />
               <HStack spacing={20}>
-                <VStack align="left">
-                  <Checkbox>Keep me logged in</Checkbox>
-                  <Link href="/employer/signin">I am an employer</Link>
-                </VStack>
-
                 <Link onClick={navigateToForgotPassword}>Forgot Password?</Link>
               </HStack>
 
@@ -155,18 +137,6 @@ const Signin = () => {
               <Link onClick={navigateToSignup}>
                 Don't have an account? Signup Here!
               </Link>
-              {/* 
-              <Button
-                onClick={handleLogout}
-                bg="#00c6d3"
-                color="white"
-                _hover={{ bg: "#00c6d3", color: "white" }}
-                disabled={loading || !currentUser}
-                width={400}
-                height={50}
-              >
-                LogOut
-              </Button> */}
             </SigninForm>
           </Column1>
           <Column2>
