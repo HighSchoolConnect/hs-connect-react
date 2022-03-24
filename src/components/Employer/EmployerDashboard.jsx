@@ -243,6 +243,17 @@ const EmployerDashboard = () => {
                       onChange={handleChangeType}
                     />
                   </VStack>
+                  <VStack spacing={2} align="left">
+                    <Text fontSize="sm" color="white">
+                      Description
+                    </Text>
+                    <Input
+                      placeholder="Decription"
+                      value={type}
+                      color="white"
+                      onChange={handleChangeType}
+                    />
+                  </VStack>
 
                   <VStack spacing={2} align="left">
                     <Text fontSize="sm" color="white">
@@ -279,24 +290,13 @@ const EmployerDashboard = () => {
                   </VStack>
                   <VStack spacing={2} align="left">
                     <Text fontSize="sm" color="white">
-                      Salary Low
+                      Salary
                     </Text>
                     <Input
-                      placeholder="Salary Low"
+                      placeholder="Salary"
                       value={salaryLow}
                       color="white"
                       onChange={handleChangeSalaryLow}
-                    />
-                  </VStack>
-                  <VStack spacing={2} align="left">
-                    <Text fontSize="sm" color="white">
-                      Salary High
-                    </Text>
-                    <Input
-                      placeholder="Salary High"
-                      value={salaryHigh}
-                      color="white"
-                      onChange={handleChangeSalaryHigh}
                     />
                   </VStack>
                   <VStack spacing={2} align="left">
@@ -372,7 +372,7 @@ const EmployerDashboard = () => {
           </Table>
         ) : (
           <Text fontSize="xl" color="white">
-            Please wait till we verify your account
+            Please wait until we verify your account
           </Text>
         )}
       </EmployerDashboardContent>
