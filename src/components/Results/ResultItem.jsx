@@ -21,7 +21,7 @@ import {
 } from "@chakra-ui/react";
 //import {results} from "./SampleResults";
 
-import { Button as RouteBtn, Chakra } from "../ButtonElement";
+import { Chakra } from "../ButtonElement";
 import { auth } from "../Signup/Firebase";
 
 const ResultItem = ({
