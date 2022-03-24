@@ -17,10 +17,11 @@ import {
   ModalBody,
   ModalFooter,
   GridItem,
+  Button,
 } from "@chakra-ui/react";
 //import {results} from "./SampleResults";
 
-import { Button as RouteBtn } from "../ButtonElement";
+import { Button as RouteBtn, Chakra } from "../ButtonElement";
 import { auth } from "../Signup/Firebase";
 
 const ResultItem = ({
@@ -105,7 +106,7 @@ const ResultItem = ({
           </chakra.button>
         </Flex>
 
-        <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <Modal isOpen={isOpen} onClose={onClose} isCentered size="sm">
           <ModalOverlay />
           <ModalContent bg="#00c6d3">
             <ModalHeader color="white">{title}</ModalHeader>
@@ -116,9 +117,11 @@ const ResultItem = ({
                   roundedTop="lg"
                   w="full"
                   h={64}
-                  fit="cover"
+                  fit="contain"
                   src={logo}
                   alt="Article"
+                  bg="#ffffff"
+                  boxShadow="lg"
                 />
                 <Box p={6}>
                   <Box>
@@ -163,7 +166,7 @@ const ResultItem = ({
                       {title}
                     </Text> */}
 
-                    <chakra.p mt={2} fontSize="sm" color="white">
+                    <chakra.p mt={2} fontSize="xs" color="white">
                       The Software Engineering Intern will be a passionate,
                       opinionated, and creative individual who can develop web
                       applications from the ground up. You will understand web
@@ -171,6 +174,19 @@ const ResultItem = ({
                       solutions. You should be capable, and willing, to assist
                       in developing responsive single-page web applications.
                     </chakra.p>
+                    <Chakra
+                      to={
+                        auth?.currentUser?.uid != null
+                          ? "/apply/" + id + "/" + title
+                          : "/signup"
+                      }
+                    >
+                      <Button colorScheme="teal" mt={10} mb={-5}>
+                        <HStack>
+                          <Text>Apply</Text>
+                        </HStack>
+                      </Button>
+                    </Chakra>
                   </Box>
 
                   <Box mt={6}>
@@ -192,19 +208,7 @@ const ResultItem = ({
               </Box>
             </ModalBody>
 
-            <ModalFooter>
-              <RouteBtn
-                to={
-                  auth?.currentUser?.uid != null
-                    ? "/apply/" + id + "/" + title
-                    : "/signup"
-                }
-              >
-                <HStack>
-                  <Text>Apply</Text>
-                </HStack>
-              </RouteBtn>
-            </ModalFooter>
+            <ModalFooter></ModalFooter>
           </ModalContent>
         </Modal>
       </Box>
