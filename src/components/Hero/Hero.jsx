@@ -16,10 +16,11 @@ import {
   HeroBtn,
 } from "./HeroElements";
 
-import { VStack } from "@chakra-ui/react";
+import { VStack, HStack, Text } from "@chakra-ui/react";
 import Particles from "react-tsparticles";
 import particlesConfig from "./particles.json";
 import { Navigate } from "react-router-dom";
+import { Button as RouteButton } from "../ButtonElement";
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -106,11 +107,11 @@ const Hero = () => {
             boxShadow=" 4px 4px 15px #000000"
           />
         </HeroFilter> */}
-        {/* <HStack align="right" zIndex={3}>
-          <Button to="/Signup">
-            <Text>For Employers</Text>
-          </Button>
-        </HStack> */}
+        <HStack align="right" zIndex={3}>
+          <RouteButton to="/signin">
+            <Text>Employer Signin</Text>
+          </RouteButton>
+        </HStack>
       </HeroContent>
     </HeroContainer>
   );
