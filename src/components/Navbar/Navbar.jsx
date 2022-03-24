@@ -96,7 +96,7 @@ const Navbar = ({ toggle }) => {
   } else if (isEmployer) {
     currentRoute = "/dashboard";
   } else {
-    currentRoute = "/signup";
+    currentRoute = "/signin";
   }
 
   var button = <Button></Button>;
@@ -114,7 +114,7 @@ const Navbar = ({ toggle }) => {
     );
   } else {
     button = (
-      <NavLinks to="signup" duration={500} exact="true" offset={-80}>
+      <NavLinks to="signin" duration={500} exact="true" offset={-80}>
         Log In / Sign Up
       </NavLinks>
     );
