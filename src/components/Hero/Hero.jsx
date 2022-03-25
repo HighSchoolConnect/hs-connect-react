@@ -109,7 +109,7 @@ const Hero = () => {
         </HeroFilter> */}
         <HStack align="right" zIndex={3}>
           <RouteButton to="/signin">
-            <Text>Employer Signin</Text>
+            <Text>Employer Log In</Text>
           </RouteButton>
         </HStack>
       </HeroContent>
