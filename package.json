@@ -5,14 +5,11 @@
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.7.2",
-    "@craco/craco": "^7.0.0-alpha.0",
+    "@craco/craco": "^7.0.0-alpha.3",
     "@emailjs/browser": "^3.4.0",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@react-pdf/renderer": "^2.1.1",
-    "@testing-library/jest-dom": "^5.15.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "assert": "^2.0.0",
     "axios": "^0.26.0",
     "browserify-zlib": "^0.2.0",
@@ -23,8 +20,6 @@
     "react": "^17.0.2",
     "react-confetti": "^6.0.1",
     "react-dom": "^17.0.2",
-    "react-firebase-hooks": "^4.0.1",
-    "react-icons": "^4.3.1",
     "react-router-dom": "^6.0.2",
     "react-scripts": "^5.0.0",
     "react-scroll": "^1.8.4",
@@ -32,7 +27,7 @@
     "stream-browserify": "^3.0.0",
     "styled-components": "^5.3.3",
     "util": "^0.12.4",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "craco start",

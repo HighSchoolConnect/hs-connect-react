@@ -4,12 +4,12 @@ import { useAuth, logout, db, auth } from "../Signup/Firebase";
 import {
   SidebarContainer,
   Icon,
-  CloseIcon,
   SidebarWrapper,
   SideMenu,
   SidebarLink,
 } from "./SidebarElements";
 import { doc, getDoc } from "firebase/firestore";
+import { CloseIcon } from "@chakra-ui/icons";
 
 const Sidebar = ({ isOpen, toggle }) => {
   const [photoURL, setPhotoURL] = useState("");

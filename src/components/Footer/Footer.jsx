@@ -1,6 +1,6 @@
 import { Link } from "@chakra-ui/react";
 import React from "react";
-import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
+// import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 import { animateScroll as scroll } from "react-scroll";
 
@@ -11,8 +11,8 @@ import {
   SocialMediaWrap,
   SocialLogo,
   WebsiteRights,
-  SocialIcons,
-  SocialIconLink,
+  // SocialIcons,
+  // SocialIconLink,
   FooterLinksContainer,
   FooterLinksWrapper,
   FooterLinkItem,
@@ -58,7 +58,7 @@ const Footer = () => {
             <WebsiteRights>
               HS Connect © {new Date().getFullYear()} All Rights Reserved
             </WebsiteRights>
-            <SocialIcons>
+            {/* <SocialIcons>
               <SocialIconLink
                 href="https://github.com/hsconnect-react"
                 target="_blank"
@@ -72,7 +72,7 @@ const Footer = () => {
               <SocialIconLink href="" target="_blank" aria-label="Instagram">
                 <FaInstagram />
               </SocialIconLink>
-            </SocialIcons>
+            </SocialIcons> */}
           </SocialMediaWrap>
         </SocialMedia>
       </FooterWrap>
