@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FaBars } from "react-icons/fa";
-import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 import {
   Nav,
@@ -15,6 +13,7 @@ import {
 import { useAuth, logout, db, auth } from "../Signup/Firebase";
 import { Button, Image } from "@chakra-ui/react";
 import { doc, getDoc } from "firebase/firestore";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -122,90 +121,89 @@ const Navbar = ({ toggle }) => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <Nav scrollNav={scrollNav}>
-          <NavbarContainer>
-            <NavLogo to="/" onClick={toggleHome}>
-              {isEmployer ? "HS Connect: " + company : "HS Connect"}
-            </NavLogo>
+      <Nav scrollNav={scrollNav}>
+        <NavbarContainer>
+          <NavLogo to="/" onClick={toggleHome}>
+            {isEmployer ? "HS Connect: " + company : "HS Connect"}
+          </NavLogo>
 
-            <MobileIcon onClick={toggle}>
-              <FaBars />
-            </MobileIcon>
-            <NavMenu>
-              <NavItem>
-                <NavLinks
-                  to="/"
-                  duration={500}
-                  exact="true"
-                  offset={-80}
-                  onClick={toggleHome}
-                >
-                  Home
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks
-                  to="aboutus"
-                  duration={500}
-                  exact="true"
-                  offset={-80}
-                  onClick={toggleHome}
-                >
-                  About Us
-                </NavLinks>
-              </NavItem>
+          <MobileIcon onClick={toggle}>
+            <HamburgerIcon />
+          </MobileIcon>
+          <NavMenu>
+            <NavItem>
+              <NavLinks
+                to="/"
+                duration={500}
+                exact="true"
+                offset={-80}
+                onClick={toggleHome}
+              >
+                Home
+              </NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks
+                to="aboutus"
+                duration={500}
+                exact="true"
+                offset={-80}
+                onClick={toggleHome}
+              >
+                About Us
+              </NavLinks>
+            </NavItem>
 
-              <NavItem>
-                <NavLinks
-                  to="faq"
-                  duration={500}
-                  exact="true"
-                  offset={-80}
-                  onClick={toggleHome}
-                >
-                  FAQ
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks
-                  to="contactus"
-                  duration={500}
-                  exact="true"
-                  offset={-80}
-                  onClick={toggleHome}
-                >
-                  Contact Us
-                </NavLinks>
-              </NavItem>
+            <NavItem>
+              <NavLinks
+                to="faq"
+                duration={500}
+                exact="true"
+                offset={-80}
+                onClick={toggleHome}
+              >
+                FAQ
+              </NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks
+                to="contactus"
+                duration={500}
+                exact="true"
+                offset={-80}
+                onClick={toggleHome}
+              >
+                Contact Us
+              </NavLinks>
+            </NavItem>
 
-              <NavItem>{button}</NavItem>
-              <NavItem>
-                {" "}
-                <NavLinks
-                  to={currentRoute}
-                  duration={500}
-                  exact="true"
-                  offset={-80}
-                  onClick={toggleHome}
-                  // onClick={loggedInChecker}
-                >
-                  <Image
-                    src={
-                      photoURL ||
-                      "https://firebasestorage.googleapis.com/v0/b/thehsconnect.appspot.com/o/undraw_profile_pic_ic-5-t%20(1).svg?alt=media&token=49609533-c10e-43fd-863d-1de315962adf"
-                    }
-                    h="45px"
-                    borderRadius="full"
-                    borderColor="teal"
-                    borderWidth="1px"
-                  />
-                </NavLinks>
-              </NavItem>
-            </NavMenu>
-          </NavbarContainer>
-        </Nav>
-      </IconContext.Provider>
+            <NavItem>{button}</NavItem>
+            <NavItem>
+              {" "}
+              <NavLinks
+                to={currentRoute}
+                duration={500}
+                exact="true"
+                offset={-80}
+                onClick={toggleHome}
+                // onClick={loggedInChecker}
+              >
+                <Image
+                  src={
+                    photoURL ||
+                    "https://firebasestorage.googleapis.com/v0/b/thehsconnect.appspot.com/o/undraw_profile_pic_ic-5-t%20(1).svg?alt=media&token=49609533-c10e-43fd-863d-1de315962adf"
+                  }
+                  h="45px"
+                  w="45px"
+                  borderRadius="full"
+                  borderColor="teal"
+                  borderWidth="1px"
+                />
+              </NavLinks>
+            </NavItem>
+          </NavMenu>
+        </NavbarContainer>
+      </Nav>
     </>
   );
 };

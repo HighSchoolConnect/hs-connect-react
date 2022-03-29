@@ -1,0 +1,6 @@
+{
+  "entry": ["src/index.js", "src/components/**/*.{js,jsx}", "./craco.config.js"],
+  "extensions": [".jsx", ".js"],
+  "ignorePatterns": ["**/node_modules/**", "private/**"],
+  "ignoreUnresolved": ["encoding", "some-npm-dependency"]
+}

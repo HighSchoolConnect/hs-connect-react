@@ -47,9 +47,8 @@ export const MobileIcon = styled.div`
     color: #fff;
     display: block;
     position: absolute;
-    top: 16px;
     right: 0;
-    transform: translate(-100%, 60%);
+    transform: translate(-100%, 45%);
     font-size: 1.8rem;
     cursor: pointer;
   }
@@ -72,18 +71,17 @@ export const NavItem = styled.li`
 `;
 
 export const NavLinks = styled(LinkR)`
-    color: #fff;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
 
-    &.active{
-        border-bottom: 3px solid #1cc97e;
-    }
-
+  &.active {
+    border-bottom: 3px solid #1cc97e;
+  }
 `;
 
 export const NavBtn = styled.nav`

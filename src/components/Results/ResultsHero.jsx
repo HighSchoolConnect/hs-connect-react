@@ -36,12 +36,10 @@ import {
 } from "./ResultsElements";
 import ResultItem from "./ResultItem";
 
-// import { results } from "./SampleResults";
-
-import { FaSearch } from "react-icons/fa";
 import { HeroForm, HeroInput, HeroBtn } from "../Hero/HeroElements";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Search2Icon } from "@chakra-ui/icons";
 
 const ResultsHero = ({ title }) => {
   const [isLargerThan1080] = useMediaQuery("(min-width: 1080px)");
@@ -109,7 +107,7 @@ const ResultsHero = ({ title }) => {
               value={searchTerm}
             />
             <HeroBtn type="button" to="/results">
-              <FaSearch />
+              <Search2Icon />
             </HeroBtn>
           </HeroForm>
         </VStack>

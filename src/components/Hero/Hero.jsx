@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Image from "../../images/hero-bg.jpg";
 
-import { FaSearch } from "react-icons/fa";
 
 import {
   HeroContainer,
@@ -21,6 +20,7 @@ import Particles from "react-tsparticles";
 import particlesConfig from "./particles.json";
 import { Navigate } from "react-router-dom";
 import { Button as RouteButton } from "../ButtonElement";
+import { Search2Icon } from "@chakra-ui/icons";
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -76,7 +76,7 @@ const Hero = () => {
                 onKeyDown={(e) => something(e)}
               />
               <HeroBtn type="submit" to={"/results/" + searchTerm}>
-                <FaSearch />
+                <Search2Icon />
               </HeroBtn>
             </HeroForm>
           </VStack>
