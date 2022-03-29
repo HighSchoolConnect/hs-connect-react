@@ -26,7 +26,22 @@ import {
   Text,
   Input,
   useToast,
+  HStack,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverAnchor,
 } from "@chakra-ui/react";
+import {
+  AttachmentIcon,
+  ExternalLinkIcon,
+  QuestionIcon,
+} from "@chakra-ui/icons";
 import { auth, db, storage } from "../Signup/Firebase";
 import { useEffect } from "react";
 import { addDoc, collection, doc, getDoc, getDocs } from "firebase/firestore";
@@ -298,14 +313,47 @@ const EmployerDashboard = () => {
                     />
                   </VStack>
                   <VStack spacing={2} align="left">
-                    <Text fontSize="sm" color="white">
-                      Logo URL
-                    </Text>
-                    <input
-                      type="file"
-                      name={selectedFile?.name}
-                      onChange={handleChangeFile}
-                    />
+                    <HStack spacing={2} align="left">
+                      <Text fontSize="sm" color="white">
+                        Display Image
+                      </Text>
+                      <Popover>
+                        <PopoverTrigger>
+                          <QuestionIcon cursor="pointer" />
+                        </PopoverTrigger>
+                        <PopoverContent bg="teal">
+                          <PopoverArrow />
+                          <PopoverCloseButton />
+                          <PopoverHeader>
+                            Looking for some inspiration?
+                          </PopoverHeader>
+                          <PopoverBody>
+                            <VStack spacing={2} align="left">
+                              <Text>
+                                Undraw.co is a collection of illustrations
+                                created by Katerina Limpitsouni for open source
+                                projects.
+                              </Text>
+                              <Link href="https://undraw.co/" isExternal>
+                                <ExternalLinkIcon />
+                              </Link>
+                            </VStack>
+                          </PopoverBody>
+                        </PopoverContent>
+                      </Popover>
+                    </HStack>
+                    <JobPictureUploadLabel onChange={handleChangeFile}>
+                      <HStack>
+                        <AttachmentIcon size="20px" />
+                        <JobPictureUploadInput
+                          type="file"
+                          name={selectedFile?.name}
+                        />
+                        <Text fontSize="sm" color="white">
+                          {selectedFile?.name}
+                        </Text>
+                      </HStack>
+                    </JobPictureUploadLabel>
                   </VStack>
                 </VStack>
               </Flex>
@@ -407,6 +455,28 @@ export const EmployerDashboardContent = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0px 30px;
+`;
+export const JobPictureUploadLabel = styled.label`
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  border: 1px solid white;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  :hover {
+    background-color: #00c6d3;
+    color: white;
+  }
+`;
+
+export const JobPictureUploadInput = styled.input`
+  display: none;
 `;
 
 export default EmployerDashboard;
