@@ -14,7 +14,7 @@ import {
   FormDivider,
 } from "./SigninElements";
 
-import { Input, Button, Link, HStack } from "@chakra-ui/react";
+import { Input, Button, Link, HStack, useToast } from "@chakra-ui/react";
 
 import { useAuth, login, db, auth } from "../Signup/Firebase";
 
@@ -32,10 +32,13 @@ const Signin = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  const toast = useToast();
+
   async function handleLogin() {
     setLoading(true);
     try {
       await login(emailRef.current.value, passwordRef.current.value);
+
       const getUserData = async () => {
         const userCollectionRef = await doc(db, "users", auth.currentUser.uid);
         const userData = await getDoc(userCollectionRef);
@@ -50,17 +53,37 @@ const Signin = () => {
           );
           const userData = await getDoc(userCollectionRef);
           setUserData(userData.data());
+          toast({
+            title: "Login Successful",
+            description: "Welcome back!",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+          });
         }
 
         if (userData.data() !== undefined) {
           setUserData(userData.data());
+          toast({
+            title: "Login Successful",
+            description: "Welcome back!",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+          });
         }
       };
       await getUserData();
 
       setAuthDone(true);
     } catch (error) {
-      alert(error.message);
+      toast({
+        title: "Error",
+        description: error.message,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
     }
     setLoading(false);
   }
