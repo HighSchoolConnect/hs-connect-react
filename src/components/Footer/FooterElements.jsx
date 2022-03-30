@@ -6,8 +6,6 @@ export const FooterContainer = styled.div`
   position: sticky;
   top: 0;
   z-index: 10;
-
-
 `;
 
 export const FooterWrap = styled.div`
@@ -90,7 +88,8 @@ export const FooterLinksWrapper = styled.div`
 export const FooterLinkItem = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   margin: 16px;
   text-align: left;
   width: 160px;

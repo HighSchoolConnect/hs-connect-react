@@ -3,7 +3,33 @@ import React from "react";
 // import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 import { animateScroll as scroll } from "react-scroll";
-
+import {
+  Box,
+  HStack,
+  VStack,
+  Image,
+  Text,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  // Link,
+  Button,
+  Flex,
+  Input,
+  IconButton,
+  Divider,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  useToast,
+} from "@chakra-ui/react";
 import {
   FooterContainer,
   FooterWrap,
@@ -28,20 +54,48 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterWrap>
-        <FooterLinksContainer>
-          <FooterLinksWrapper>
-            <FooterLinkItem>
-              <FooterLinkTitle>
-                <Link textDecoration="underline" href="employer/signin">Employer Login</Link>
-              </FooterLinkTitle>
-              <FooterLinkTitle>Made With:</FooterLinkTitle>
-              <FooterLink to="/">React.js,</FooterLink>
-              <FooterLink to="/">Styled Components,</FooterLink>
-              <FooterLink to="/">Chakra UI.</FooterLink>
-            </FooterLinkItem>
-          </FooterLinksWrapper>
-        </FooterLinksContainer>
-        <SocialMedia>
+        {/* <FooterLinksContainer> */}
+        <Flex
+          align="center"
+          justify="center"
+          spacing={2}
+          p={5}
+          textColor="white"
+        >
+          <VStack spacing={5}>
+            <HStack
+              align="center"
+              spacing={5}
+              fontSize="20px"
+              fontWeight="bold"
+            >
+              <Text>HS Connect</Text>
+            </HStack>
+            <HStack align="center" spacing={5} fontSize="xs">
+              <Link href="signin">Post a Job</Link>
+              <Link href="FAQ">FAQ</Link>
+              <Link href="contactus">Contact Us</Link>
+              <Link href="aboutus">About Us</Link>
+            </HStack>
+            <HStack align="center">
+              <Text fontSize="md">
+                HS Connect © {new Date().getFullYear()} All Rights Reserved
+              </Text>
+            </HStack>
+          </VStack>
+          {/* <FooterLinksWrapper>
+              <FooterLinkItem>
+                <FooterLinkTitle> */}
+          {/* </FooterLinkTitle> */}
+          {/* <FooterLinkTitle>Made With:</FooterLinkTitle>
+                <FooterLink to="/">React.js,</FooterLink>
+                <FooterLink to="/">Styled Components,</FooterLink>
+                <FooterLink to="/">Chakra UI.</FooterLink> */}
+          {/* </FooterLinkItem>
+            </FooterLinksWrapper> */}
+        </Flex>
+        {/* </FooterLinksContainer> */}
+        {/* <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo
               to="/"
@@ -73,8 +127,8 @@ const Footer = () => {
                 <FaInstagram />
               </SocialIconLink>
             </SocialIcons> */}
-          </SocialMediaWrap>
-        </SocialMedia>
+        {/* </SocialMediaWrap>
+        </SocialMedia> */}{" "}
       </FooterWrap>
     </FooterContainer>
   );
