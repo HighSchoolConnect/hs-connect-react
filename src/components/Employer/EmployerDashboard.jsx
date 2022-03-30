@@ -51,7 +51,7 @@ const EmployerDashboard = () => {
   const [uploaded, setUploaded] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [user, setUser] = useState({});
-
+  const [scrollBehavior] = React.useState('inside')
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const [company, setCompany] = useState("");
@@ -61,7 +61,6 @@ const EmployerDashboard = () => {
   // const [salaryHigh, setSalaryHigh] = useState(0);
   const [logo, setLogo] = useState("");
   const [selectedFile, setSelectedFile] = useState();
-
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const unsub = auth.onAuthStateChanged((authObj) => {
@@ -224,15 +223,15 @@ const EmployerDashboard = () => {
           <div />
         )}
 
-        <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <Modal isOpen={isOpen} onClose={onClose} scrollBehavior={scrollBehavior}>
           <ModalOverlay />
           <ModalContent bg="teal" color="white">
             <ModalHeader>Post a Job</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <Flex align="left">
-                <VStack align="left" spacing={5} width="100%">
-                  <VStack spacing={2} align="left">
+                <VStack align="left" spacing={2} width="100%">
+                  <VStack spacing={1} align="left">
                     <Text fontSize="sm" color="white">
                       Title
                     </Text>
@@ -243,7 +242,7 @@ const EmployerDashboard = () => {
                       onChange={handleChangeTitle}
                     />
                   </VStack>
-                  <VStack spacing={2} align="left">
+                  <VStack spacing={1} align="left">
                     <Text fontSize="sm" color="white">
                       Type
                     </Text>
@@ -254,7 +253,7 @@ const EmployerDashboard = () => {
                       onChange={handleChangeType}
                     />
                   </VStack>
-                  <VStack spacing={2} align="left">
+                  <VStack spacing={1} align="left">
                     <Text fontSize="sm" color="white">
                       Description
                     </Text>
@@ -266,7 +265,7 @@ const EmployerDashboard = () => {
                     />
                   </VStack>
 
-                  <VStack spacing={2} align="left">
+                  <VStack spacing={1} align="left">
                     <Text fontSize="sm" color="white">
                       Company
                     </Text>
@@ -277,7 +276,7 @@ const EmployerDashboard = () => {
                       onChange={handleChangeCompany}
                     />
                   </VStack>
-                  <VStack spacing={2} align="left">
+                  <VStack spacing={1} align="left">
                     <Text fontSize="sm" color="white">
                       Address
                     </Text>
@@ -288,7 +287,7 @@ const EmployerDashboard = () => {
                       onChange={handleChangeAddress}
                     />
                   </VStack>
-                  <VStack spacing={2} align="left">
+                  <VStack spacing={1} align="left">
                     <Text fontSize="sm" color="white">
                       Location
                     </Text>
@@ -299,7 +298,7 @@ const EmployerDashboard = () => {
                       onChange={handleChangeLocation}
                     />
                   </VStack>
-                  <VStack spacing={2} align="left">
+                  <VStack spacing={1} align="left">
                     <Text fontSize="sm" color="white">
                       Salary
                     </Text>
@@ -310,8 +309,8 @@ const EmployerDashboard = () => {
                       onChange={handleChangeSalaryLow}
                     />
                   </VStack>
-                  <VStack spacing={2} align="left">
-                    <HStack spacing={2} align="left">
+                  <VStack spacing={1} align="left">
+                    <HStack spacing={1} align="left">
                       <Text fontSize="sm" color="white">
                         Display Image
                       </Text>
