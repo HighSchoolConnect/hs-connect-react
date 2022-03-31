@@ -3,47 +3,21 @@ import React from "react";
 // import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 import { animateScroll as scroll } from "react-scroll";
-import {
-  Box,
-  HStack,
-  VStack,
-  Image,
-  Text,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  // Link,
-  Button,
-  Flex,
-  Input,
-  IconButton,
-  Divider,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  useToast,
-} from "@chakra-ui/react";
+import { HStack, VStack, Text, Flex } from "@chakra-ui/react";
 import {
   FooterContainer,
   FooterWrap,
-  SocialMedia,
-  SocialMediaWrap,
+  // SocialMedia,
+  // SocialMediaWrap,
   SocialLogo,
-  WebsiteRights,
+  // WebsiteRights,
   // SocialIcons,
   // SocialIconLink,
-  FooterLinksContainer,
-  FooterLinksWrapper,
-  FooterLinkItem,
-  FooterLinkTitle,
-  FooterLink,
+  // FooterLinksContainer,
+  // FooterLinksWrapper,
+  // FooterLinkItem,
+  // FooterLinkTitle,
+  // FooterLink,
 } from "./FooterElements";
 
 const Footer = () => {
@@ -69,7 +43,17 @@ const Footer = () => {
               fontSize="20px"
               fontWeight="bold"
             >
-              <Text>HS Connect</Text>
+              <SocialLogo
+                to="/"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
+                onClick={toggleHome}
+              >
+                HS Connect
+              </SocialLogo>{" "}
             </HStack>
             <HStack align="center" spacing={5} fontSize="xs">
               <Link href="signin">Post a Job</Link>
