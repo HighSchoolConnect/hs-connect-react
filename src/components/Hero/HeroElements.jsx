@@ -158,8 +158,8 @@ export const HeroInput = styled.input`
   }
 
   @media screen and (max-width: 580px) {
-    width: 300px;
-    font-size: 12px;
+    width: 270px;
+    font-size: 11px;
   }
 `;
 
