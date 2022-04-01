@@ -7,7 +7,7 @@ export const HeroContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 30px;
-  height: 80vh;
+  height: 65vh;
   position: relative;
   z-index: 1;
 
@@ -107,7 +107,7 @@ export const HeroP = styled.p`
   }
 
   @media screen and (max-width: 580px) {
-    font-size: 12px;
+    font-size: 16px;
   }
 `;
 
@@ -158,8 +158,8 @@ export const HeroInput = styled.input`
   }
 
   @media screen and (max-width: 580px) {
-    width: 270px;
-    font-size: 10px;
+    width: 300px;
+    font-size: 12px;
   }
 `;
 
