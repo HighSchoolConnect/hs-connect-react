@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "../../images/hero-bg.jpg";
 
 import {
@@ -18,7 +18,7 @@ import { Input, Button, Link, HStack, useToast } from "@chakra-ui/react";
 
 import { useAuth, login, db, auth } from "../Signup/Firebase";
 
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 
 const Signin = () => {
@@ -28,11 +28,55 @@ const Signin = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const currentUser = useAuth();
   const [userData, setUserData] = useState({});
+  const [check, setCheck] = useState(false);
 
   const emailRef = useRef();
   const passwordRef = useRef();
 
   const toast = useToast();
+
+  const navigate = useNavigate();
+
+  const refresh = () => {
+    navigate(0);
+  };
+
+  useEffect(() => {
+    const unsub = auth.onAuthStateChanged((authObj) => {
+      unsub();
+      if (authObj) {
+        const data = async () => {
+          const getUserData = async () => {
+            const userCollectionRef = await doc(
+              db,
+              "users",
+              auth.currentUser.uid
+            );
+            const userData = await getDoc(userCollectionRef);
+            console.log(userData.data());
+            // setUser(userData.data());
+
+            if (userData.data() === undefined) {
+              const userCollectionRef = await doc(
+                db,
+                "employers",
+                auth.currentUser.uid
+              );
+              const userData = await getDoc(userCollectionRef);
+              setUserData(userData.data());
+            }
+
+            if (userData.data() !== undefined) {
+              setUserData(userData.data());
+            }
+          };
+          await getUserData();
+          setCheck(true);
+        };
+        data();
+      }
+    });
+  }, []);
 
   async function handleLogin() {
     setLoading(true);
@@ -73,6 +117,8 @@ const Signin = () => {
           });
         }
       };
+      refresh();
+
       await getUserData();
 
       setAuthDone(true);
@@ -96,9 +142,15 @@ const Signin = () => {
     setForgotPassword(true);
   }
 
-  if (currentUser && authDone && userData.employer) {
+  if (
+    (currentUser && userData.employer && check) ||
+    (authDone && userData.employer && check)
+  ) {
     return <Navigate to="/dashboard" />;
-  } else if (currentUser && authDone && userData.employer === false) {
+  } else if (
+    (currentUser !== userData.employer && check) ||
+    (authDone && userData.employer === false && check)
+  ) {
     return <Navigate to="/profile" />;
   }
 
