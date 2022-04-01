@@ -255,7 +255,7 @@ const Navbar = ({ toggle }) => {
                 {isEmployer ? (
                   <MenuItem>
                     <ChakraLink
-                      to="/profile"
+                      to="/dashboard"
                       duration={500}
                       exact="true"
                       offset={-80}
