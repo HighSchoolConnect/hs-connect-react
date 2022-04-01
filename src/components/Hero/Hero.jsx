@@ -14,11 +14,15 @@ import {
   HeroBtn,
 } from "./HeroElements";
 
-import { VStack, HStack, Text } from "@chakra-ui/react";
+import {
+  VStack,
+  // HStack,
+  // Text,
+} from "@chakra-ui/react";
 import Particles from "react-tsparticles";
 import particlesConfig from "./particles.json";
 import { Navigate } from "react-router-dom";
-import { Button as RouteButton } from "../ButtonElement";
+// import { Button as RouteButton } from "../ButtonElement";
 import { Search2Icon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 
@@ -50,7 +54,6 @@ const Hero = () => {
       as={motion.div}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      
     >
       <HeroBg isDisabled={true}>
         <HeroBgImage src={Image} type="image/jpg" />
@@ -66,7 +69,7 @@ const Hero = () => {
         />
         <TextContainer>
           <HeroH1>HS Connect</HeroH1>
-          <HeroP>Find Internships, Jobs, and Volunteering</HeroP>
+          <HeroP>Find the job you desire as a student</HeroP>
         </TextContainer>
 
         <VStack m={10} zIndex={3}>
@@ -82,7 +85,7 @@ const Hero = () => {
                 onKeyDown={(e) => something(e)}
               />
               <HeroBtn type="submit" to={"/results/" + searchTerm}>
-                <Search2Icon />
+                <Search2Icon boxSize="16px" mr={3} />
               </HeroBtn>
             </HeroForm>
           </VStack>
@@ -113,11 +116,11 @@ const Hero = () => {
             boxShadow=" 4px 4px 15px #000000"
           />
         </HeroFilter> */}
-        <HStack align="right" zIndex={3}>
+        {/* <HStack align="right" zIndex={3}>
           <RouteButton to="/signin">
             <Text>Employer Log In</Text>
           </RouteButton>
-        </HStack>
+        </HStack> */}
       </HeroContent>
     </HeroContainer>
   );
