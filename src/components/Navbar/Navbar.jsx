@@ -8,12 +8,24 @@ import {
   NavMenu,
   NavItem,
   NavLinks,
+  ChakraLink,
+  NavLogoLink,
+  NavMobile,
 } from "./NavbarElements";
 
 import { useAuth, logout, db, auth } from "../Signup/Firebase";
-import { Button, Image } from "@chakra-ui/react";
+import {
+  // Button,
+  Image,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  HStack,
+} from "@chakra-ui/react";
 import { doc, getDoc } from "firebase/firestore";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { BellIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -21,6 +33,11 @@ const Navbar = ({ toggle }) => {
   const [photoURL, setPhotoURL] = useState("");
   const [isApplicant, setIsApplicant] = useState(false);
   const [isEmployer, setIsEmployer] = useState(false);
+  const navigate = useNavigate();
+
+  const refresh = () => {
+    navigate(0);
+  };
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -83,6 +100,7 @@ const Navbar = ({ toggle }) => {
   async function handleLogout() {
     try {
       await logout();
+      refresh();
     } catch {
       alert("Error signing out");
     }
@@ -98,109 +116,182 @@ const Navbar = ({ toggle }) => {
     currentRoute = "/signin";
   }
 
-  var button = <Button></Button>;
-  if (currentUser != null) {
-    button = (
-      <NavLinks
-        to="/"
-        duration={500}
-        exact="true"
-        offset={-80}
-        onClick={handleLogout}
-      >
-        Log Out
-      </NavLinks>
-    );
+  // var button2 = <Button></Button>;
+
+  if (isApplicant) {
+    // button2 = (
+    //   <NavLinks
+    //     to="/profile"
+    //     duration={500}
+    //     exact="true"
+    //     offset={-80}
+    //     onClick={toggleHome}
+    //   >
+    //     Profile
+    //   </NavLinks>
+    // );
+  } else if (isEmployer) {
+    // button2 = (
+    //   <NavLinks
+    //     to="/dashboard"
+    //     duration={500}
+    //     exact="true"
+    //     offset={-80}
+    //     onClick={toggleHome}
+    //   >
+    //     Dashboard
+    //   </NavLinks>
+    // );
   } else {
-    button = (
-      <NavLinks to="signin" duration={500} exact="true" offset={-80}>
-        Log In / Sign Up
-      </NavLinks>
-    );
   }
 
   return (
     <>
       <Nav scrollNav={scrollNav}>
         <NavbarContainer>
-          <NavLogo to="/" onClick={toggleHome}>
-            {isEmployer ? "HS Connect: " + company : "HS Connect"}
-          </NavLogo>
+          <HStack spacing={2}>
+            <NavLogo to="/" onClick={toggleHome}>
+              {isEmployer ? "HS Connect: " + company : "HS Connect"}
+            </NavLogo>
+            <NavMobile>
+              <NavLogoLink
+                to="/results"
+                duration={500}
+                exact="true"
+                offset={-80}
+                onClick={toggleHome}
+              >
+                Find Jobs
+              </NavLogoLink>
+              <NavLogoLink
+                to="/signup"
+                duration={500}
+                exact="true"
+                offset={-80}
+                onClick={toggleHome}
+              >
+                Post a Job
+              </NavLogoLink>
+            </NavMobile>
+          </HStack>
 
           <MobileIcon onClick={toggle}>
             <HamburgerIcon />
           </MobileIcon>
           <NavMenu>
-            <NavItem>
-              <NavLinks
-                to="/"
-                duration={500}
-                exact="true"
-                offset={-80}
-                onClick={toggleHome}
-              >
-                Home
-              </NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks
-                to="aboutus"
-                duration={500}
-                exact="true"
-                offset={-80}
-                onClick={toggleHome}
-              >
-                About Us
-              </NavLinks>
-            </NavItem>
+            {isApplicant ? (
+              <NavItem>
+                <NavLinks
+                  to="notification"
+                  duration={500}
+                  exact="true"
+                  offset={-80}
+                  onClick={toggleHome}
+                >
+                  <BellIcon boxSize="2rem" />
+                </NavLinks>
+              </NavItem>
+            ) : (
+              <></>
+            )}
 
             <NavItem>
-              <NavLinks
-                to="faq"
-                duration={500}
-                exact="true"
-                offset={-80}
-                onClick={toggleHome}
-              >
-                FAQ
-              </NavLinks>
+              {!currentUser ? (
+                <NavLinks
+                  to="/signin"
+                  duration={500}
+                  exact="true"
+                  offset={-80}
+                  onClick={toggleHome}
+                >
+                  Sign In / Sign Up
+                </NavLinks>
+              ) : (
+                <></>
+              )}
             </NavItem>
-            <NavItem>
-              <NavLinks
-                to="contactus"
-                duration={500}
-                exact="true"
-                offset={-80}
-                onClick={toggleHome}
-              >
-                Contact Us
-              </NavLinks>
-            </NavItem>
+            <Menu>
+              <MenuButton>
+                <NavItem>
+                  {" "}
+                  <NavLinks
+                    to={currentRoute}
+                    duration={500}
+                    exact="true"
+                    offset={-80}
+                    onClick={toggleHome}
+                    // onClick={loggedInChecker}
+                  >
+                    <Image
+                      src={
+                        photoURL ||
+                        "https://firebasestorage.googleapis.com/v0/b/thehsconnect.appspot.com/o/undraw_profile_pic_ic-5-t%20(1).svg?alt=media&token=49609533-c10e-43fd-863d-1de315962adf"
+                      }
+                      h="45px"
+                      w="45px"
+                      borderRadius="full"
+                      borderColor="teal"
+                      borderWidth="1px"
+                    />
+                  </NavLinks>
+                </NavItem>{" "}
+              </MenuButton>
+              <MenuList>
+                {isApplicant ? (
+                  <MenuItem>
+                    <ChakraLink
+                      to="/profile"
+                      duration={500}
+                      exact="true"
+                      offset={-80}
+                      onClick={toggleHome}
+                    >
+                      Profile
+                    </ChakraLink>
+                  </MenuItem>
+                ) : (
+                  <></>
+                )}
 
-            <NavItem>{button}</NavItem>
-            <NavItem>
-              {" "}
-              <NavLinks
-                to={currentRoute}
-                duration={500}
-                exact="true"
-                offset={-80}
-                onClick={toggleHome}
-                // onClick={loggedInChecker}
-              >
-                <Image
-                  src={
-                    photoURL ||
-                    "https://firebasestorage.googleapis.com/v0/b/thehsconnect.appspot.com/o/undraw_profile_pic_ic-5-t%20(1).svg?alt=media&token=49609533-c10e-43fd-863d-1de315962adf"
-                  }
-                  h="45px"
-                  w="45px"
-                  borderRadius="full"
-                  borderColor="teal"
-                  borderWidth="1px"
-                />
-              </NavLinks>
-            </NavItem>
+                {isApplicant ? (
+                  <MenuItem>
+                    <ChakraLink
+                      to="resume"
+                      duration={500}
+                      exact="true"
+                      offset={-80}
+                      onClick={toggleHome}
+                    >
+                      Resume
+                    </ChakraLink>
+                  </MenuItem>
+                ) : null}
+                {currentUser ? (
+                  <MenuItem>
+                    <ChakraLink
+                      to="/"
+                      duration={500}
+                      exact="true"
+                      offset={-80}
+                      onClick={handleLogout}
+                    >
+                      Log Out
+                    </ChakraLink>
+                  </MenuItem>
+                ) : null}
+                <MenuItem>
+                  <ChakraLink
+                    to="contactus"
+                    duration={500}
+                    exact="true"
+                    offset={-80}
+                    onClick={toggleHome}
+                  >
+                    Contact Us
+                  </ChakraLink>
+                </MenuItem>
+              </MenuList>
+            </Menu>
           </NavMenu>
         </NavbarContainer>
       </Nav>
