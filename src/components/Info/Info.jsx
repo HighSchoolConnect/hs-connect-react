@@ -29,7 +29,7 @@ const Info = () => {
           <InfoRow imgStart={true}>
             <Column1>
               <VStack spacing={4} alignItems="left">
-                <Text fontSize="65px" fontWeight="bold">
+                <Text fontSize="55px" fontWeight="bold">
                   Student?
                 </Text>
                 <Text fontSize="lg">
@@ -63,7 +63,7 @@ const Info = () => {
           <InfoRow>
             <Column1>
               <VStack spacing={4} alignItems="left">
-                <Text fontSize="65px" fontWeight="bold">
+                <Text fontSize="55px" fontWeight="bold">
                   No Resume?
                 </Text>
                 <Text fontSize="lg">
@@ -93,7 +93,7 @@ const Info = () => {
           <InfoRow imgStart={true}>
             <Column1>
               <VStack spacing={4} alignItems="left">
-                <Text fontSize="65px" fontWeight="bold">
+                <Text fontSize="55px" fontWeight="bold">
                   Employer?
                 </Text>
                 <Text fontSize="lg">
@@ -125,7 +125,7 @@ const Info = () => {
           <InfoRow>
             <Column1>
               <VStack spacing={4} alignItems="left">
-                <Text fontSize="65px" fontWeight="bold">
+                <Text fontSize="55px" fontWeight="bold">
                   Need Help?
                 </Text>
                 <Text fontSize="lg">
