@@ -163,15 +163,27 @@ const Navbar = ({ toggle }) => {
               >
                 Find Jobs
               </NavLogoLink>
-              <NavLogoLink
-                to="/signup"
-                duration={500}
-                exact="true"
-                offset={-80}
-                onClick={toggleHome}
-              >
-                Post a Job
-              </NavLogoLink>
+              {isEmployer ? (
+                <NavLogoLink
+                  to="/dashboard"
+                  duration={500}
+                  exact="true"
+                  offset={-80}
+                  onClick={toggleHome}
+                >
+                  Dashboard
+                </NavLogoLink>
+              ) : (
+                <NavLogoLink
+                  to="/signup"
+                  duration={500}
+                  exact="true"
+                  offset={-80}
+                  onClick={toggleHome}
+                >
+                  Post a Job
+                </NavLogoLink>
+              )}
             </NavMobile>
           </HStack>
 
