@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Image from "../../images/hero-bg.jpg";
 
-
 import {
   HeroContainer,
   HeroBg,
@@ -21,6 +20,7 @@ import particlesConfig from "./particles.json";
 import { Navigate } from "react-router-dom";
 import { Button as RouteButton } from "../ButtonElement";
 import { Search2Icon } from "@chakra-ui/icons";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -45,7 +45,13 @@ const Hero = () => {
   }
 
   return (
-    <HeroContainer id="home">
+    <HeroContainer
+      id="home"
+      as={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      
+    >
       <HeroBg isDisabled={true}>
         <HeroBgImage src={Image} type="image/jpg" />
       </HeroBg>
