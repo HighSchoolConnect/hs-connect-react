@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Bg, BgImage, TextH1 } from "../GeneralPurpose/GPElements";
+
 import hero from "../../images/hero-bg.jpg";
 import {
   Table,
@@ -51,7 +52,7 @@ const EmployerDashboard = () => {
   const [uploaded, setUploaded] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [user, setUser] = useState({});
-  const [scrollBehavior] = React.useState('inside')
+  const [scrollBehavior] = React.useState("inside");
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const [company, setCompany] = useState("");
@@ -223,7 +224,11 @@ const EmployerDashboard = () => {
           <div />
         )}
 
-        <Modal isOpen={isOpen} onClose={onClose} scrollBehavior={scrollBehavior}>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          scrollBehavior={scrollBehavior}
+        >
           <ModalOverlay />
           <ModalContent bg="teal" color="white">
             <ModalHeader>Post a Job</ModalHeader>
