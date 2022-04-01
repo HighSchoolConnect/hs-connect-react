@@ -252,6 +252,21 @@ const Navbar = ({ toggle }) => {
                 ) : (
                   <></>
                 )}
+                {isEmployer ? (
+                  <MenuItem>
+                    <ChakraLink
+                      to="/profile"
+                      duration={500}
+                      exact="true"
+                      offset={-80}
+                      onClick={toggleHome}
+                    >
+                      Dashboard
+                    </ChakraLink>
+                  </MenuItem>
+                ) : (
+                  <></>
+                )}
 
                 {isApplicant ? (
                   <MenuItem>
