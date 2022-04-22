@@ -34,9 +34,12 @@ const ResultItem = ({
   salaryHigh,
   logo,
   type,
+  description,
 }) => {
   const btnRef = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [scrollBehavior] = React.useState("inside");
+
   return (
     <GridItem w="100%" h="100%" p={4}>
       <Box maxW="xs" mx="auto" bg="black" shadow="lg" rounded="lg">
@@ -106,7 +109,13 @@ const ResultItem = ({
           </chakra.button>
         </Flex>
 
-        <Modal isOpen={isOpen} onClose={onClose} isCentered size="sm">
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          scrollBehavior={scrollBehavior}
+          isCentered
+          size="sm"
+        >
           <ModalOverlay />
           <ModalContent bg="#00c6d3">
             <ModalHeader color="white">{title}</ModalHeader>
@@ -167,12 +176,7 @@ const ResultItem = ({
                     </Text> */}
 
                     <chakra.p mt={2} fontSize="xs" color="white">
-                      The Software Engineering Intern will be a passionate,
-                      opinionated, and creative individual who can develop web
-                      applications from the ground up. You will understand web
-                      strengths and constraints and build pixel perfect
-                      solutions. You should be capable, and willing, to assist
-                      in developing responsive single-page web applications.
+                      {description}
                     </chakra.p>
                     <Chakra
                       to={

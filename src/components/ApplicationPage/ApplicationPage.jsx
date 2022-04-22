@@ -225,10 +225,7 @@ const ApplicationPage = () => {
                   </chakra.h4>
 
                   <chakra.p mt={2} color="white">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quae dolores deserunt ea doloremque natus error, rerum quas
-                    odio quaerat nam ex commodi hic, suscipit in a veritatis
-                    pariatur minus consequuntur!
+                    {result.description}
                   </chakra.p>
                 </Box>
                 <Box

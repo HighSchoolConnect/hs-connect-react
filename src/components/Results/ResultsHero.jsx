@@ -252,6 +252,7 @@ const ResultsHero = ({ title }) => {
                       address={item.address}
                       logo={item.logo}
                       type={item.type}
+                      description={item.description}
                     />
                   );
                 })}
