@@ -47,7 +47,8 @@ const Info = () => {
             </Column1>
             <Column2>
               <ImgWrap>
-                <Img src={info1} />
+                <Img as={motion.img} whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.8 }}src={info1} />
               </ImgWrap>
             </Column2>
           </InfoRow>
@@ -77,7 +78,8 @@ const Info = () => {
             </Column1>
             <Column2>
               <ImgWrap>
-                <Img src={info2} />
+                <Img as={motion.img} whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}src={info2} />
               </ImgWrap>
             </Column2>
           </InfoRow>
@@ -109,7 +111,8 @@ const Info = () => {
             </Column1>
             <Column2>
               <ImgWrap>
-                <Img src={info3} />
+                <Img as={motion.img} whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}src={info3} />
               </ImgWrap>
             </Column2>
           </InfoRow>
@@ -139,7 +142,8 @@ const Info = () => {
             </Column1>
             <Column2>
               <ImgWrap>
-                <Img src={info4} />
+                <Img as={motion.img} whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}src={info4} />
               </ImgWrap>
             </Column2>
           </InfoRow>
