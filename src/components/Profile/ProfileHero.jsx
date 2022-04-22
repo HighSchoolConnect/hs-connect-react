@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import hero from "../../images/hero-bg.jpg";
 // import Joe from "../../images/JOEMAMA.jpeg";
+import styled from "styled-components";
 
 import { Bg, BgImage } from "../../components/GeneralPurpose/GPElements";
 
@@ -35,7 +36,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { EditIcon } from "@chakra-ui/icons";
+import { AttachmentIcon, EditIcon } from "@chakra-ui/icons";
 import { Button as RouteButton } from "../ButtonElement";
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
 
@@ -437,14 +438,22 @@ const ProfileHero = () => {
                                 </VStack>
                                 <VStack spacing={2} align="left">
                                   <Text fontSize="sm" color="white">
-                                    Photo URL
+                                    Display Picture
                                   </Text>
-                                  <input
-                                    placeholder="Photo URL"
-                                    type="file"
-                                    name={selectedFile?.name}
+                                  <PictureUploadLabel
                                     onChange={handleChangeFile}
-                                  />
+                                  >
+                                    <HStack>
+                                      <AttachmentIcon size="20px" />
+                                      <PictureUploadInput
+                                        type="file"
+                                        name={selectedFile?.name}
+                                      />
+                                      <Text fontSize="sm" color="white">
+                                        {selectedFile?.name}
+                                      </Text>
+                                    </HStack>
+                                  </PictureUploadLabel>
                                 </VStack>
                               </VStack>
                             </Flex>
@@ -1355,5 +1364,28 @@ const ProfileHero = () => {
     </>
   );
 };
+
+export const PictureUploadLabel = styled.label`
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  border: 1px solid white;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  :hover {
+    background-color: #00c6d3;
+    color: white;
+  }
+`;
+
+export const PictureUploadInput = styled.input`
+  display: none;
+`;
 
 export default ProfileHero;
