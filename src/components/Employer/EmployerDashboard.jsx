@@ -55,6 +55,7 @@ const EmployerDashboard = () => {
   const [scrollBehavior] = React.useState("inside");
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
+  const [description, setDescription] = useState("");
   const [company, setCompany] = useState("");
   const [address, setAddress] = useState("");
   const [location, setLocation] = useState("");
@@ -111,6 +112,7 @@ const EmployerDashboard = () => {
     await addDoc(jobRef, {
       title,
       type,
+      description,
       company,
       address,
       location,
@@ -127,6 +129,10 @@ const EmployerDashboard = () => {
   };
   const handleChangeType = (e) => {
     setType(e.target.value);
+  };
+
+  const handleChangeDescription = (e) => {
+    setDescription(e.target.value);
   };
 
   const handleChangeCompany = (e) => {
@@ -228,6 +234,7 @@ const EmployerDashboard = () => {
           isOpen={isOpen}
           onClose={onClose}
           scrollBehavior={scrollBehavior}
+          isCentered
         >
           <ModalOverlay />
           <ModalContent bg="teal" color="white">
@@ -264,9 +271,9 @@ const EmployerDashboard = () => {
                     </Text>
                     <Input
                       placeholder="Decription"
-                      value={type}
+                      value={description}
                       color="white"
-                      onChange={handleChangeType}
+                      onChange={handleChangeDescription}
                     />
                   </VStack>
 
