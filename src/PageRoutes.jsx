@@ -16,12 +16,15 @@ const Contact = lazy(() => import("./components/Contact/Contact"));
 const EmployerDashboard = lazy(() =>
   import("./components/Employer/EmployerDashboard")
 );
+const EmployerListings = lazy(() =>
+  import("./components/Employer/EmployerListings")
+);
+
 const Resume = lazy(() => import("./components/Resume/Resume"));
 const ResumeEmployer = lazy(() => import("./components/Resume/ResumeEmployer"));
 const ApplicationPage = lazy(() =>
   import("./components/ApplicationPage/ApplicationPage")
 );
-
 
 const PageRoutes = () => {
   const location = useLocation();
@@ -39,6 +42,7 @@ const PageRoutes = () => {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/contactus" element={<Contact />} />
         <Route path="/dashboard" element={<EmployerDashboard />} />
+        <Route path="/listings" element={<EmployerListings />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/resume/:id" element={<ResumeEmployer />} />
         <Route path="/apply" element={<ApplicationPage />} />
