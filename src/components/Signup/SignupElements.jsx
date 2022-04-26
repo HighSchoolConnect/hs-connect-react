@@ -5,10 +5,11 @@ export const SignupContainer = styled.div`
   background-color: #010024;
   background-image: linear-gradient(#00c6d3, #000000);
   color: #fff;
-  /* background-image: url(${Image});
+  background-image: url(${Image});
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
+
   height: 100vh;
   width: 100%;
   display: flex;
@@ -104,5 +105,4 @@ export const Img = styled.img`
   margin-left: auto;
   margin-top: -10px;
   margin-bottom: 20px;
-
 `;

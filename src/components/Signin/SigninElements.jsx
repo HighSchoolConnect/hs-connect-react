@@ -3,12 +3,11 @@ import Image from "../../images/hero-bg.jpg";
 
 export const SigninContainer = styled.div`
   background-color: #010024;
-  background-image: linear-gradient(#00c6d3, #000000);
   color: #fff;
-  /* background-image: url(${Image});
+  background-image: url(${Image});
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 
   height: 100vh;
   width: 100%;
@@ -16,7 +15,6 @@ export const SigninContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 
   @media screen and (max-width: 768px) {
     padding: 100px 0;
