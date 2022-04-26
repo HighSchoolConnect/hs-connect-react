@@ -49,6 +49,28 @@ export const SocialLogo = styled(Link)`
   align-items: center;
   margin-bottom: 16px;
   font-weight: bold;
+
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s;
+
+  &:hover {
+    color: #ffffff;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    border-bottom: 3px solid #00747c;
+    z-index: -1;
+    transition: width 0.5s;
+  }
+  &:hover:before {
+    width: 150%;
+  }
 `;
 
 export const WebsiteRights = styled.small`
