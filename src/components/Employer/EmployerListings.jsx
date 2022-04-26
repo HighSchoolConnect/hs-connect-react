@@ -210,28 +210,40 @@ const EmployerListings = () => {
       </Tr>
     );
   } else if (user.verified) {
-      jobListings = listings.map((listing) => {
-        return (
-          <Tr key={listing.id}>
-            <Td>{listing.title}</Td>
-            <Td>{listing.type}</Td>
-            <Td>{listing.location}</Td>
-            <Td>
-              <Button colorScheme="red">
-                <Link
-                  onClick={() => {
-                    axios.get(
-                      "https://server.hsc.geethg.com/listings/delete?id=" + listing.id
+    jobListings = listings.map((listing) => {
+      return (
+        <Tr key={listing.id}>
+          <Td>{listing.title}</Td>
+          <Td>{listing.type}</Td>
+          <Td>{listing.location}</Td>
+          <Td>
+            <Button colorScheme="red">
+              <Link
+                onClick={() => {
+                  async function deleteListing() {
+                    await axios.get(
+                      "https://server.hsc.geethg.com/listings/delete?id=" +
+                        listing.id
                     );
-                  }}
-                >
-                  Delete
-                </Link>
-              </Button>
-            </Td>
-          </Tr>
-        );
-      });
+                    toast({
+                      position: "bottom",
+                      description: "Listing Deleted",
+                      status: "success",
+                      duration: 3000,
+                      isClosable: true,
+                    });
+                  }
+                  deleteListing();
+                  
+                }}
+              >
+                Delete
+              </Link>
+            </Button>
+          </Td>
+        </Tr>
+      );
+    });
   }
   return (
     <EmployerListingsContainer>
