@@ -45,15 +45,33 @@ export const NavLogoLink = styled(LinkR)`
   justify-content: flex-start;
   cursor: pointer;
   font-size: 1rem;
+  padding: 5px;
 
   display: flex;
   align-items: center;
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s;
 
   &:hover {
-    border-bottom: 5px solid #00747c;
+    color: #ffffff;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    border-bottom: 2px solid #00747c;
+    z-index: -1;
+    transition: width 0.5s;
+  }
+  &:hover:before {
+    width: 150%;
   }
 `;
 
