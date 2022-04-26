@@ -164,15 +164,26 @@ const Navbar = ({ toggle }) => {
                 Find Jobs
               </NavLogoLink>
               {isEmployer ? (
-                <NavLogoLink
-                  to="/dashboard"
-                  duration={500}
-                  exact="true"
-                  offset={-80}
-                  onClick={toggleHome}
-                >
-                  Dashboard
-                </NavLogoLink>
+                <>
+                  <NavLogoLink
+                    to="/dashboard"
+                    duration={500}
+                    exact="true"
+                    offset={-80}
+                    onClick={toggleHome}
+                  >
+                    Dashboard
+                  </NavLogoLink>
+                  <NavLogoLink
+                    to="/listings"
+                    duration={500}
+                    exact="true"
+                    offset={-80}
+                    onClick={toggleHome}
+                  >
+                    Post a Job
+                  </NavLogoLink>
+                </>
               ) : (
                 <NavLogoLink
                   to="/signup"
