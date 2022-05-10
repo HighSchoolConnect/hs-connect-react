@@ -136,7 +136,7 @@ const EmployerListings = () => {
       logo,
       employerID: auth.currentUser.uid,
     });
-    await axios.get("http://localhost:3001/setdocid?id=" + unique_id);
+    await axios.get("https://server.hsc.geethg.com/setdocid?id=" + unique_id);
     const fetchData = async () => {
       const response = await axios.get(
         "https://server.hsc.geethg.com/listings?id=" + auth.currentUser.uid
