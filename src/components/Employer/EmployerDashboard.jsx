@@ -112,7 +112,7 @@ const EmployerDashboard = () => {
       <EmployerDashboardContent>
         <TextH1>Dashboard</TextH1>
 
-        {user.verified ? (
+        {user.verified && !loading ? (
           <Table
             m={10}
             variant="striped"
@@ -154,10 +154,12 @@ const EmployerDashboard = () => {
               </Tr>
             </Tfoot>
           </Table>
-        ) : (
+        ) : !user.verified && !loading ? (
           <Text fontSize="xl" color="white">
             Please wait until we verify your account
           </Text>
+        ) : (
+          <Spinner colorScheme="teal" />
         )}
       </EmployerDashboardContent>
     </EmployerDashboardContainer>
