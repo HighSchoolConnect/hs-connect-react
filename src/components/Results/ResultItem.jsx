@@ -182,7 +182,7 @@ const ResultItem = ({
                       to={
                         auth?.currentUser?.uid != null
                           ? "/apply/" + id + "/" + title
-                          : "/signup"
+                          : "/signup/" + id + "/" + title
                       }
                     >
                       <Button colorScheme="teal" mt={10} mb={-5}>

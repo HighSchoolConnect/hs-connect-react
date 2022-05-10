@@ -38,7 +38,9 @@ const PageRoutes = () => {
         <Route path="/results" element={<Results />} />
         <Route path="/results/:id" element={<Results />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/signup/:id/:title" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/signin/:id/:title" element={<Signin />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/contactus" element={<Contact />} />
         <Route path="/dashboard" element={<EmployerDashboard />} />

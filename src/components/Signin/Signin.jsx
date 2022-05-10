@@ -20,6 +20,7 @@ import { useAuth, login, db, auth } from "../Signup/Firebase";
 
 import { Navigate, useNavigate } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
+import { useParams } from "react-router-dom";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -36,7 +37,8 @@ const Signin = () => {
   const toast = useToast();
 
   const navigate = useNavigate();
-
+  const { id, title } = useParams();
+  console.log(id, title);
   const refresh = () => {
     navigate(0);
   };
@@ -151,7 +153,11 @@ const Signin = () => {
     (currentUser !== userData.employer && check) ||
     (authDone && userData.employer === false && check)
   ) {
-    return <Navigate to="/profile" />;
+    if (id === undefined) {
+      return <Navigate to="/profile" />;
+    } else {
+      return <Navigate to={"/apply/" + id + "/" + title} />;
+    }
   }
 
   if (signup === true) {

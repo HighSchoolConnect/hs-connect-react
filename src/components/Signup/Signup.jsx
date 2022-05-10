@@ -24,11 +24,13 @@ import {
 } from "./Firebase.js";
 
 import { Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [authDone, setAuthDone] = useState(false);
   const [signin, setSignin] = useState(false);
+  const [isEmployer, setIsEmployer] = useState(false);
   const currentUser = useAuth();
 
   const emailRef = useRef();
@@ -39,7 +41,8 @@ const Signup = () => {
   const companyRef = useRef();
 
   const employerCheckboxRef = useRef();
-
+  const { id, title } = useParams();
+  console.log(id, title);
   async function handleSignup() {
     setLoading(true);
     if (checkboxRef.current.checked === false) {
@@ -64,6 +67,7 @@ const Signup = () => {
             companyRef.current.value
           );
           setAuthDone(true);
+          setIsEmployer(true);
           toast({
             title: "Account created.",
             description: "We've created your account for you.",
@@ -115,15 +119,23 @@ const Signup = () => {
   }
 
   if (authDone === true) {
-    if (employerCheckboxRef.current.checked === true) {
+    if (isEmployer === true) {
       return <Navigate to="/dashboard" />;
     } else {
-      return <Navigate to="/profile" />;
+      if (id === undefined) {
+        return <Navigate to="/profile" />;
+      } else {
+        return <Navigate to={"/apply/" + id + "/" + title} />;
+      }
     }
   }
 
   if (signin === true) {
-    return <Navigate to="/signin" />;
+    if (id === undefined) {
+      return <Navigate to="/signin" />;
+    } else {
+      return <Navigate to={"/signin/" + id + "/" + title} />;
+    }
   }
 
   return (
