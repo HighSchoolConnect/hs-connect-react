@@ -46,6 +46,7 @@ import { useEffect } from "react";
 import { addDoc, collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import axios from "axios";
+import { v4 as uuid } from "uuid";
 const EmployerListings = () => {
   const toast = useToast();
   const [applicants, setApplicants] = useState([]);
@@ -121,8 +122,10 @@ const EmployerListings = () => {
   const handleSubmit = async (e) => {
     setIsLoading(true);
     const jobRef = collection(db, "jobs");
+    const unique_id = uuid();
+
     await addDoc(jobRef, {
-      id: jobRef.id,
+      serverID: unique_id,
       title,
       type,
       description,
@@ -133,7 +136,18 @@ const EmployerListings = () => {
       logo,
       employerID: auth.currentUser.uid,
     });
+    await axios.get("http://localhost:3001/setdocid?id=" + unique_id);
+    const fetchData = async () => {
+      const response = await axios.get(
+        "https://server.hsc.geethg.com/listings?id=" + auth.currentUser.uid
+      );
+
+      setListings(response.data);
+      console.log(response.data);
+    };
+    fetchData();
     setIsLoading(false);
+
     onClose();
   };
 
@@ -232,9 +246,16 @@ const EmployerListings = () => {
                       duration: 3000,
                       isClosable: true,
                     });
+
+                    const response = await axios.get(
+                      "https://server.hsc.geethg.com/listings?id=" +
+                        auth.currentUser.uid
+                    );
+
+                    setListings(response.data);
+                    console.log(response.data);
                   }
                   deleteListing();
-                  
                 }}
               >
                 Delete
