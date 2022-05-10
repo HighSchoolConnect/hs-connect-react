@@ -952,7 +952,7 @@ const ProfileHero = () => {
                                               </Text>
                                               <Input
                                                 placeholder="Month Year"
-                                                color="whie"
+                                                color="white"
                                                 value={jobEnd2}
                                                 onChange={handleChangeJobEnd2}
                                               />
