@@ -179,8 +179,8 @@ const ProfileHero = () => {
           setSkill4(users.skill4);
           setSkill5(users.skill5);
           setAc1(users.ac1);
-          setAc1(users.ac2);
-          setAc1(users.ac3);
+          setAc2(users.ac2);
+          setAc3(users.ac3);
         };
         getUserData();
       } else {
