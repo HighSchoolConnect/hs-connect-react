@@ -361,6 +361,7 @@ const ProfileHero = () => {
               bg="#000000"
               borderRadius="15px"
               w="auto"
+              minW="600px"
               maxW="1000px"
               boxShadow="0px 0px 10px #000;"
             >
