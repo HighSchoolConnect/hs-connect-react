@@ -119,6 +119,13 @@ const ApplicationPage = () => {
         title: title,
       },
     });
+    const getUserData = async () => {
+      const userCollectionRef = await doc(db, "users", auth.currentUser.uid);
+      const userData = await getDoc(userCollectionRef);
+      console.log(userData.data());
+      setUser(userData.data());
+    };
+    getUserData();
     setIsLoading(false);
     setApplied(true);
     toast({
