@@ -15,10 +15,13 @@ import {
   Spinner,
   Link,
   Text,
+  IconButton,
+  HStack,
 } from "@chakra-ui/react";
 import { auth, db } from "../Signup/Firebase";
 import { useEffect } from "react";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { EmailIcon } from "@chakra-ui/icons";
 const EmployerDashboard = () => {
   const [applicants, setApplicants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -93,11 +96,16 @@ const EmployerDashboard = () => {
           <Td>{applicant.status}</Td>
           <Td>{applicant.jobTitle}</Td>
           <Td>
-            <Button colorScheme="teal">
-              <Link href={"/resume/" + applicant.id} isExternal>
-                View
+            <HStack>
+              <Button colorScheme="teal">
+                <Link href={"/resume/" + applicant.id} isExternal>
+                  Resume
+                </Link>
+              </Button>
+              <Link href={"mailto:" + applicant.email}>
+                <IconButton colorScheme="teal" icon={<EmailIcon />} />
               </Link>
-            </Button>
+            </HStack>
           </Td>
         </Tr>
       );
@@ -141,7 +149,7 @@ const EmployerDashboard = () => {
                 <Th>Name</Th>
                 <Th>Status</Th>
                 <Th>Applied To</Th>
-                <Th>Resume</Th>
+                <Th>Actions</Th>
               </Tr>
             </Thead>
             <Tbody>{applicantsList}</Tbody>
@@ -150,7 +158,7 @@ const EmployerDashboard = () => {
                 <Th>Name</Th>
                 <Th>Status</Th>
                 <Th>Applied To</Th>
-                <Th>Resume</Th>
+                <Th>Actions</Th>
               </Tr>
             </Tfoot>
           </Table>
