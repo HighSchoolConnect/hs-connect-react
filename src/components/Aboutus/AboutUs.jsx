@@ -39,7 +39,7 @@ const AboutUs = () => {
           <TextTeam>Geeth Gunnampalli - Full Stack Developer</TextTeam>
           <TextTeam>Adarsh Pulasseri - Full Stack Developer</TextTeam>
           <TextTeam>Gana Ventrapragada - Front End Developer</TextTeam>
-          <TextTeam>Kimmy Mohanasundar - Emotional Damager</TextTeam>
+          <TextTeam>Kamalesh Mohanasundar - Front End Developer</TextTeam>
         </TextCont>
       </AboutUsContent>
     </AboutUsContainer>
