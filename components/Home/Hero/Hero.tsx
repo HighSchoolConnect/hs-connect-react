@@ -73,12 +73,11 @@ function Hero() {
                         </Heading>
                         <Box w="full" pt={8} color="white">
                             <InputGroup size="lg">
-                                <InputLeftElement
-                                    pointerEvents="none"
-                                    children={
-                                        <AiOutlineSearch color="gray.300" />
-                                    }
-                                />
+                                <InputLeftElement pointerEvents="none">
+                                    {" "}
+                                    <AiOutlineSearch color="gray.300" />
+                                </InputLeftElement>
+                                
                                 <Input
                                     placeholder="EX: Software Engineer, Medical Assistant"
                                     value={value}
