@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hsconnectv2-dev-01049-authRole",
+      "UnauthRoleArn": "arn:aws:iam::081762640508:role/amplify-hsconnectv2-dev-01049-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::081762640508:role/amplify-hsconnectv2-dev-01049-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-hsconnectv2-dev-01049-deployment",
+      "UnauthRoleName": "amplify-hsconnectv2-dev-01049-unauthRole",
+      "StackName": "amplify-hsconnectv2-dev-01049",
+      "StackId": "arn:aws:cloudformation:us-east-1:081762640508:stack/amplify-hsconnectv2-dev-01049/6fcacde0-3322-11ed-a684-0afe038b15dd",
+      "AmplifyAppId": "d66gwk2jgt5db"
+    },
+    "categories": {
+      "auth": {
+        "hsconnectv2e8da3349": {}
+      }
+    }
+  }
+}

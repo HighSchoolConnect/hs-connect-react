@@ -1,0 +1,16 @@
+
+
+
+type Positions @model @auth(rules: [{ allow: private }]) {
+    id: ID!
+    employerID: ID!
+    title: String!
+    company: String!
+    description: String!
+    location: String!
+    salary: String!
+    type: String!
+    pictureUrl: String!
+    
+
+}
