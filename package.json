@@ -11,9 +11,9 @@
   "dependencies": {
     "@aws-amplify/cli-internal": "^10.0.0",
     "@aws-amplify/ui-react": "^3.5.1",
-    "@chakra-ui/react": "^2.3.2",
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
+    "@chakra-ui/react": "2.4.2",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@saas-ui/react": "^1.4.0",
     "aws-amplify": "^4.3.35",
     "framer-motion": "^6.5.1",
