@@ -14,6 +14,7 @@ import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
 import { Engine } from "tsparticles-engine"
 import { AiOutlineSearch } from "react-icons/ai"
+import { useRouter } from "next/router"
 
 function Hero() {
     const particlesInit = async (main: Engine) => {
@@ -21,6 +22,13 @@ function Hero() {
     }
     const bg = useColorModeValue("white", "gray.800")
     const [value, setValue] = React.useState("")
+
+    const router = useRouter()
+
+    const search = () => {
+        router.push(`/results?title=${value}`)
+    }
+
     return (
         <Box bg={bg} id="home">
             <Box
@@ -77,12 +85,16 @@ function Hero() {
                                     {" "}
                                     <AiOutlineSearch color="gray.300" />
                                 </InputLeftElement>
-                                
+
                                 <Input
                                     placeholder="EX: Software Engineer, Medical Assistant"
                                     value={value}
                                     onChange={(e) => setValue(e.target.value)}
                                     onReset={() => setValue("")}
+                                    //when enter is pressed search
+                                    onKeyPress={(e) =>
+                                        e.key === "Enter" && search()
+                                    }
                                 />
                             </InputGroup>
                         </Box>

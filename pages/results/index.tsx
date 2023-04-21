@@ -51,22 +51,31 @@ function Results() {
                 }}
                 gap={6}
             >
-                {results.map((result: ResultItemProps) => (
-                    <GridItem key={result.id}>
-                        <ResultItem
-                            id={result?.id}
-                            title={result?.title}
-                            company={result?.company}
-                            address={result?.address}
-                            location={result?.location}
-                            salaryLow={result?.salaryLow}
-                            salaryHigh={result?.salaryHigh}
-                            logo={result?.logo}
-                            type={result?.type}
-                            description={result?.description}
-                        />
-                    </GridItem>
-                ))}
+                {results
+                    .filter((val: ResultItemProps) => {
+                        if (searchTerm.length > 0) {
+                            return val.title
+                                .toLowerCase()
+                                .includes(searchTerm.toLowerCase())
+                        }
+                        return true
+                    })
+                    .map((result: ResultItemProps) => (
+                        <GridItem key={result.id}>
+                            <ResultItem
+                                id={result?.id}
+                                title={result?.title}
+                                company={result?.company}
+                                address={result?.address}
+                                location={result?.location}
+                                salaryLow={result?.salaryLow}
+                                salaryHigh={result?.salaryHigh}
+                                logo={result?.logo}
+                                type={result?.type}
+                                description={result?.description}
+                            />
+                        </GridItem>
+                    ))}
             </Grid>
         </Container>
     )
