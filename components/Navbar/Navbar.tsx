@@ -15,7 +15,7 @@ import {
     useColorMode,
     Link,
 } from "@chakra-ui/react"
-import { Auth } from "aws-amplify"
+// import { Auth } from "aws-amplify"
 import { useRouter } from "next/router"
 import React, { useEffect } from "react"
 import {
@@ -26,35 +26,13 @@ import {
     AiOutlineUser,
 } from "react-icons/ai"
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs"
+import { UserAuth } from "@/context/AuthContext"
 
 function Navbar() {
     const bg = useColorModeValue("white", "gray.800")
     const mobileNav = useDisclosure()
     const { colorMode, toggleColorMode } = useColorMode()
-    const [user, setUser] = React.useState<any>()
-    const router = useRouter()
-
-    useEffect(() => {
-        async function ionViewCanEnter() {
-            try {
-                const user = await Auth.currentAuthenticatedUser()
-                setUser(user)
-            } catch (err) {
-                console.log(err)
-            }
-        }
-        ionViewCanEnter()
-    }, [])
-
-    const handleSignOut = async () => {
-        try {
-            await Auth.signOut()
-            setUser(null)
-            router.push("/")
-        } catch (error) {
-            console.log("error signing out: ", error)
-        }
-    }
+    const { user, logout } = UserAuth()
 
     return (
         <React.Fragment>
@@ -205,14 +183,14 @@ function Navbar() {
                             bg="brand.500"
                             as={Link}
                             href="/profile"
-                            src={user?.attributes?.picture}
+                            src={user?.photoURL}
                         />
                         {user != null ? (
                             <Button
                                 variant="solid"
                                 colorScheme="brand"
                                 size="sm"
-                                onClick={handleSignOut}
+                                onClick={() => logout()}
                             >
                                 Sign Out
                             </Button>

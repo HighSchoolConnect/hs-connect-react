@@ -1,6 +1,6 @@
+import FAQAccordion from "@/components/FAQ/FAQAccordion"
 import Head from "next/head"
 import React from "react"
-import FAQAccordion from "../../components/FAQ/FAQAccordion"
 
 const FAQ = () => {
     return (

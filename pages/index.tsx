@@ -1,45 +1,8 @@
-import type { NextPage } from "next"
 import Head from "next/head"
-import Image from "next/image"
-import { withAuthenticator } from "@aws-amplify/ui-react"
-import "@aws-amplify/ui-react/styles.css"
-import { Auth, withSSRContext } from "aws-amplify"
-// import { GetServerSideProps } from "next";
-import { useEffect, useState } from "react"
 import Hero from "../components/Home/Hero/Hero"
 import Info from "../components/Home/Info/Info"
 
-// import { listPositions } from "../src/graphql/queries";
-// interface JobProps {
-//     id: string;
-//     name: string;
-//     description: string;
-//     company: string;
-//     location: string;
-//     salary: string;
-//     type: string;
-//     pictureUrl: string;
-// }
-interface userProps {
-    id: string
-    username: string
-    email: string
-}
-// interface HomeProps {
-//     jobs: JobProps[];
-// }
 function Home() {
-    const [user, setUser] = useState<userProps>()
-
-    useEffect(() => {
-        Auth.currentAuthenticatedUser()
-            .then((user) => {
-                setUser(user)
-                console.log(user)
-            })
-            .catch((err) => console.log(err))
-    }, [])
-
     return (
         <>
             <Head>
@@ -89,37 +52,4 @@ function Home() {
         </>
     )
 }
-//@ts-ignore
 export default Home
-
-// export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-//     const SSR = withSSRContext({ req });
-
-//     try {
-//         const user = await SSR.Auth.currentAuthenticatedUser();
-
-//         const response = await SSR.API.graphql({
-//             query: listPositions,
-//             authMode: "AMAZON_COGNITO_USER_POOLS",
-//             // variables: {
-//             //     filter: {
-//             //         company: {
-//             //             eq: "Rad"
-//             //         },
-//             //     },
-//             // },
-//         });
-
-//         return {
-//             props: {
-//                 jobs: response.data.listPositions.items,
-//             },
-//         };
-//     } catch (err) {
-//         console.log(err);
-//     }
-
-//     return {
-//         props: {},
-//     };
-// };
